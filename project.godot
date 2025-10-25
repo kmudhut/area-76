@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Area76"
+run/main_scene="uid://cp3d1t2rsei63"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://icon.svg"
 
@@ -22,6 +23,7 @@ GameStats="*res://scripts/systems/GameStats.gd"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/mode=3
 
 [rendering]
 
