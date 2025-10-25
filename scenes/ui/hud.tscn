@@ -1,0 +1,77 @@
+[gd_scene load_steps=8 format=3 uid="uid://ctapa34kpnlht"]
+
+[ext_resource type="Script" uid="uid://ccgk1b4lapjyi" path="res://scripts/ui/hud.gd" id="1_8qguk"]
+[ext_resource type="Texture2D" uid="uid://bpbs3jwnj1bvl" path="res://assets/ui/icons/heart.png" id="2_136eg"]
+[ext_resource type="Texture2D" uid="uid://b3e3remklwbgk" path="res://assets/ui/icons/energy.png" id="3_oj5la"]
+[ext_resource type="FontFile" uid="uid://c1v7ay0fevib3" path="res://assets/ui/fonts/pixelsix10.ttf" id="4_136eg"]
+[ext_resource type="Texture2D" uid="uid://xqrfs3cvscu0" path="res://assets/ui/icons/coin.png" id="4_gss2c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_136eg"]
+bg_color = Color(1, 0, 0, 1)
+border_color = Color(0.63068247, 0.5932298, 0.60279197, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_oj5la"]
+font = ExtResource("4_136eg")
+font_size = 500
+
+[node name="Hud" type="CanvasLayer"]
+script = ExtResource("1_8qguk")
+
+[node name="HeartsContainer" type="HBoxContainer" parent="."]
+offset_left = 88.0
+offset_right = 5064.0
+offset_bottom = 1056.0
+scale = Vector2(0.1, 0.1)
+
+[node name="TextureRect" type="TextureRect" parent="HeartsContainer"]
+layout_mode = 2
+texture = ExtResource("2_136eg")
+
+[node name="HealthBar" type="ProgressBar" parent="HeartsContainer"]
+custom_minimum_size = Vector2(5000, 500)
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_136eg")
+max_value = 5.0
+value = 5.0
+show_percentage = false
+
+[node name="EnergyContainer" type="HBoxContainer" parent="."]
+offset_left = 760.0005
+offset_right = 5896.0005
+offset_bottom = 1024.0
+scale = Vector2(0.1, 0.1)
+
+[node name="TextureRect" type="TextureRect" parent="EnergyContainer"]
+layout_mode = 2
+texture = ExtResource("3_oj5la")
+
+[node name="TextureRect2" type="TextureRect" parent="EnergyContainer"]
+layout_mode = 2
+texture = ExtResource("3_oj5la")
+
+[node name="TextureRect3" type="TextureRect" parent="EnergyContainer"]
+layout_mode = 2
+texture = ExtResource("3_oj5la")
+
+[node name="TextureRect4" type="TextureRect" parent="EnergyContainer"]
+layout_mode = 2
+texture = ExtResource("3_oj5la")
+
+[node name="TextureRect5" type="TextureRect" parent="EnergyContainer"]
+layout_mode = 2
+texture = ExtResource("3_oj5la")
+
+[node name="CoinContainer" type="HBoxContainer" parent="."]
+offset_left = 1665.0
+offset_right = 2943.0
+offset_bottom = 1024.0
+scale = Vector2(0.1, 0.1)
+
+[node name="CoinLabel" type="Label" parent="CoinContainer"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_oj5la")
+
+[node name="TextureRect" type="TextureRect" parent="CoinContainer"]
+layout_mode = 2
+texture = ExtResource("4_gss2c")
