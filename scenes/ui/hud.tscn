@@ -8,7 +8,11 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_136eg"]
 bg_color = Color(1, 0, 0, 1)
-border_color = Color(0.63068247, 0.5932298, 0.60279197, 1)
+border_width_left = 40
+border_width_top = 40
+border_width_right = 40
+border_width_bottom = 40
+border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_oj5la"]
 font = ExtResource("4_136eg")
@@ -18,18 +22,21 @@ font_size = 500
 script = ExtResource("1_8qguk")
 
 [node name="HeartsContainer" type="HBoxContainer" parent="."]
-offset_left = 88.0
-offset_right = 5064.0
+offset_left = 105.399956
+offset_right = 6101.4
 offset_bottom = 1056.0
 scale = Vector2(0.1, 0.1)
+pivot_offset = Vector2(0, 25)
 
 [node name="TextureRect" type="TextureRect" parent="HeartsContainer"]
 layout_mode = 2
 texture = ExtResource("2_136eg")
+stretch_mode = 2
 
 [node name="HealthBar" type="ProgressBar" parent="HeartsContainer"]
 custom_minimum_size = Vector2(5000, 500)
 layout_mode = 2
+theme_override_constants/outline_size = 0
 theme_override_styles/fill = SubResource("StyleBoxFlat_136eg")
 max_value = 5.0
 value = 5.0
