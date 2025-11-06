@@ -76,7 +76,7 @@ scale = Vector2(0.1, 0.1)
 
 [node name="CoinLabel" type="Label" parent="CoinContainer"]
 layout_mode = 2
-text = "0"
+text = "0/30"
 label_settings = SubResource("LabelSettings_oj5la")
 
 [node name="TextureRect" type="TextureRect" parent="CoinContainer"]

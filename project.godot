@@ -16,7 +16,7 @@ config/features=PackedStringArray("4.5", "Mobile")
 
 [autoload]
 
-GameStats="*res://scripts/systems/GameStats.gd"
+GameState="*res://scenes/core/GameState.gd"
 
 [display]
 
