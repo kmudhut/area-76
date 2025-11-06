@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfthomas0epr4"
-path="res://.godot/imported/stickman_200x200.png-d9964364f23f70431b37767b9db62fb3.ctex"
+uid="uid://7kn0iaem3d0d"
+path="res://.godot/imported/terrain-tilemap.png-d4e530ff650497607b9dbb46c342fd0e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/player/stickman_200x200.png"
-dest_files=["res://.godot/imported/stickman_200x200.png-d9964364f23f70431b37767b9db62fb3.ctex"]
+source_file="res://assets/environment/tilesets/terrain-tilemap.png"
+dest_files=["res://.godot/imported/terrain-tilemap.png-d4e530ff650497607b9dbb46c342fd0e.ctex"]
 
 [params]
 

@@ -1,9 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://bmmq7dvcq4bva"]
+[gd_scene load_steps=14 format=3 uid="uid://bmmq7dvcq4bva"]
 
 [ext_resource type="Script" uid="uid://bl7j5kjbjnww5" path="res://scripts/player/player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://bwmu5boxo3fox" path="res://assets/characters/player/idle1.png" id="2_dyp2m"]
 [ext_resource type="Texture2D" uid="uid://dgke27as5cyms" path="res://assets/characters/player/idle2.png" id="3_atpat"]
-[ext_resource type="PackedScene" uid="uid://ctapa34kpnlht" path="res://scenes/ui/hud.tscn" id="3_i3pqv"]
 [ext_resource type="Texture2D" uid="uid://3u3doxxgic3y" path="res://assets/characters/player/jump1.png" id="4_6eyoc"]
 [ext_resource type="Texture2D" uid="uid://buuj4vv8jt70k" path="res://assets/characters/player/run1.png" id="4_kqtwu"]
 [ext_resource type="Texture2D" uid="uid://b7mlwusgn5xdv" path="res://assets/characters/player/run2.png" id="5_6eyoc"]
@@ -39,7 +38,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 2.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -62,7 +61,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i3pqv"]
-size = Vector2(111, 328)
+size = Vector2(88, 256)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_onrkg")
@@ -70,11 +69,9 @@ script = ExtResource("1_onrkg")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_onrkg")
-animation = &"run"
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(17.5, 40)
+position = Vector2(4, 8)
 shape = SubResource("RectangleShape2D_i3pqv")
 metadata/_edit_group_ = true
-
-[node name="Hud" parent="." instance=ExtResource("3_i3pqv")]
