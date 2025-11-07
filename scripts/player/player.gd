@@ -1,62 +1,37 @@
 extends CharacterBody2D
 
-@export var speed := 800
-@export var jump_height := 400      # wysokość skoku
-@export var jump_speed := 800       # prędkość skoku
-var screensize := Vector2(1920, 1080)
+const SPEED = 500.0
+const JUMP_VELOCITY = -900.0
+var last_facing_left = false
 
-@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
-var jumping := false
-var jump_start_y := 0.0
-var going_up := true
-
-func _process(delta: float) -> void:
-	var velocity := Vector2.ZERO
-
-	# Ruch poziomy
-	if Input.is_action_pressed("ui_left"):
-		velocity.x = -1
-	if Input.is_action_pressed("ui_right"):
-		velocity.x = 1
-
-	# Skok – jeśli nie skacze, wciśnięcie "W" lub "↑" rozpoczyna skok
-	if not jumping and Input.is_action_just_pressed("ui_up"):
-		jumping = true
-		going_up = true
-		jump_start_y = position.y
-		sprite.play("jump")
-
-	# Obsługa skoku (ruch góra–dół)
-	if jumping:
-		if going_up:
-			position.y -= jump_speed * delta
-			if position.y <= jump_start_y - jump_height:
-				going_up = false
+func _physics_process(delta: float) -> void:
+	# Grawitacja
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+		animated_sprite_2d.animation = "jump"
+	else:
+		# Wybór animacji idle/run
+		if abs(velocity.x) > 10:
+			animated_sprite_2d.animation = "run"
 		else:
-			position.y += jump_speed * delta
-			if position.y >= jump_start_y:
-				jumping = false
-				position.y = jump_start_y
+			animated_sprite_2d.animation = "idle"
 
-	# Animacje poziome
-	if not jumping:
-		if velocity.x != 0:
-			if sprite.animation != "run":
-				sprite.play("run")
-		else:
-			if sprite.animation != "idle":
-				sprite.play("idle")
+	# Skok
+	if Input.is_action_just_pressed("jump") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
 
-	# Odwracanie sprite’a
-	if velocity.x < 0:
-		sprite.flip_h = true
-	elif velocity.x > 0:
-		sprite.flip_h = false
+	# Kierunek ruchu
+	var direction := Input.get_axis("left", "right")
 
-	# Ruch poziomy
-	position += velocity.normalized() * speed * delta
+	if direction != 0:
+		velocity.x = direction * SPEED
+		last_facing_left = direction < 0   # zapamiętaj kierunek
+	else:
+		velocity.x = move_toward(velocity.x, 0, 60)
 
-	# Ograniczenie do ekranu (opcjonalne)
-	position.x = clamp(position.x, 0, screensize.x)
-	position.y = clamp(position.y, 0, screensize.y)
+	move_and_slide()
+
+	# Obrót sprite’a w odpowiednim kierunku
+	animated_sprite_2d.flip_h = last_facing_left
