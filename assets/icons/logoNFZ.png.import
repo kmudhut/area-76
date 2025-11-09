@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dy5637iaedd0d"
-path="res://.godot/imported/idle1.png-3e535145ff27f5a3eb538804cb37dd7d.ctex"
+uid="uid://0gahcrah0fwn"
+path="res://.godot/imported/logoNFZ.png-b70a6f3b119ae9fbeba12d63839a5a29.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/player/idle1.png"
-dest_files=["res://.godot/imported/idle1.png-3e535145ff27f5a3eb538804cb37dd7d.ctex"]
+source_file="res://assets/icons/logoNFZ.png"
+dest_files=["res://.godot/imported/logoNFZ.png-b70a6f3b119ae9fbeba12d63839a5a29.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnebttrq0a5hu"
-path="res://.godot/imported/fulltriangle_clicked.png-bf3a5d0830d47a85f020a799848d87ad.ctex"
+uid="uid://d2gal33uwb61f"
+path="res://.godot/imported/fulltriangle.png-2bef7f5522c3c80803ec90e079b620ea.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/icons/fulltriangle_clicked.png"
-dest_files=["res://.godot/imported/fulltriangle_clicked.png-bf3a5d0830d47a85f020a799848d87ad.ctex"]
+source_file="res://assets/icons/fulltriangle.png"
+dest_files=["res://.godot/imported/fulltriangle.png-2bef7f5522c3c80803ec90e079b620ea.ctex"]
 
 [params]
 

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://biat13e86hmsm" path="res://scripts/ui/MainMenu.gd" id="1_xpiny"]
 [ext_resource type="Texture2D" uid="uid://dyxd7xnkxv020" path="res://assets/ui/area-76-main-menu-background.png" id="2_bhu4a"]
 [ext_resource type="FontFile" uid="uid://da4ww4swf8ctb" path="res://assets/ui/fonts/Tiny5-Regular.ttf" id="3_e2per"]
-[ext_resource type="Texture2D" uid="uid://0gahcrah0fwn" path="res://assets/ui/icons/logoNFZ.png" id="4_7mi0g"]
+[ext_resource type="Texture2D" uid="uid://0gahcrah0fwn" path="res://assets/icons/logoNFZ.png" id="4_7mi0g"]
 [ext_resource type="AudioStream" uid="uid://c6uehnwbtf7mr" path="res://assets/audio/music/no-place-to-go-216744.mp3" id="5_nqjyj"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fu7sn"]

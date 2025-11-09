@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0gahcrah0fwn"
-path="res://.godot/imported/logoNFZ.png-653e338cd54267a48b939c793b43ed1d.ctex"
+uid="uid://c6jnssu35yrwy"
+path="res://.godot/imported/attack1.png-f37e70b943a807bddf79ec601f9a3bcb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/icons/logoNFZ.png"
-dest_files=["res://.godot/imported/logoNFZ.png-653e338cd54267a48b939c793b43ed1d.ctex"]
+source_file="res://assets/characters/player/attack1.png"
+dest_files=["res://.godot/imported/attack1.png-f37e70b943a807bddf79ec601f9a3bcb.ctex"]
 
 [params]
 
