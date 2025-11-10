@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
 [gd_scene load_steps=17 format=3 uid="uid://q6hj2gr7q6q7"]
-=======
-[gd_scene load_steps=16 format=3 uid="uid://q6hj2gr7q6q7"]
->>>>>>> Stashed changes
 
 [ext_resource type="Script" uid="uid://bfagflkcgnx0n" path="res://scripts/items/ects_coin.gd" id="1_4a6ne"]
 [ext_resource type="Texture2D" uid="uid://dm6hhmq5rxl6y" path="res://assets/items/coin_frames/frame_00_delay-0.08s.png" id="2_ix1bg"]
@@ -62,7 +58,6 @@ animations = [{
 "texture": ExtResource("14_7vlee")
 }],
 "loop": true,
-<<<<<<< Updated upstream
 "name": &"rotate",
 "speed": 10.0
 }]
@@ -84,23 +79,3 @@ scale = Vector2(0.1, 0.1)
 shape = SubResource("CircleShape2D_ix1bg")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-=======
-"name": &"default",
-"speed": 10.0
-}]
-
-[node name="EctsCoin" type="Node2D"]
-script = ExtResource("1_4a6ne")
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
-sprite_frames = SubResource("SpriteFrames_17h4v")
-frame_progress = 0.6083529
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Area2D"]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D"]
->>>>>>> Stashed changes

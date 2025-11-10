@@ -12,3 +12,7 @@ func _on_new_game_button_pressed() -> void:
 func _on_quit_button_pressed() -> void:
 	# This function could stay, but it's better to use the SceneManager too
 	get_node("/root/Main/SceneManager").quit_game()
+
+
+func _on_settings_button_pressed() -> void:
+	get_node("/root/Main/SceneManager").goto_scene("res://scenes/ui/Settings.tscn")

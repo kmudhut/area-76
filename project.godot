@@ -17,12 +17,13 @@ config/features=PackedStringArray("4.5", "Mobile")
 [autoload]
 
 GameState="*res://scenes/core/GameState.gd"
+UserPreferences="*res://scenes/core/user_preferences.gd"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=3
+window/size/mode=2
 window/stretch/mode="viewport"
 
 [input]

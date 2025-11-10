@@ -191,4 +191,5 @@ autoplay = true
 parameters/looping = false
 
 [connection signal="pressed" from="PanelContainer/OptionsContainer/VBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="PanelContainer/OptionsContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="PanelContainer/OptionsContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
