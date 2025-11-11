@@ -339,7 +339,7 @@ theme_override_constants/separation = 15
 [node name="HSlider" type="HSlider" parent="PanelContainer/SettingsContainer/HBoxContainer/MarginContainer3/VBoxContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 32)
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 6
 size_flags_vertical = 1
 theme_override_icons/grabber = ExtResource("6_t4gyo")
 theme_override_icons/grabber_highlight = ExtResource("7_goavx")
@@ -349,11 +349,14 @@ theme_override_styles/grabber_area = SubResource("StyleBoxFlat_goavx")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_y33ve")
 
 [node name="Label" type="Label" parent="PanelContainer/SettingsContainer/HBoxContainer/MarginContainer3/VBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(55, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_3lbg7")
 theme_override_font_sizes/font_size = 32
 text = "50"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/SettingsContainer/HBoxContainer/MarginContainer3/VBoxContainer"]
 layout_mode = 2
@@ -384,11 +387,14 @@ theme_override_styles/grabber_area = SubResource("StyleBoxFlat_goavx")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_y33ve")
 
 [node name="Label" type="Label" parent="PanelContainer/SettingsContainer/HBoxContainer/MarginContainer3/VBoxContainer/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(55, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_3lbg7")
 theme_override_font_sizes/font_size = 32
 text = "50"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="PanelContainer/SettingsContainer/HBoxContainer/MarginContainer3/VBoxContainer"]
 layout_mode = 2
@@ -419,11 +425,14 @@ theme_override_styles/grabber_area = SubResource("StyleBoxFlat_goavx")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_y33ve")
 
 [node name="Label" type="Label" parent="PanelContainer/SettingsContainer/HBoxContainer/MarginContainer3/VBoxContainer/VBoxContainer3/HBoxContainer"]
+custom_minimum_size = Vector2(55, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_3lbg7")
 theme_override_font_sizes/font_size = 32
 text = "50"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="VBoxContainer4" type="VBoxContainer" parent="PanelContainer/SettingsContainer/HBoxContainer/MarginContainer3/VBoxContainer"]
 layout_mode = 2
@@ -454,11 +463,14 @@ theme_override_styles/grabber_area = SubResource("StyleBoxFlat_goavx")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_y33ve")
 
 [node name="Label" type="Label" parent="PanelContainer/SettingsContainer/HBoxContainer/MarginContainer3/VBoxContainer/VBoxContainer4/HBoxContainer"]
+custom_minimum_size = Vector2(55, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_3lbg7")
 theme_override_font_sizes/font_size = 32
 text = "50"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="PanelContainer/SettingsContainer/TextureButton" to="." method="_on_return_button_pressed"]
 [connection signal="pressed" from="PanelContainer/SettingsContainer/HBoxContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/TextureButton" to="." method="_on_difficulty_left_arrow_pressed"]
@@ -467,3 +479,7 @@ text = "50"
 [connection signal="pressed" from="PanelContainer/SettingsContainer/HBoxContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/TextureButton2" to="." method="_on_screen_mode_right_button_pressed"]
 [connection signal="pressed" from="PanelContainer/SettingsContainer/HBoxContainer/MarginContainer2/VBoxContainer/VBoxContainer2/HBoxContainer/TextureButton" to="." method="_on_resolution_left_button_pressed"]
 [connection signal="pressed" from="PanelContainer/SettingsContainer/HBoxContainer/MarginContainer2/VBoxContainer/VBoxContainer2/HBoxContainer/TextureButton2" to="." method="_on_resolution_right_button_pressed"]
+[connection signal="value_changed" from="PanelContainer/SettingsContainer/HBoxContainer/MarginContainer3/VBoxContainer/VBoxContainer/HBoxContainer/HSlider" to="." method="_on_main_volume_slider_value_changed"]
+[connection signal="value_changed" from="PanelContainer/SettingsContainer/HBoxContainer/MarginContainer3/VBoxContainer/VBoxContainer2/HBoxContainer/HSlider" to="." method="_on_interface_volume_slider_value_changed"]
+[connection signal="value_changed" from="PanelContainer/SettingsContainer/HBoxContainer/MarginContainer3/VBoxContainer/VBoxContainer3/HBoxContainer/HSlider" to="." method="_on_sfx_volume_slider_value_changed"]
+[connection signal="value_changed" from="PanelContainer/SettingsContainer/HBoxContainer/MarginContainer3/VBoxContainer/VBoxContainer4/HBoxContainer/HSlider" to="." method="_on_music_volume_slider_value_changed"]

@@ -18,6 +18,8 @@ config/features=PackedStringArray("4.5", "Mobile")
 
 GameState="*res://scenes/core/GameState.gd"
 UserPreferences="*res://scenes/core/user_preferences.gd"
+DisplayManager="*res://scenes/core/display_manager.gd"
+AudioManager="*res://scenes/core/audio_manager.gd"
 
 [display]
 

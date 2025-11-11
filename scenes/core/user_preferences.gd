@@ -46,7 +46,11 @@ func load_settings() -> void:
 		print("No settings file found, using defaults.")
 		save_settings()
 
-
+func get_settings_by_category(category: String):
+	if user_settings.has(category):
+		return user_settings[category]
+	return null
+	
 func get_setting(category: String, key: String):
 	if user_settings.has(category) and user_settings[category].has(key):
 		return user_settings[category][key]
@@ -56,6 +60,10 @@ func get_setting(category: String, key: String):
 func set_setting(category: String, key: String, value) -> void:
 	if user_settings.has(category) and user_settings[category].has(key):
 		user_settings[category][key] = value
+		if(category == "graphics"):
+			DisplayManager.apply_graphics_settings(user_settings["graphics"])
+		elif(category == "audio"):
+			AudioManager.apply_sound_settings(user_settings["audio"])
 		save_settings()
 	else:
 		push_warning("Tried to set unknown setting: %s/%s" % [category, key])

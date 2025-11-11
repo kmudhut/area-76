@@ -52,17 +52,19 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, 60)
 
-	# 🔥 Atak (E)
+	# Atak (E)
 	if Input.is_action_just_pressed("attack"):
 		is_attacking = true
+		AudioManager.play_sfx("sfx/punch")
 		velocity.x = 0
 		animated_sprite_2d.play("attack")
 		# przesuwamy animację w dół o 20 pikseli
 		animated_sprite_2d.position.y = original_sprite_position_y + 20
 
-	# 💢 Damage / Hurt (H)
+	# Damage / Hurt (H)
 	if Input.is_action_just_pressed("hurt"):
 		is_hurt = true
+		AudioManager.play_sfx("sfx/hurt")
 		velocity.x = 0
 		animated_sprite_2d.play("hurt")
 
@@ -72,7 +74,7 @@ func _physics_process(delta: float) -> void:
 	animated_sprite_2d.flip_h = last_facing_left
 
 
-# 🔄 Gdy animacja się skończy
+#Gdy animacja się skończy
 func _on_animation_finished() -> void:
 	if animated_sprite_2d.animation == "attack":
 		is_attacking = false
