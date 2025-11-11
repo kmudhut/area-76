@@ -4,10 +4,10 @@
 [ext_resource type="Script" uid="uid://dby6s6hwixs1y" path="res://scenes/core/GameState.gd" id="2_g3khn"]
 
 [node name="Main" type="Node2D"]
+process_mode = 3
 
-[node name="SceneManager" type="Node" parent="." node_paths=PackedStringArray("scene_container")]
+[node name="SceneManager" type="Node" parent="."]
 script = ExtResource("1_nrstr")
-scene_container = NodePath("../SceneContainer")
 
 [node name="SceneContainer" type="Node" parent="."]
 

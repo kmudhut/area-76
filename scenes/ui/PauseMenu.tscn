@@ -1,3 +1,35 @@
-[gd_scene format=3 uid="uid://dy0o7r5t4pq6j"]
+[gd_scene load_steps=4 format=3 uid="uid://dy0o7r5t4pq6j"]
 
-[node name="PauseMenu" type="Node2D"]
+[ext_resource type="Script" uid="uid://bdri11kikmsda" path="res://scripts/ui/pause_menu.gd" id="1_vb6pq"]
+[ext_resource type="Texture2D" uid="uid://dd8843aiq6pes" path="res://assets/ui/input_prompts/Xbox Series/Vector/xbox_button_a.svg" id="2_n5dsq"]
+[ext_resource type="Texture2D" uid="uid://w5k7emiuwqu5" path="res://assets/ui/input_prompts/Xbox Series/Default/xbox_button_b.png" id="3_5twic"]
+
+[node name="PauseMenu" type="Control"]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_vb6pq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -10.0
+offset_right = 27.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BtnContinue" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Kontynuuj grę"
+icon = ExtResource("2_n5dsq")
+
+[node name="BtnExit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Zapisz i wyjdź do menu głównego"
+icon = ExtResource("3_5twic")
