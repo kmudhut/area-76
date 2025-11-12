@@ -7,7 +7,11 @@ var is_attacking = false
 var is_hurt = false
 var original_sprite_position_y = 0.0
 
+var footstep_cooldown := 0.0
+const FOOTSTEP_INTERVAL := 0.3 # co ile sekund można zagrać krok
+
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+
 
 func _ready() -> void:
 	# Zapamiętaj oryginalną pozycję sprite’a
@@ -24,6 +28,10 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	# Odliczanie cooldownu kroków
+	if footstep_cooldown > 0.0:
+		footstep_cooldown -= delta
+
 	# Jeśli trwa atak lub hurt – blokuj ruch i animacje
 	if is_attacking or is_hurt:
 		move_and_slide()
@@ -40,6 +48,10 @@ func _physics_process(delta: float) -> void:
 	else:
 		if abs(velocity.x) > 10:
 			animated_sprite_2d.animation = "run"
+			# Odtwarzaj krok tylko, jeśli minął cooldown
+			if footstep_cooldown <= 0.0:
+				AudioManager.play_sfx("sfx/footstep" + str(randi_range(1, 3)))
+				footstep_cooldown = FOOTSTEP_INTERVAL
 		else:
 			animated_sprite_2d.animation = "idle"
 
@@ -64,7 +76,7 @@ func _physics_process(delta: float) -> void:
 	# Damage / Hurt (H)
 	if Input.is_action_just_pressed("hurt"):
 		is_hurt = true
-		AudioManager.play_sfx("sfx/hurt")
+		AudioManager.play_sfx("sfx/hurt" + str(randi_range(1,6)))
 		velocity.x = 0
 		animated_sprite_2d.play("hurt")
 
@@ -74,7 +86,7 @@ func _physics_process(delta: float) -> void:
 	animated_sprite_2d.flip_h = last_facing_left
 
 
-#Gdy animacja się skończy
+# Gdy animacja się skończy
 func _on_animation_finished() -> void:
 	if animated_sprite_2d.animation == "attack":
 		is_attacking = false

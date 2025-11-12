@@ -69,6 +69,7 @@ func _ready() -> void:
 	music_volume_slider.value = UserPreferences.get_setting("audio", "music_volume")*100
 
 func _on_return_button_pressed() -> void:
+	AudioManager.play_ui_sound("ui/click")
 	get_node("/root/Main/SceneManager").goto_menu()
 
 
