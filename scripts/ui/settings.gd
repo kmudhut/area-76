@@ -75,6 +75,7 @@ func _on_return_button_pressed() -> void:
 
 func _on_difficulty_left_arrow_pressed() -> void:
 	if(current_difficulty_index>0):
+		AudioManager.play_ui_sound("ui/click")
 		current_difficulty_index-=1
 		UserPreferences.set_setting("general", "difficulty_level", int(current_difficulty_index))
 		difficulty_label.text = difficulty_levels[current_difficulty_index]
@@ -85,6 +86,7 @@ func _on_difficulty_left_arrow_pressed() -> void:
 		
 func _on_difficulty_right_arrow_pressed() -> void:
 	if(current_difficulty_index<difficulty_levels.size()-1):
+		AudioManager.play_ui_sound("ui/click")
 		current_difficulty_index+=1
 		UserPreferences.set_setting("general", "difficulty_level", int(current_difficulty_index))
 		difficulty_label.text = difficulty_levels[current_difficulty_index]
@@ -96,6 +98,7 @@ func _on_difficulty_right_arrow_pressed() -> void:
 
 func _on_screen_mode_left_button_pressed() -> void:
 	if(current_screen_mode_index>0):
+		AudioManager.play_ui_sound("ui/click")
 		current_screen_mode_index-=1
 		UserPreferences.set_setting("graphics", "screen_mode", screen_modes[current_screen_mode_index]["value"])
 		screen_mode_label.text = screen_modes[current_screen_mode_index]["displayed_name"];
@@ -106,6 +109,7 @@ func _on_screen_mode_left_button_pressed() -> void:
 
 func _on_screen_mode_right_button_pressed() -> void:
 	if(current_screen_mode_index<screen_modes.size()-1):
+		AudioManager.play_ui_sound("ui/click")
 		current_screen_mode_index+=1
 		UserPreferences.set_setting("graphics", "screen_mode", screen_modes[current_screen_mode_index]["value"])
 		screen_mode_label.text = screen_modes[current_screen_mode_index]["displayed_name"];
@@ -117,6 +121,7 @@ func _on_screen_mode_right_button_pressed() -> void:
 
 func _on_resolution_left_button_pressed() -> void:
 	if(current_resolution_index > 0):
+		AudioManager.play_ui_sound("ui/click")
 		current_resolution_index-=1
 		UserPreferences.set_setting("graphics", "resolution", screen_resolutions[current_resolution_index]["value"])
 		resolution_label.text = screen_resolutions[current_resolution_index]["displayed_name"];
@@ -127,6 +132,7 @@ func _on_resolution_left_button_pressed() -> void:
 
 func _on_resolution_right_button_pressed() -> void:
 	if(current_resolution_index < screen_resolutions.size()-1):
+		AudioManager.play_ui_sound("ui/click")
 		current_resolution_index+=1
 		UserPreferences.set_setting("graphics", "resolution", screen_resolutions[current_resolution_index]["value"])
 		resolution_label.text = screen_resolutions[current_resolution_index]["displayed_name"];
