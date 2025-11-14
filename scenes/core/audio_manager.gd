@@ -55,7 +55,7 @@ func preload_all_sounds(base_path := AUDIO_PATH):
 		file_name = dir.get_next()
 	dir.list_dir_end()
 
-func play_music(sound_name: String, loop := true):
+func play_music(sound_name: String, _loop := true):
 	if not sounds.has(sound_name):
 		push_warning("No music found: " + sound_name)
 		return

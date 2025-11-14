@@ -1,21 +1,61 @@
 extends Control
 
-@onready var btn_continue = $VBoxContainer/BtnContinue
-@onready var btn_exit = $VBoxContainer/BtnExit
+@onready var scene_manager := get_node("/root/Main/SceneManager")
 
 func _ready():
-	process_mode = Node.PROCESS_MODE_WHEN_PAUSED
-	btn_continue.pressed.connect(_on_continue_pressed)
-	btn_exit.pressed.connect(_on_exit_pressed)
+	$AnimationPlayer.play("RESET")
 
-func _on_continue_pressed():
+# ===========================================================
+# Pauza
+# ===========================================================
+
+func resume():
 	get_tree().paused = false
-	hide()
+	$AnimationPlayer.play_backwards("blur")
+	resume_all_audio()
 
-func _on_exit_pressed():
-	get_tree().paused = false
-	get_node("/root/Main/SceneManager").goto_menu()
+func pause():
+	get_tree().paused = true
+	$AnimationPlayer.play("blur")
+	pause_all_audio()
 
-func _unhandled_input(event):
-	if event.is_action_pressed("ui_cancel"): # czyli ESC
-		_on_continue_pressed()
+func testEsc():
+	if Input.is_action_just_pressed("pause") and !get_tree().paused:
+		pause()
+	elif Input.is_action_just_pressed("pause") and get_tree().paused:
+		resume()
+
+var paused_audio_players: Array[AudioStreamPlayer] = []
+
+func pause_all_audio():
+	paused_audio_players.clear()
+	var players = get_tree().get_nodes_in_group("music")
+	for p in players:
+		if p.playing:
+			p.stream_paused = true
+			paused_audio_players.append(p)
+
+func resume_all_audio():
+	for p in paused_audio_players:
+		if is_instance_valid(p):
+			p.stream_paused = false
+	paused_audio_players.clear()
+
+# ===========================================================
+# Przyciski
+# ===========================================================
+
+func _on_btn_continue_pressed():
+	resume()
+
+func _on_btn_reset_pressed():
+	resume()
+	GameState.ects = 0
+	scene_manager.goto_lvl("Level_01.tscn")
+
+func _on_btn_exit_pressed():
+	#GameState.save()				##### zostawić aż do ptk 37,38 backlogu
+	scene_manager.goto_menu()
+
+func _process(_delta):
+	testEsc()

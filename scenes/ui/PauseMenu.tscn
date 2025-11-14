@@ -1,35 +1,127 @@
-[gd_scene load_steps=4 format=3 uid="uid://dy0o7r5t4pq6j"]
+[gd_scene load_steps=10 format=3 uid="uid://dy0o7r5t4pq6j"]
 
 [ext_resource type="Script" uid="uid://bdri11kikmsda" path="res://scripts/ui/pause_menu.gd" id="1_vb6pq"]
-[ext_resource type="Texture2D" uid="uid://dd8843aiq6pes" path="res://assets/ui/input_prompts/Xbox Series/Vector/xbox_button_a.svg" id="2_n5dsq"]
-[ext_resource type="Texture2D" uid="uid://w5k7emiuwqu5" path="res://assets/ui/input_prompts/Xbox Series/Default/xbox_button_b.png" id="3_5twic"]
+[ext_resource type="Texture2D" uid="uid://ddtpchtbitn1f" path="res://assets/ui/input_prompts/Xbox Series/Double/xbox_button_a.png" id="2_5twic"]
+[ext_resource type="Shader" uid="uid://21gm5w7lujew" path="res://scenes/ui/PauseMenu.gdshader" id="2_v5pi0"]
+[ext_resource type="Texture2D" uid="uid://j5laysymaufe" path="res://assets/ui/input_prompts/Xbox Series/Double/xbox_button_y.png" id="3_v5pi0"]
+[ext_resource type="Texture2D" uid="uid://dir5lmxq2wwdj" path="res://assets/ui/input_prompts/Xbox Series/Double/xbox_button_b.png" id="4_cctyv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cctyv"]
+shader = ExtResource("2_v5pi0")
+shader_parameter/lod = 0.0
+
+[sub_resource type="Animation" id="Animation_cctyv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_v5pi0"]
+resource_name = "blur"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.8490000403275]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_csaq8"]
+_data = {
+&"RESET": SubResource("Animation_cctyv"),
+&"blur": SubResource("Animation_v5pi0")
+}
 
 [node name="PauseMenu" type="Control"]
-process_mode = 2
+process_mode = 3
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_vb6pq")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_cctyv")
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="PanelContainer" parent="."]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -10.0
-offset_right = 27.0
-offset_bottom = 10.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BtnContinue" type="Button" parent="VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+
+[node name="BtnContinue" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
 text = "Kontynuuj grę"
-icon = ExtResource("2_n5dsq")
+icon = ExtResource("2_5twic")
+expand_icon = true
 
-[node name="BtnExit" type="Button" parent="VBoxContainer"]
+[node name="BtnReset" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
-text = "Zapisz i wyjdź do menu głównego"
-icon = ExtResource("3_5twic")
+text = "Restartuj poziom"
+icon = ExtResource("3_v5pi0")
+expand_icon = true
+
+[node name="BtnExit" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "Wyjdź"
+icon = ExtResource("4_cctyv")
+expand_icon = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_csaq8")
+}
+
+[connection signal="pressed" from="Panel/VBoxContainer/BtnContinue" to="." method="_on_btn_continue_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/BtnReset" to="." method="_on_btn_reset_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/BtnExit" to="." method="_on_btn_exit_pressed"]
