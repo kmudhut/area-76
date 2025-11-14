@@ -70,7 +70,11 @@ func _ready() -> void:
 
 func _on_return_button_pressed() -> void:
 	AudioManager.play_ui_sound("ui/click")
-	get_node("/root/Main/SceneManager").goto_menu()
+	
+	if get_parent().name == "PauseMenu":
+		visible = false  # ukryj ustawienia w menu pauzy
+	else:
+		get_node("/root/Main/SceneManager").goto_menu()  # normalny powrót z menu głównego
 
 
 func _on_difficulty_left_arrow_pressed() -> void:

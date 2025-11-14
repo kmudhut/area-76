@@ -53,6 +53,9 @@ func _on_btn_reset_pressed():
 	GameState.ects = 0
 	scene_manager.goto_lvl("Level_01.tscn")
 
+func _on_btn_settings_pressed():
+	$SettingsPauseMenu.visible = true
+
 func _on_btn_exit_pressed():
 	#GameState.save()				##### zostawić aż do ptk 37,38 backlogu
 	scene_manager.goto_menu()

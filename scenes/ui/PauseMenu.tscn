@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://dy0o7r5t4pq6j"]
+[gd_scene load_steps=11 format=3 uid="uid://dy0o7r5t4pq6j"]
 
 [ext_resource type="Script" uid="uid://bdri11kikmsda" path="res://scripts/ui/pause_menu.gd" id="1_vb6pq"]
 [ext_resource type="Texture2D" uid="uid://ddtpchtbitn1f" path="res://assets/ui/input_prompts/Xbox Series/Double/xbox_button_a.png" id="2_5twic"]
 [ext_resource type="Shader" uid="uid://21gm5w7lujew" path="res://scenes/ui/PauseMenu.gdshader" id="2_v5pi0"]
 [ext_resource type="Texture2D" uid="uid://j5laysymaufe" path="res://assets/ui/input_prompts/Xbox Series/Double/xbox_button_y.png" id="3_v5pi0"]
 [ext_resource type="Texture2D" uid="uid://dir5lmxq2wwdj" path="res://assets/ui/input_prompts/Xbox Series/Double/xbox_button_b.png" id="4_cctyv"]
+[ext_resource type="PackedScene" uid="uid://1edkr0dqnhio" path="res://scenes/ui/SettingsPauseMenu.tscn" id="6_cctyv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cctyv"]
 shader = ExtResource("2_v5pi0")
@@ -111,6 +112,10 @@ text = "Restartuj poziom"
 icon = ExtResource("3_v5pi0")
 expand_icon = true
 
+[node name="BtnSettings" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "Ustawienia"
+
 [node name="BtnExit" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
 text = "Wyjdź"
@@ -122,6 +127,11 @@ libraries = {
 &"": SubResource("AnimationLibrary_csaq8")
 }
 
+[node name="SettingsPauseMenu" parent="." instance=ExtResource("6_cctyv")]
+visible = false
+layout_mode = 1
+
 [connection signal="pressed" from="Panel/VBoxContainer/BtnContinue" to="." method="_on_btn_continue_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/BtnReset" to="." method="_on_btn_reset_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/BtnSettings" to="." method="_on_btn_settings_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/BtnExit" to="." method="_on_btn_exit_pressed"]
