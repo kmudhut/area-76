@@ -1,12 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://cy2ux8up1618f"]
+[gd_scene load_steps=11 format=3 uid="uid://cy2ux8up1618f"]
 
 [ext_resource type="Script" uid="uid://dl8pubuxmlxpf" path="res://scripts/levels/Level_01.gd" id="1_rmf85"]
 [ext_resource type="PackedScene" uid="uid://bmmq7dvcq4bva" path="res://scenes/characters/player.tscn" id="2_80q6e"]
+[ext_resource type="Texture2D" uid="uid://bocscg7ensd0o" path="res://assets/environment/backgrounds/level1.png" id="2_dwcxj"]
 [ext_resource type="PackedScene" uid="uid://ctapa34kpnlht" path="res://scenes/ui/hud.tscn" id="3_wee7o"]
-[ext_resource type="Texture2D" uid="uid://reixt35ef8s4" path="res://assets/environment/backgrounds/03dc71f7-2b6f-4be3-9303-df638e1aaa62.jpg" id="4_xokhc"]
 [ext_resource type="PackedScene" uid="uid://q6hj2gr7q6q7" path="res://scenes/items/ECTSCoin.tscn" id="5_hhyrm"]
 [ext_resource type="Texture2D" uid="uid://7kn0iaem3d0d" path="res://assets/environment/tilesets/terrain-tilemap.png" id="6_5mpa8"]
 [ext_resource type="PackedScene" uid="uid://dy0o7r5t4pq6j" path="res://scenes/ui/PauseMenu.tscn" id="7_10xc4"]
+[ext_resource type="PackedScene" uid="uid://dgijdsl8cfnng" path="res://scenes/characters/swot.tscn" id="8_dwcxj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_10xc4"]
 texture = ExtResource("6_5mpa8")
@@ -177,9 +178,11 @@ process_mode = 1
 script = ExtResource("1_rmf85")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 1920.0
-offset_bottom = 1080.0
-texture = ExtResource("4_xokhc")
+offset_left = 78.0
+offset_top = -1065.0
+offset_right = 23609.0
+offset_bottom = 963.0
+texture = ExtResource("2_dwcxj")
 
 [node name="Hud" parent="." instance=ExtResource("3_wee7o")]
 
@@ -204,3 +207,6 @@ layer_0/tile_data = PackedInt32Array(1572864, 393218, 0, 1638400, 393218, 1, 170
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("7_10xc4")]
+
+[node name="Swot" parent="." instance=ExtResource("8_dwcxj")]
+position = Vector2(941, 820)
