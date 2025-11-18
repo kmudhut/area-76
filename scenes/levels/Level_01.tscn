@@ -1,15 +1,24 @@
-[gd_scene load_steps=13 format=3 uid="uid://cy2ux8up1618f"]
+[gd_scene load_steps=22 format=3 uid="uid://cy2ux8up1618f"]
 
 [ext_resource type="Script" uid="uid://dl8pubuxmlxpf" path="res://scripts/levels/Level_01.gd" id="1_rmf85"]
 [ext_resource type="PackedScene" uid="uid://bmmq7dvcq4bva" path="res://scenes/characters/player.tscn" id="2_80q6e"]
-[ext_resource type="Texture2D" uid="uid://bocscg7ensd0o" path="res://assets/environment/backgrounds/level1.png" id="2_dwcxj"]
+[ext_resource type="Texture2D" uid="uid://b7ar0mlw21b1a" path="res://assets/environment/backgrounds/level1/00.png" id="3_tj285"]
 [ext_resource type="PackedScene" uid="uid://ctapa34kpnlht" path="res://scenes/ui/hud.tscn" id="3_wee7o"]
+[ext_resource type="Texture2D" uid="uid://cq3i4228fho71" path="res://assets/environment/backgrounds/level1/10.png" id="4_x6f5j"]
+[ext_resource type="Texture2D" uid="uid://1bh7vnurl26u" path="res://assets/environment/backgrounds/level1/20.png" id="5_fcgrt"]
 [ext_resource type="PackedScene" uid="uid://q6hj2gr7q6q7" path="res://scenes/items/ECTSCoin.tscn" id="5_hhyrm"]
+[ext_resource type="Texture2D" uid="uid://cjkwtlacvwsoe" path="res://assets/environment/backgrounds/level1/30.png" id="6_0rjyr"]
 [ext_resource type="Texture2D" uid="uid://7kn0iaem3d0d" path="res://assets/environment/tilesets/terrain-tilemap.png" id="6_5mpa8"]
+[ext_resource type="Texture2D" uid="uid://cuq332phyate8" path="res://assets/environment/backgrounds/level1/40.png" id="7_0k37p"]
 [ext_resource type="PackedScene" uid="uid://dy0o7r5t4pq6j" path="res://scenes/ui/PauseMenu.tscn" id="7_10xc4"]
+[ext_resource type="Texture2D" uid="uid://bc0lf4tfx4c6e" path="res://assets/environment/backgrounds/level1/50.png" id="8_4h14u"]
 [ext_resource type="PackedScene" uid="uid://dgijdsl8cfnng" path="res://scenes/characters/swot.tscn" id="8_dwcxj"]
+[ext_resource type="Texture2D" uid="uid://ddnvt6b3pj6aa" path="res://assets/environment/backgrounds/level1/60.png" id="9_bbars"]
 [ext_resource type="PackedScene" uid="uid://c4nqcrp2hf18c" path="res://scenes/characters/UAV_operator.tscn" id="9_c83vx"]
+[ext_resource type="Texture2D" uid="uid://c0naha1d3rmev" path="res://assets/environment/backgrounds/level1/70.png" id="10_0f20a"]
 [ext_resource type="PackedScene" uid="uid://byowmgfksy847" path="res://scenes/characters/drone.tscn" id="10_5dpfh"]
+[ext_resource type="Texture2D" uid="uid://c8mtomiudc1yn" path="res://assets/environment/backgrounds/level1/80.png" id="11_ys2jg"]
+[ext_resource type="Texture2D" uid="uid://7uoj57nc4tni" path="res://assets/environment/backgrounds/level1/90.png" id="12_t6bfo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_10xc4"]
 texture = ExtResource("6_5mpa8")
@@ -179,12 +188,45 @@ sources/2 = SubResource("TileSetAtlasSource_10xc4")
 process_mode = 1
 script = ExtResource("1_rmf85")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_left = 78.0
-offset_top = -1065.0
-offset_right = 23609.0
-offset_bottom = 963.0
-texture = ExtResource("2_dwcxj")
+[node name="Background1" type="Sprite2D" parent="."]
+position = Vector2(1256, -48)
+texture = ExtResource("3_tj285")
+
+[node name="Background2" type="Sprite2D" parent="."]
+position = Vector2(3609, -48)
+texture = ExtResource("4_x6f5j")
+
+[node name="Background3" type="Sprite2D" parent="."]
+position = Vector2(5962, -48)
+texture = ExtResource("5_fcgrt")
+
+[node name="Background4" type="Sprite2D" parent="."]
+position = Vector2(8315, -48)
+texture = ExtResource("6_0rjyr")
+
+[node name="Background5" type="Sprite2D" parent="."]
+position = Vector2(10668, -48)
+texture = ExtResource("7_0k37p")
+
+[node name="Background6" type="Sprite2D" parent="."]
+position = Vector2(13021, -48)
+texture = ExtResource("8_4h14u")
+
+[node name="Background7" type="Sprite2D" parent="."]
+position = Vector2(15374, -48)
+texture = ExtResource("9_bbars")
+
+[node name="Background8" type="Sprite2D" parent="."]
+position = Vector2(17727, -48)
+texture = ExtResource("10_0f20a")
+
+[node name="Background9" type="Sprite2D" parent="."]
+position = Vector2(20080, -48)
+texture = ExtResource("11_ys2jg")
+
+[node name="Background10" type="Sprite2D" parent="."]
+position = Vector2(22432, -48)
+texture = ExtResource("12_t6bfo")
 
 [node name="Hud" parent="." instance=ExtResource("3_wee7o")]
 
