@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cy2ux8up1618f"]
+[gd_scene load_steps=13 format=3 uid="uid://cy2ux8up1618f"]
 
 [ext_resource type="Script" uid="uid://dl8pubuxmlxpf" path="res://scripts/levels/Level_01.gd" id="1_rmf85"]
 [ext_resource type="PackedScene" uid="uid://bmmq7dvcq4bva" path="res://scenes/characters/player.tscn" id="2_80q6e"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://7kn0iaem3d0d" path="res://assets/environment/tilesets/terrain-tilemap.png" id="6_5mpa8"]
 [ext_resource type="PackedScene" uid="uid://dy0o7r5t4pq6j" path="res://scenes/ui/PauseMenu.tscn" id="7_10xc4"]
 [ext_resource type="PackedScene" uid="uid://dgijdsl8cfnng" path="res://scenes/characters/swot.tscn" id="8_dwcxj"]
+[ext_resource type="PackedScene" uid="uid://c4nqcrp2hf18c" path="res://scenes/characters/UAV_operator.tscn" id="9_c83vx"]
+[ext_resource type="PackedScene" uid="uid://byowmgfksy847" path="res://scenes/characters/drone.tscn" id="10_5dpfh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_10xc4"]
 texture = ExtResource("6_5mpa8")
@@ -186,9 +188,6 @@ texture = ExtResource("2_dwcxj")
 
 [node name="Hud" parent="." instance=ExtResource("3_wee7o")]
 
-[node name="Player" parent="." instance=ExtResource("2_80q6e")]
-position = Vector2(208, 640)
-
 [node name="EctsCoin" parent="." instance=ExtResource("5_hhyrm")]
 position = Vector2(400, 848)
 
@@ -210,3 +209,14 @@ layer_0/tile_data = PackedInt32Array(1572864, 393218, 0, 1638400, 393218, 1, 170
 
 [node name="Swot" parent="." instance=ExtResource("8_dwcxj")]
 position = Vector2(941, 820)
+
+[node name="UavOperator" parent="." instance=ExtResource("9_c83vx")]
+position = Vector2(1632, 736)
+
+[node name="Player" parent="." instance=ExtResource("2_80q6e")]
+position = Vector2(208, 640)
+
+[node name="Drone" parent="." instance=ExtResource("10_5dpfh")]
+position = Vector2(466, 256)
+scale = Vector2(0.2, 0.2)
+metadata/_edit_group_ = true

@@ -316,9 +316,8 @@ size = Vector2(169, 281)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_a8vjm")
-animation = &"run"
-autoplay = "run"
-frame_progress = 0.13338803
+animation = &"attack"
+autoplay = "attack"
 offset = Vector2(0, -12)
 flip_h = true
 
