@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cy2ux8up1618f"]
+[gd_scene load_steps=21 format=3 uid="uid://cy2ux8up1618f"]
 
 [ext_resource type="Script" uid="uid://dl8pubuxmlxpf" path="res://scripts/levels/Level_01.gd" id="1_rmf85"]
 [ext_resource type="PackedScene" uid="uid://bmmq7dvcq4bva" path="res://scenes/characters/player.tscn" id="2_80q6e"]
@@ -16,7 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://ddnvt6b3pj6aa" path="res://assets/environment/backgrounds/level1/60.png" id="9_bbars"]
 [ext_resource type="PackedScene" uid="uid://c4nqcrp2hf18c" path="res://scenes/characters/UAV_operator.tscn" id="9_c83vx"]
 [ext_resource type="Texture2D" uid="uid://c0naha1d3rmev" path="res://assets/environment/backgrounds/level1/70.png" id="10_0f20a"]
-[ext_resource type="PackedScene" uid="uid://byowmgfksy847" path="res://scenes/characters/drone.tscn" id="10_5dpfh"]
 [ext_resource type="Texture2D" uid="uid://c8mtomiudc1yn" path="res://assets/environment/backgrounds/level1/80.png" id="11_ys2jg"]
 [ext_resource type="Texture2D" uid="uid://7uoj57nc4tni" path="res://assets/environment/backgrounds/level1/90.png" id="12_t6bfo"]
 
@@ -257,8 +256,3 @@ position = Vector2(1632, 736)
 
 [node name="Player" parent="." instance=ExtResource("2_80q6e")]
 position = Vector2(208, 640)
-
-[node name="Drone" parent="." instance=ExtResource("10_5dpfh")]
-position = Vector2(466, 256)
-scale = Vector2(0.2, 0.2)
-metadata/_edit_group_ = true

@@ -50,6 +50,7 @@ animations = [{
 size = Vector2(616, 190)
 
 [node name="Drone" type="CharacterBody2D"]
+z_index = 10
 script = ExtResource("1_rxpq6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

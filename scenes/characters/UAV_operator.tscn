@@ -1,6 +1,7 @@
-[gd_scene load_steps=70 format=3 uid="uid://c4nqcrp2hf18c"]
+[gd_scene load_steps=71 format=3 uid="uid://c4nqcrp2hf18c"]
 
 [ext_resource type="Texture2D" uid="uid://ejora585u2ka" path="res://assets/characters/enemies/UAV_AFTER_DRONE_START_sprite.png" id="1_gttk4"]
+[ext_resource type="Script" uid="uid://c7kimwicmern3" path="res://scripts/enemies/uav_operator.gd" id="1_ujmii"]
 [ext_resource type="Texture2D" uid="uid://bl8lxi1q7peyr" path="res://assets/characters/enemies/UAV_idle_sprint.png" id="1_xmpto"]
 [ext_resource type="Texture2D" uid="uid://dq43wuyonymls" path="res://assets/characters/enemies/UAV_DRONE_START_sprite.png" id="2_au1rn"]
 
@@ -465,7 +466,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_237tg")
 }],
-"loop": true,
+"loop": false,
 "name": &"starting_drone",
 "speed": 18.0
 }]
@@ -474,12 +475,19 @@ animations = [{
 size = Vector2(85, 315)
 
 [node name="UavOperator" type="CharacterBody2D"]
+script = ExtResource("1_ujmii")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qvtp5")
-animation = &"after_drone_start"
-autoplay = "after_drone_start"
+animation = &"starting_drone"
+autoplay = "idle"
 offset = Vector2(0, -7)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_k8w8l")
+
+[node name="DroneSpawnPoint" type="Node2D" parent="."]
+position = Vector2(26, -173)
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]

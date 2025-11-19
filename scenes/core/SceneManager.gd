@@ -10,7 +10,7 @@ var current_scene: Node = null
 var last_level_path: String = ""
 var fade_layer: ColorRect
 var is_fading: bool = false
-var fade_time := 0.3
+var fade_time := 0.4
 var is_paused := false
 
 # Stałe ścieżek
