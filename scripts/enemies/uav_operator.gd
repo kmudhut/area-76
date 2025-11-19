@@ -4,13 +4,14 @@ const DroneScene = preload("res://scenes/characters/drone.tscn")
 var drone_spawned := false
 var detection_distance := 1150.0
 
+func _ready() -> void:
+	print(self.get_parent().name)
 func _physics_process(delta):
 	if drone_spawned:
 		return
 	for player in get_tree().get_nodes_in_group("player"):
 		var dist = global_position.distance_to(player.global_position)
 		if dist <= detection_distance:
-			print("W DYSTANSIE")
 			$AnimatedSprite2D.play("starting_drone")
 			return 
 
@@ -23,6 +24,5 @@ func spawn_drone():
 	var drone = DroneScene.instantiate()
 	drone.scale = Vector2(0.25, 0.25)
 	drone.global_position = $DroneSpawnPoint.global_position
-	get_tree().current_scene.add_child(drone)
+	self.get_parent().add_child(drone)
 	drone_spawned = true
-	print("Dron spawned at: ", drone.global_position)
