@@ -8,6 +8,7 @@ var player: Node2D
 var time := 0.0
 
 func _ready():
+	AudioManager.play_sfx("sfx/drone_sound")
 	var players = get_tree().get_nodes_in_group("player")
 	if players.size() > 0:
 		player = players[0]

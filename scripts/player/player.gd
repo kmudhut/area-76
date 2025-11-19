@@ -30,6 +30,11 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	#cooldown kroków, zeby nie odtwarzac dzwieku kroku w kazdej klatce
+	if footstep_cooldown > 0.0:
+		footstep_cooldown -= delta
+
+	# Jeśli trwa atak lub hurt – blokuj ruch i animacje
 	if is_attacking or is_attacking2 or is_hurt:
 		move_and_slide()
 		return
