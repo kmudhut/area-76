@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://bmmq7dvcq4bva"]
+[gd_scene load_steps=39 format=3 uid="uid://bmmq7dvcq4bva"]
 
 [ext_resource type="Script" uid="uid://bl7j5kjbjnww5" path="res://scripts/player/player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://c6jnssu35yrwy" path="res://assets/characters/player/attack1.png" id="2_6eyoc"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://cabuyqcrmxcvg" path="res://assets/characters/player/attack7.png" id="8_a2luo"]
 [ext_resource type="Texture2D" uid="uid://qnw66pt0uf2h" path="res://assets/characters/player/attack8.png" id="9_eir2k"]
 [ext_resource type="Texture2D" uid="uid://cekwvln23dcmu" path="res://assets/characters/player/attack9.png" id="10_inhyd"]
+[ext_resource type="Script" uid="uid://ek7cmqfwbpwd" path="res://scripts/player/MotivationComponent.gd" id="19_3wg1y"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2l4js"]
 atlas = ExtResource("2_6eyoc")
@@ -190,3 +191,6 @@ shape = SubResource("RectangleShape2D_i3pqv")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -350)
+
+[node name="MotivationComponent" type="Node" parent="."]
+script = ExtResource("19_3wg1y")

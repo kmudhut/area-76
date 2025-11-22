@@ -1,35 +1,36 @@
 extends CanvasLayer
 
-@onready var hearts_container = $HeartsContainer
-@onready var energy_container = $EnergyContainer
+@onready var motivation_bar = $MotivationContainer/MotivationBar
 @onready var ects_label = $CoinContainer/CoinLabel
+@onready var golden_drink_icon = $GoldenDrinkContainer/GoldenDrinkIcon 
 
 func _ready():
-	# Połączenie HUD z globalnym GameState (autoload)
-	GameState.lives_changed.connect(update_lives)
-	GameState.energy_changed.connect(update_energy)
-	GameState.ects_changed.connect(update_ects)
+	if not GameState.ects_changed.is_connected(update_ects):
+		GameState.ects_changed.connect(update_ects)
+	
+	if not GameState.motivation_changed.is_connected(update_motivation):
+		GameState.motivation_changed.connect(update_motivation)
+	
+	if not GameState.golden_drink_changed.is_connected(update_golden_drink_icon):
+		GameState.golden_drink_changed.connect(update_golden_drink_icon)
 
-	# Ustawienie wartości początkowych
-	update_lives(GameState.lives)
-	update_energy(GameState.energy)
 	update_ects(GameState.ects)
+	update_motivation(GameState.motivation, GameState.max_motivation)
+	
+	update_golden_drink_icon(GameState.golden_drinks_count > 0)
 
 
-# --- AKTUALIZACJA ŻYCIA ---
-func update_lives(new_lives):
-	var hearts = hearts_container.get_children()
-	for i in range(hearts.size()):
-		hearts[i].visible = (i < new_lives)
-
-
-# --- AKTUALIZACJA ENERGII ---
-func update_energy(new_energy):
-	var energy_drinks = energy_container.get_children()
-	for i in range(energy_drinks.size()):
-		energy_drinks[i].visible = (i < new_energy)
-
-
-# --- AKTUALIZACJA PUNKTÓW ECTS ---
 func update_ects(new_ects):
 	ects_label.text = str(new_ects) + "/30"
+
+func update_motivation(current_val, max_val):
+	if motivation_bar:
+		motivation_bar.max_value = max_val
+		motivation_bar.value = current_val
+
+# Funkcja sterująca widocznością
+func update_golden_drink_icon(has_drink):
+	if golden_drink_icon:
+		golden_drink_icon.visible = has_drink
+	else:
+		print_debug("BŁĄD: Brak węzła GoldenDrinkIcon w scenie HUD!")

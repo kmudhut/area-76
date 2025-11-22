@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://ccgk1b4lapjyi" path="res://scripts/ui/hud.gd" id="1_8qguk"]
 [ext_resource type="Texture2D" uid="uid://bpbs3jwnj1bvl" path="res://assets/icons/heart.png" id="2_136eg"]
-[ext_resource type="Texture2D" uid="uid://b3e3remklwbgk" path="res://assets/icons/energy.png" id="3_oj5la"]
 [ext_resource type="FontFile" uid="uid://c1v7ay0fevib3" path="res://assets/ui/fonts/pixelsix10.ttf" id="4_136eg"]
 [ext_resource type="Texture2D" uid="uid://xqrfs3cvscu0" path="res://assets/icons/coin.png" id="4_gss2c"]
+[ext_resource type="Texture2D" uid="uid://dc7noohoput5i" path="res://assets/items/golden_drink/GoldenDrink.png" id="5_136eg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_136eg"]
 bg_color = Color(1, 0, 0, 1)
@@ -21,56 +21,30 @@ font_size = 500
 [node name="Hud" type="CanvasLayer"]
 script = ExtResource("1_8qguk")
 
-[node name="HeartsContainer" type="HBoxContainer" parent="."]
+[node name="MotivationContainer" type="HBoxContainer" parent="."]
 offset_left = 105.399956
 offset_right = 6101.4
 offset_bottom = 1056.0
 scale = Vector2(0.1, 0.1)
 pivot_offset = Vector2(0, 25)
 
-[node name="TextureRect" type="TextureRect" parent="HeartsContainer"]
+[node name="TextureRect" type="TextureRect" parent="MotivationContainer"]
 layout_mode = 2
 texture = ExtResource("2_136eg")
 stretch_mode = 2
 
-[node name="HealthBar" type="ProgressBar" parent="HeartsContainer"]
+[node name="MotivationBar" type="ProgressBar" parent="MotivationContainer"]
 custom_minimum_size = Vector2(5000, 500)
 layout_mode = 2
 theme_override_constants/outline_size = 0
 theme_override_styles/fill = SubResource("StyleBoxFlat_136eg")
-max_value = 5.0
-value = 5.0
+step = 1.0
+value = 100.0
 show_percentage = false
-
-[node name="EnergyContainer" type="HBoxContainer" parent="."]
-offset_left = 760.0005
-offset_right = 5896.0005
-offset_bottom = 1024.0
-scale = Vector2(0.1, 0.1)
-
-[node name="TextureRect" type="TextureRect" parent="EnergyContainer"]
-layout_mode = 2
-texture = ExtResource("3_oj5la")
-
-[node name="TextureRect2" type="TextureRect" parent="EnergyContainer"]
-layout_mode = 2
-texture = ExtResource("3_oj5la")
-
-[node name="TextureRect3" type="TextureRect" parent="EnergyContainer"]
-layout_mode = 2
-texture = ExtResource("3_oj5la")
-
-[node name="TextureRect4" type="TextureRect" parent="EnergyContainer"]
-layout_mode = 2
-texture = ExtResource("3_oj5la")
-
-[node name="TextureRect5" type="TextureRect" parent="EnergyContainer"]
-layout_mode = 2
-texture = ExtResource("3_oj5la")
 
 [node name="CoinContainer" type="HBoxContainer" parent="."]
 offset_left = 1665.0
-offset_right = 2943.0
+offset_right = 3692.0
 offset_bottom = 1024.0
 scale = Vector2(0.1, 0.1)
 
@@ -82,3 +56,15 @@ label_settings = SubResource("LabelSettings_oj5la")
 [node name="TextureRect" type="TextureRect" parent="CoinContainer"]
 layout_mode = 2
 texture = ExtResource("4_gss2c")
+
+[node name="GoldenDrinkContainer" type="HBoxContainer" parent="."]
+offset_left = 1512.17
+offset_top = 13.0
+offset_right = 2399.17
+offset_bottom = 860.0
+scale = Vector2(0.1, 0.1)
+
+[node name="GoldenDrinkIcon" type="TextureRect" parent="GoldenDrinkContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("5_136eg")
