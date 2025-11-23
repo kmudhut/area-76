@@ -39,7 +39,6 @@ func _ready() -> void:
 		motivation_component.damage_taken.connect(_on_damage_taken_visuals)
 		motivation_component.motivation_depleted.connect(_on_death)
 	
-	# --- NOWOŚĆ: INICJALIZACJA SHADERA ---
 	_setup_rainbow_shader()
 
 func _physics_process(delta: float) -> void:
@@ -209,7 +208,13 @@ func take_damage(amount: float):
 		_on_damage_taken_visuals(amount)
 
 func _on_damage_taken_visuals(_amount):
-	if is_hurt: return
+	if is_hurt: 
+		return
+	if is_attacking or is_attacking2:
+		is_attacking = false
+		is_attacking2 = false
+		animated_sprite_2d.position.x = original_sprite_position_x
+		animated_sprite_2d.position.y = original_sprite_position_y
 	is_hurt = true
 	AudioManager.play_sfx("sfx/hurt" + str(randi_range(1,6)))
 	velocity.x = 0

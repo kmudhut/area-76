@@ -1,5 +1,6 @@
-[gd_scene load_steps=47 format=3 uid="uid://dgijdsl8cfnng"]
+[gd_scene load_steps=49 format=3 uid="uid://dgijdsl8cfnng"]
 
+[ext_resource type="Script" uid="uid://dn5pyowpb4j03" path="res://scripts/enemies/swot.gd" id="1_dabvj"]
 [ext_resource type="Texture2D" uid="uid://dgq7ey6h7y5hp" path="res://assets/characters/enemies/kujon_attack.png" id="1_f7pgh"]
 [ext_resource type="Texture2D" uid="uid://dlfulsrsincfp" path="res://assets/characters/enemies/kujon_idle3.png" id="2_f7pgh"]
 [ext_resource type="Texture2D" uid="uid://cm2dti87t35ao" path="res://assets/characters/enemies/kujon_run.png" id="3_odldc"]
@@ -234,7 +235,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_accrh")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
 "speed": 25.0
 }, {
@@ -310,17 +311,33 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6l3m1"]
-size = Vector2(169, 281)
+size = Vector2(166, 281)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dabvj"]
+size = Vector2(318, 201)
 
 [node name="Swot" type="CharacterBody2D"]
+script = ExtResource("1_dabvj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_a8vjm")
 animation = &"attack"
-autoplay = "attack"
+autoplay = "idle"
+frame = 19
+frame_progress = 0.027458608
 offset = Vector2(0, -12)
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 4)
 shape = SubResource("RectangleShape2D_6l3m1")
+
+[node name="AttackArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(0, -76.5)
+shape = SubResource("RectangleShape2D_dabvj")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(1, 1)
+rect = Rect2(-6, -178, 11, 322)

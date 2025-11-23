@@ -192,9 +192,10 @@ shape = SubResource("RectangleShape2D_i3pqv")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -350)
-limit_left = 0
-limit_right = 4000
-limit_bottom = 2028
+limit_left = -532
+limit_top = -9999463
+limit_right = 3134
+limit_bottom = 2565
 
 [node name="MotivationComponent" type="Node" parent="."]
 script = ExtResource("19_3wg1y")
