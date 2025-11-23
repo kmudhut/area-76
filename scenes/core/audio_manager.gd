@@ -66,7 +66,7 @@ func play_music(sound_name: String, _loop := true):
 func stop_music():
 	music_player.stop()
 
-func play_sfx(name: String):
+func play_sfx(name: String) -> AudioStreamPlayer:
 	if not sounds.has(name):
 		push_warning("No sfx found: " + name)
 		return
@@ -74,9 +74,10 @@ func play_sfx(name: String):
 		if not player.playing:
 			player.stream = sounds[name]
 			player.play()
-			return
+			return player
 	sfx_players[0].stream = sounds[name]
 	sfx_players[0].play()
+	return sfx_players[0]
 
 func play_ui_sound(name: String):
 	if not sounds.has(name):

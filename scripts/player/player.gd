@@ -11,7 +11,8 @@ var is_hurt = false
 var original_sprite_position_x = 0.0
 var original_sprite_position_y = 0.0
 var footstep_cooldown := 0.0
-const FOOTSTEP_INTERVAL := 0.3 
+const FOOTSTEP_INTERVAL := 0.3 # co ile sekund można zagrać krok
+var is_pain_cooldown := false # cooldown odtwarzania dzwieku hurta
 
 var can_use_golden_drink = true 
 
@@ -206,16 +207,20 @@ func take_damage(amount: int):
 	if motivation_component:
 		motivation_component.take_damage(amount)
 	else:
-		_on_damage_taken_visuals(amount)
-
-func _on_damage_taken_visuals(_amount):
-	if is_hurt: return
-	is_hurt = true
-	AudioManager.play_sfx("sfx/hurt" + str(randi_range(1,6)))
-	velocity.x = 0
-	animated_sprite_2d.play("hurt")
+		_trigger_hurt_effects()
 
 func _on_death():
 	print("Gracz stracił motywację. Restart poziomu...")
 	var scene_manager = get_node("/root/Main/SceneManager")
 	scene_manager.goto_menu() # Trzeba tu zaimplementować scenę końca gry w przypadku zgonu
+
+
+func _trigger_hurt_effects():
+	is_pain_cooldown = true
+	is_hurt = true
+	AudioManager.play_sfx("sfx/hurt" + str(randi_range(1,6)))
+	velocity.x = 0
+	animated_sprite_2d.play("hurt")
+	await get_tree().create_timer(0.4).timeout
+	is_pain_cooldown = false
+	is_hurt = false

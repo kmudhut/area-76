@@ -43,7 +43,8 @@ func goto_scene(scene_path: String) -> void:
 		current_scene.queue_free()
 
 	var new_scene = load(scene_path).instantiate()
-	add_child(new_scene)
+	var scene_container = get_parent().get_node("SceneContainer")
+	scene_container.add_child(new_scene)
 	current_scene = new_scene
 	
 	if scene_path.begins_with(PATH_LEVELS):

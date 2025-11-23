@@ -184,6 +184,7 @@ scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_onrkg")
 animation = &"hurt"
 autoplay = "idle"
+frame_progress = 0.9115608
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(4, 8)
@@ -191,6 +192,9 @@ shape = SubResource("RectangleShape2D_i3pqv")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -350)
+limit_left = 0
+limit_right = 4000
+limit_bottom = 2028
 
 [node name="MotivationComponent" type="Node" parent="."]
 script = ExtResource("19_3wg1y")
