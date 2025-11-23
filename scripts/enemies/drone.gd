@@ -13,15 +13,19 @@ var current_attack_timer := 0.0
 var current_cooldown_timer := 0.0 
 var player_in_zone := false
 var electro_shock_audio_player
+var drone_sound_audio_player
 var time := 0.0
 
 var player: Node2D
 func _ready():
-	AudioManager.play_sfx("sfx/drone_sound")
+	drone_sound_audio_player = AudioManager.play_sfx("sfx/drone_sound")
 	var players = get_tree().get_nodes_in_group("player")
 	if players.size() > 0:
 		player = players[0]
-
+		
+func _exit_tree():
+	drone_sound_audio_player.stop()
+	
 func _process(delta):
 	if current_cooldown_timer > 0:
 		current_cooldown_timer -= delta
@@ -45,7 +49,7 @@ func _handle_firing_state(delta):
 		return
 	current_attack_timer += delta
 	if player.has_method("take_damage"):
-		player.take_damage() 
+		player.take_damage(0.1) 
 
 	if current_attack_timer >= attack_duration:
 		_finish_attack()
