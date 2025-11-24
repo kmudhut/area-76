@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var BASE_SPEED = 500.0
 var current_speed = 500.0 
-const JUMP_VELOCITY = -900.0
+const JUMP_VELOCITY = -850.0
 
 var last_facing_left = false
 var is_attacking = false

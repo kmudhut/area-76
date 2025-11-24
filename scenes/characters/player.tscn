@@ -176,6 +176,8 @@ animations = [{
 size = Vector2(88, 256)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+z_index = 5
+position = Vector2(-1, 0)
 script = ExtResource("1_onrkg")
 metadata/_edit_group_ = true
 
@@ -191,11 +193,11 @@ position = Vector2(4, 8)
 shape = SubResource("RectangleShape2D_i3pqv")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, -350)
-limit_left = -532
-limit_top = -9999463
-limit_right = 3134
-limit_bottom = 2565
+position = Vector2(0, -100)
+zoom = Vector2(1.2, 1.2)
+limit_left = -25
+limit_top = -9999457
+limit_bottom = 1100
 
 [node name="MotivationComponent" type="Node" parent="."]
 script = ExtResource("19_3wg1y")
