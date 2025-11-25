@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bpbs3jwnj1bvl" path="res://assets/icons/heart.png" id="2_136eg"]
 [ext_resource type="FontFile" uid="uid://c1v7ay0fevib3" path="res://assets/ui/fonts/pixelsix10.ttf" id="4_136eg"]
 [ext_resource type="Texture2D" uid="uid://xqrfs3cvscu0" path="res://assets/icons/coin.png" id="4_gss2c"]
-[ext_resource type="Texture2D" uid="uid://dc7noohoput5i" path="res://assets/items/golden_drink/GoldenDrink.png" id="5_136eg"]
+[ext_resource type="Texture2D" uid="uid://dc7noohoput5i" path="res://assets/items/powerup/LLM_powerup.png" id="5_136eg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_136eg"]
 bg_color = Color(1, 0, 0, 1)

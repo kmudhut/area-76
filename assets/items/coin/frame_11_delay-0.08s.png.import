@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cu8t4piggacdr"
-path="res://.godot/imported/frame_06_delay-0.08s.png-5333d0f8fbeeec2a80eedbcdf08096f6.ctex"
+uid="uid://ckdydncvoqw3e"
+path="res://.godot/imported/frame_11_delay-0.08s.png-b5c9565af11255c4ecdef6ba69251988.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/items/coin_frames/frame_06_delay-0.08s.png"
-dest_files=["res://.godot/imported/frame_06_delay-0.08s.png-5333d0f8fbeeec2a80eedbcdf08096f6.ctex"]
+source_file="res://assets/items/coin/frame_11_delay-0.08s.png"
+dest_files=["res://.godot/imported/frame_11_delay-0.08s.png-b5c9565af11255c4ecdef6ba69251988.ctex"]
 
 [params]
 
