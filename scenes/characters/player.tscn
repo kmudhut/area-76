@@ -199,6 +199,7 @@ shape = SubResource("RectangleShape2D_i3pqv")
 position = Vector2(0, -100)
 limit_left = -25
 limit_top = -9999457
+limit_right = 9825
 limit_bottom = 1100
 
 [node name="MotivationComponent" type="Node" parent="."]
