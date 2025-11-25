@@ -316,7 +316,7 @@ size = Vector2(166, 281)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dabvj"]
 size = Vector2(318, 201)
 
-[node name="Swot" type="CharacterBody2D"]
+[node name="Swot" type="CharacterBody2D" groups=["enemies"]]
 script = ExtResource("1_dabvj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

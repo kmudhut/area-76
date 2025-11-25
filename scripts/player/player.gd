@@ -72,25 +72,34 @@ func _physics_process(delta: float) -> void:
 	if direction != 0:
 		velocity.x = direction * current_speed 
 		last_facing_left = direction < 0
+		if last_facing_left:
+			$AttackArea/CollisionShape2D.position.x = -abs($AttackArea/CollisionShape2D.position.x)
+			$AttackArea/CollisionShape2D2.position.x = -abs($AttackArea/CollisionShape2D2.position.x)
+
+		else:
+			$AttackArea/CollisionShape2D.position.x = abs($AttackArea/CollisionShape2D.position.x)
+			$AttackArea/CollisionShape2D2.position.x = abs($AttackArea/CollisionShape2D2.position.x)
 	else:
 		velocity.x = move_toward(velocity.x, 0, 60)
 
 	if Input.is_action_just_pressed("attack"):
-		is_attacking = true
-		AudioManager.play_sfx("sfx/punch")
-		velocity.x = 0
-		animated_sprite_2d.play("attack")
-		animated_sprite_2d.position.y = original_sprite_position_y + 20
+		#is_attacking = true
+		#AudioManager.play_sfx("sfx/punch")
+		#velocity.x = 0
+		#animated_sprite_2d.play("attack")
+		#animated_sprite_2d.position.y = original_sprite_position_y + 20
+		attack1()
 
 	if Input.is_action_just_pressed("attack2"):
-		is_attacking2 = true
-		velocity.x = 0
-		animated_sprite_2d.play("attack2")
-		if last_facing_left:
-			animated_sprite_2d.position.x = original_sprite_position_x - 105
-		else:
-			animated_sprite_2d.position.x = original_sprite_position_x + 105
-		animated_sprite_2d.position.y = original_sprite_position_y + 2
+		attack2()
+		#is_attacking2 = true
+		#velocity.x = 0
+		#animated_sprite_2d.play("attack2")
+		#if last_facing_left:
+			#animated_sprite_2d.position.x = original_sprite_position_x - 105
+		#else:
+			#animated_sprite_2d.position.x = original_sprite_position_x + 105
+		#animated_sprite_2d.position.y = original_sprite_position_y + 2
 
 	if Input.is_action_just_pressed("hurt"):
 		take_damage(10.0) 
@@ -253,8 +262,48 @@ func _on_animation_finished() -> void:
 func _on_death():
 	print("Gracz stracił motywację. Restart poziomu...")
 	AudioManager.stop_music()
-	var scene_manager = get_node_or_null("/root/Main/SceneManager")
-	if scene_manager:
-		scene_manager.goto_menu() 
+	var scene_manager = get_node("/root/Main/SceneManager")
+	scene_manager.goto_menu() # Trzeba tu zaimplementować scenę końca gry w przypadku zgonu
+
+
+func _on_attack_area_body_entered(body: Node2D) -> void:
+	if body.is_in_group("enemies") and body.has_method("take_damage"):
+		if is_attacking:
+			body.take_damage(1);
+			print("ZADANANO Y HP")
+		if is_attacking2:
+			print("ZADANANO X HP")
+
+func attack1():
+	is_attacking = true
+	$AttackArea/CollisionShape2D.disabled = false
+	$AttackArea/CollisionShape2D2.disabled = true
+	AudioManager.play_sfx("sfx/punch")
+	velocity.x = 0
+	animated_sprite_2d.play("attack")
+	animated_sprite_2d.position.y = original_sprite_position_y + 20
+	var bodies = $AttackArea.get_overlapping_bodies()
+	for body in bodies:
+		if body.is_in_group("enemies"):
+			if body.has_method("take_damage"):
+				print("Zadano uszkodzenia piescia dla", body)	
+				body.take_damage(1)
+
+func attack2():
+	is_attacking2 = true
+	$AttackArea/CollisionShape2D.disabled = true
+	$AttackArea/CollisionShape2D2.disabled = false
+	AudioManager.play_sfx("sfx/punch")
+	velocity.x = 0
+	animated_sprite_2d.play("attack2")
+	if last_facing_left:
+		animated_sprite_2d.position.x = original_sprite_position_x - 105
 	else:
-		get_tree().reload_current_scene()
+		animated_sprite_2d.position.x = original_sprite_position_x + 105
+		animated_sprite_2d.position.y = original_sprite_position_y + 2
+	var bodies = $AttackArea.get_overlapping_bodies()
+	for body in bodies:
+		if body.is_in_group("enemies"):
+			if body.has_method("take_damage"):
+				print("Zadano uszkodzenia klawiaturą dla", body)	
+				body.take_damage(1)

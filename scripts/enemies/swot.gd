@@ -59,3 +59,6 @@ func _attack():
 	$AnimatedSprite2D.play("idle")
 	await get_tree().create_timer(ATTACK_COOLDOWN).timeout
 	can_attack = true
+
+func take_damage(amount: float):
+	pass

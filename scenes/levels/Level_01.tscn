@@ -257,6 +257,7 @@ layer_0/tile_data = PackedInt32Array(1572864, 393218, 0, 1638400, 393218, 1, 170
 
 [node name="Swot" parent="." instance=ExtResource("8_dwcxj")]
 position = Vector2(1490, 816)
+scale = Vector2(0.7, 0.7)
 
 [node name="UavOperator" parent="." instance=ExtResource("9_c83vx")]
 position = Vector2(1632, 736)

@@ -1,9 +1,10 @@
-[gd_scene load_steps=71 format=3 uid="uid://c4nqcrp2hf18c"]
+[gd_scene load_steps=80 format=3 uid="uid://c4nqcrp2hf18c"]
 
 [ext_resource type="Texture2D" uid="uid://ejora585u2ka" path="res://assets/characters/enemies/UAV_AFTER_DRONE_START_sprite.png" id="1_gttk4"]
 [ext_resource type="Script" uid="uid://c7kimwicmern3" path="res://scripts/enemies/uav_operator.gd" id="1_ujmii"]
 [ext_resource type="Texture2D" uid="uid://bl8lxi1q7peyr" path="res://assets/characters/enemies/UAV_idle_sprint.png" id="1_xmpto"]
 [ext_resource type="Texture2D" uid="uid://dq43wuyonymls" path="res://assets/characters/enemies/UAV_DRONE_START_sprite.png" id="2_au1rn"]
+[ext_resource type="Texture2D" uid="uid://dd4cfri2488wi" path="res://assets/characters/enemies/UAV_operator_hurt.png" id="3_glgre"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o7dj7"]
 atlas = ExtResource("1_gttk4")
@@ -176,6 +177,38 @@ region = Rect2(15334, 0, 374, 374)
 [sub_resource type="AtlasTexture" id="AtlasTexture_gjlef"]
 atlas = ExtResource("1_gttk4")
 region = Rect2(15708, 0, 374, 374)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k51fu"]
+atlas = ExtResource("3_glgre")
+region = Rect2(0, 0, 373, 373)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nfyuk"]
+atlas = ExtResource("3_glgre")
+region = Rect2(373, 0, 373, 373)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tegba"]
+atlas = ExtResource("3_glgre")
+region = Rect2(746, 0, 373, 373)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bshof"]
+atlas = ExtResource("3_glgre")
+region = Rect2(1119, 0, 373, 373)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7txem"]
+atlas = ExtResource("3_glgre")
+region = Rect2(1492, 0, 373, 373)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5xluc"]
+atlas = ExtResource("3_glgre")
+region = Rect2(1865, 0, 373, 373)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2h0ns"]
+atlas = ExtResource("3_glgre")
+region = Rect2(2238, 0, 373, 373)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2qrog"]
+atlas = ExtResource("3_glgre")
+region = Rect2(2611, 0, 373, 373)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_au1rn"]
 atlas = ExtResource("1_xmpto")
@@ -399,6 +432,35 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_k51fu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nfyuk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tegba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bshof")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7txem")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5xluc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2h0ns")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2qrog")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_au1rn")
 }, {
 "duration": 1.0,
@@ -474,7 +536,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k8w8l"]
 size = Vector2(85, 315)
 
-[node name="UavOperator" type="CharacterBody2D"]
+[node name="UavOperator" type="CharacterBody2D" groups=["enemies"]]
 script = ExtResource("1_ujmii")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

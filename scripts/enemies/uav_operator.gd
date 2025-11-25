@@ -3,6 +3,7 @@ extends CharacterBody2D
 const DroneScene = preload("res://scenes/characters/drone.tscn")
 var drone_spawned := false
 var detection_distance := 1150.0
+var health_points = 0.01
 
 func _ready() -> void:
 	print(self.get_parent().name)
@@ -15,6 +16,8 @@ func _physics_process(delta):
 			$AnimatedSprite2D.play("starting_drone")
 			return 
 
+func _process(delta: float) -> void:
+	pass
 func _on_animated_sprite_2d_animation_finished():
 	if $AnimatedSprite2D.animation == "starting_drone" and not drone_spawned:
 		spawn_drone()
@@ -26,3 +29,17 @@ func spawn_drone():
 	drone.global_position = $DroneSpawnPoint.global_position
 	self.get_parent().add_child(drone)
 	drone_spawned = true
+	
+func take_damage(amount: float):
+	health_points-=amount
+	play_hurt_effects()
+
+func play_hurt_effects():
+	AudioManager.play_sfx("sfx/hurt1")
+	$AnimatedSprite2D.play("hurt")
+	await $AnimatedSprite2D.animation_finished
+	$AnimatedSprite2D.play("after_drone_start")
+	
+
+func _die():
+	self.get_parent().remove_child(self)
