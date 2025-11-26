@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 const DroneScene = preload("res://scenes/characters/drone.tscn")
 var drone_spawned := false
-var detection_distance := 1150.0
+var detection_distance := 800.0
 var health_points = 0.01
 var drone
 func _ready() -> void:

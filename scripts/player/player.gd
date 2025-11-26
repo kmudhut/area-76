@@ -45,7 +45,11 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if footstep_cooldown > 0.0: footstep_cooldown -= delta
-
+	if is_attacking or is_attacking2 or is_hurt:
+		if not is_on_floor():
+			velocity += get_gravity() * delta
+		move_and_slide()
+		return
 	if is_attacking or is_attacking2 or is_hurt:
 		move_and_slide()
 		return

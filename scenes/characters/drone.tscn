@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://byowmgfksy847"]
+[gd_scene load_steps=21 format=3 uid="uid://byowmgfksy847"]
 
 [ext_resource type="Texture2D" uid="uid://cygkog1vnc8y1" path="res://assets/characters/enemies/flying_drone_sprite.png" id="1_rpnsq"]
 [ext_resource type="Script" uid="uid://0qxvhkawbyga" path="res://scripts/enemies/drone.gd" id="1_rxpq6"]
@@ -46,9 +46,6 @@ animations = [{
 "name": &"default",
 "speed": 30.0
 }]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fp51q"]
-size = Vector2(616, 190)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3e7lx"]
 atlas = ExtResource("3_k0cur")
@@ -130,12 +127,10 @@ z_index = 1
 script = ExtResource("1_rxpq6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_3e7lx")
 autoplay = "default"
 frame_progress = 0.24220389
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_fp51q")
 
 [node name="Arc" type="AnimatedSprite2D" parent="."]
 visible = false
