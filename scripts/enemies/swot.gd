@@ -8,6 +8,7 @@ var player: CharacterBody2D
 var is_running = false
 var can_attack = true
 var footstep_cooldown := 0.0
+var health_points = 100
 const FOOTSTEP_INTERVAL := 0.4 
 
 func _ready():
@@ -36,7 +37,7 @@ func _move_to_player(delta):
 		$AnimatedSprite2D.flip_h = false
 	else:
 		$AnimatedSprite2D.flip_h = true
-	if global_position.distance_to(target_position) > 150:
+	if global_position.distance_to(target_position) > 100:
 		if can_attack: 
 			$AnimatedSprite2D.play("run")
 			if footstep_cooldown <= 0.0:
@@ -61,4 +62,16 @@ func _attack():
 	can_attack = true
 
 func take_damage(amount: float):
-	pass
+	health_points-=amount
+	await play_hurt_effects()
+	if(health_points <= 0):
+		_die()
+
+func play_hurt_effects():
+	$AnimatedSprite2D.play("hurt")
+	AudioManager.play_sfx("sfx/swot_hurt")
+	await $AnimatedSprite2D.animation_finished
+	$AnimatedSprite2D.play("idle")
+
+func _die():
+	queue_free()

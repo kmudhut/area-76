@@ -265,15 +265,6 @@ func _on_death():
 	var scene_manager = get_node("/root/Main/SceneManager")
 	scene_manager.goto_menu() # Trzeba tu zaimplementować scenę końca gry w przypadku zgonu
 
-
-func _on_attack_area_body_entered(body: Node2D) -> void:
-	if body.is_in_group("enemies") and body.has_method("take_damage"):
-		if is_attacking:
-			body.take_damage(1);
-			print("ZADANANO Y HP")
-		if is_attacking2:
-			print("ZADANANO X HP")
-
 func attack1():
 	is_attacking = true
 	$AttackArea/CollisionShape2D.disabled = false
@@ -287,7 +278,7 @@ func attack1():
 		if body.is_in_group("enemies"):
 			if body.has_method("take_damage"):
 				print("Zadano uszkodzenia piescia dla", body)	
-				body.take_damage(1)
+				body.take_damage(25)
 
 func attack2():
 	is_attacking2 = true
@@ -304,6 +295,5 @@ func attack2():
 	var bodies = $AttackArea.get_overlapping_bodies()
 	for body in bodies:
 		if body.is_in_group("enemies"):
-			if body.has_method("take_damage"):
-				print("Zadano uszkodzenia klawiaturą dla", body)	
-				body.take_damage(1)
+			if body.has_method("take_damage"):	
+				body.take_damage(50)

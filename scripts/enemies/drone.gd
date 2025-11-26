@@ -15,6 +15,7 @@ var player_in_zone := false
 var electro_shock_audio_player
 var drone_sound_audio_player
 var time := 0.0
+var to_be_destroyed:=false
 
 var player: Node2D
 func _ready():
@@ -27,16 +28,25 @@ func _exit_tree():
 	drone_sound_audio_player.stop()
 	
 func _process(delta):
+	var hover_offset = Vector2(
+		sin(time * (frequency * 0.9)) * amplitude,
+		cos(time * (frequency * 1.1)) * amplitude
+	)
+	var target_position = Vector2(player.global_position.x, player.global_position.y - 4000) + hover_offset
+	if to_be_destroyed:
+		global_position = global_position.move_toward(target_position, speed * delta)
+		drone_sound_audio_player.volume_db = move_toward(drone_sound_audio_player.volume_db, -80.0, 3.0 * delta)
+		if global_position.y < -1000: 
+			drone_sound_audio_player.stop()
+			queue_free()
+		return 
 	if current_cooldown_timer > 0:
 		current_cooldown_timer -= delta
 	if not player:
 		return
 	time += delta
-	var hover_offset = Vector2(
-		sin(time * (frequency * 0.9)) * amplitude,
-		cos(time * (frequency * 1.1)) * amplitude
-	)
-	var target_position = Vector2(player.global_position.x, player.global_position.y - 400) + hover_offset
+
+	target_position = Vector2(player.global_position.x, player.global_position.y - 400) + hover_offset
 	global_position = global_position.move_toward(target_position, speed * delta)
 	if is_firing:
 		_handle_firing_state(delta)
@@ -75,7 +85,8 @@ func _stop_effects():
 	is_firing = false
 	if arc_visual:
 		arc_visual.visible = false
-		electro_shock_audio_player.stop()
+		if electro_shock_audio_player:
+			electro_shock_audio_player.stop()
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("player"):
@@ -84,3 +95,7 @@ func _on_area_2d_body_entered(body):
 func _on_area_2d_body_exited(body):
 	if body.is_in_group("player"):
 		player_in_zone = false
+
+func fly_away():
+	to_be_destroyed = true
+	_stop_effects()

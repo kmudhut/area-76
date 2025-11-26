@@ -4,7 +4,7 @@ const DroneScene = preload("res://scenes/characters/drone.tscn")
 var drone_spawned := false
 var detection_distance := 1150.0
 var health_points = 0.01
-
+var drone
 func _ready() -> void:
 	print(self.get_parent().name)
 func _physics_process(delta):
@@ -24,7 +24,7 @@ func _on_animated_sprite_2d_animation_finished():
 		$AnimatedSprite2D.play("after_drone_start")
 
 func spawn_drone():
-	var drone = DroneScene.instantiate()
+	drone = DroneScene.instantiate()
 	drone.scale = Vector2(0.25, 0.25)
 	drone.global_position = $DroneSpawnPoint.global_position
 	self.get_parent().add_child(drone)
@@ -32,14 +32,17 @@ func spawn_drone():
 	
 func take_damage(amount: float):
 	health_points-=amount
-	play_hurt_effects()
+	await play_hurt_effects()
+	if(health_points <= 0):
+		_die()
 
 func play_hurt_effects():
-	AudioManager.play_sfx("sfx/hurt1")
 	$AnimatedSprite2D.play("hurt")
+	AudioManager.play_sfx("sfx/uav_operator_die_scream")
 	await $AnimatedSprite2D.animation_finished
 	$AnimatedSprite2D.play("after_drone_start")
 	
 
 func _die():
-	self.get_parent().remove_child(self)
+	drone.fly_away()
+	queue_free()
