@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://cnfel5hd7vivg"]
 
 [ext_resource type="Texture2D" uid="uid://dyxd7xnkxv020" path="res://assets/ui/area-76-main-menu-background.png" id="1_asmva"]
-[ext_resource type="Script" uid="uid://ckkm3em4geefs" path="res://scripts/ui/settings.gd" id="1_c3nhx"]
+[ext_resource type="Script" uid="uid://bxj6ddxjfcark" path="res://scripts/ui/settings_menu.gd" id="1_shycq"]
 [ext_resource type="FontFile" uid="uid://da4ww4swf8ctb" path="res://assets/ui/fonts/Tiny5-Regular.ttf" id="2_3lbg7"]
 [ext_resource type="Texture2D" uid="uid://bfb85a606a6in" path="res://assets/icons/triangle.png" id="3_3lbg7"]
 [ext_resource type="Texture2D" uid="uid://tff1nk2h5tvh" path="res://assets/icons/pixelated_empty_arrow.png" id="3_db413"]
@@ -67,7 +67,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_c3nhx")
+script = ExtResource("1_shycq")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1

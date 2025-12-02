@@ -20,6 +20,8 @@ GameState="*res://scenes/core/GameState.gd"
 UserPreferences="*res://scenes/core/user_preferences.gd"
 DisplayManager="*res://scenes/core/display_manager.gd"
 AudioManager="*res://scenes/core/audio_manager.gd"
+NewPauseMenu="*res://scenes/ui/NewPauseMenu.tscn"
+SceneManager="*res://scenes/core/SceneManager.gd"
 
 [display]
 
@@ -31,6 +33,7 @@ window/stretch/mode="viewport"
 [global_group]
 
 enemies=""
+gameplayScene="Scene that can be paused."
 
 [input]
 

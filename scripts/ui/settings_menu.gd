@@ -39,7 +39,7 @@ const screen_resolutions = [
 	{"displayed_name":"1920 x 1080", "value":"1920x1080"},
 	{"displayed_name":"2560 × 1440", "value":"2560x1440"},
 	]
-	
+
 func _ready() -> void:
 	# --- SEKCJA TRUDNOŚCI ---
 	# 1. Pobieramy ustawienie z pliku konfiguracyjnego (UserPreferences)
@@ -73,22 +73,23 @@ func _ready() -> void:
 	setup_slider(sfx_volume_slider, sfx_volume_label, "sfx_volume")
 	setup_slider(music_volume_slider, music_volume_label, "music_volume")
 
-
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("pause"):
-		queue_free()
-		get_viewport().set_input_as_handled()
-		
 # Funkcja pomocnicza do suwaków (czystszy kod)
 func setup_slider(slider, label, setting_name):
 	var val = UserPreferences.get_setting("audio", setting_name) * 100
 	label.text = String.num(val, 0)
 	slider.value = val
 
-		
 func _on_return_button_pressed() -> void:
 	AudioManager.play_ui_sound("ui/click")
-	queue_free()
+	if get_parent().name == "PauseMenu":
+		visible = false 
+	else:
+		# Upewnij się, że ścieżka do SceneManager jest poprawna w twoim projekcie
+		if has_node("/root/Main/SceneManager"):
+			get_node("/root/Main/SceneManager").goto_menu()
+		else:
+			# Fallback, jeśli struktura scen jest inna
+			get_tree().change_scene_to_file("res://scenes/menus/MainMenu.tscn")
 
 # --- ZMIANA TRUDNOŚCI ---
 

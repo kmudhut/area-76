@@ -1,0 +1,132 @@
+[gd_scene load_steps=18 format=3 uid="uid://b1dj8ft0tyand"]
+
+[ext_resource type="Script" uid="uid://d2dkgn4eqmdkx" path="res://scripts/ui/new_pause_menu.gd" id="1_7jstr"]
+[ext_resource type="FontFile" uid="uid://da4ww4swf8ctb" path="res://assets/ui/fonts/Tiny5-Regular.ttf" id="2_7jstr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_apym7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_osntq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ru7fe"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q0owe"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dhty4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_du6kb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yq4uj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6bia1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aop7w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mj6rj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7sy3f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c4rwh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pqmai"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c484q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k4bc2"]
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
+layer = 2
+visible = false
+script = ExtResource("1_7jstr")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.84313726)
+
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/CenterContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+theme_override_constants/separation = 46
+
+[node name="ResumeButton" type="Button" parent="ColorRect/CenterContainer/VBoxContainer"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.6666667, 0.6666667, 0.6666667, 1)
+theme_override_colors/font_hover_color = Color(0.7204674, 0.72046757, 0.7204672, 1)
+theme_override_fonts/font = ExtResource("2_7jstr")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxEmpty_apym7")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_osntq")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ru7fe")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_q0owe")
+text = "WZNÓW"
+
+[node name="RestartLevelButton" type="Button" parent="ColorRect/CenterContainer/VBoxContainer"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.6666667, 0.6666667, 0.6666667, 1)
+theme_override_colors/font_hover_color = Color(0.72156864, 0.72156864, 0.72156864, 1)
+theme_override_fonts/font = ExtResource("2_7jstr")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxEmpty_apym7")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_osntq")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ru7fe")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dhty4")
+text = "ZRESTARTUJ POZIOM"
+
+[node name="SettingsButton" type="Button" parent="ColorRect/CenterContainer/VBoxContainer"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.6666667, 0.6666667, 0.6666667, 1)
+theme_override_colors/font_hover_color = Color(0.72156864, 0.72156864, 0.72156864, 1)
+theme_override_fonts/font = ExtResource("2_7jstr")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxEmpty_du6kb")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_yq4uj")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_6bia1")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_aop7w")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mj6rj")
+text = "USTAWIENIA"
+
+[node name="ExitToMainMenuButton" type="Button" parent="ColorRect/CenterContainer/VBoxContainer"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.6666667, 0.6666667, 0.6666667, 1)
+theme_override_colors/font_hover_color = Color(0.72156864, 0.72156864, 0.72156864, 1)
+theme_override_fonts/font = ExtResource("2_7jstr")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxEmpty_7sy3f")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_c4rwh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_pqmai")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_c484q")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_k4bc2")
+text = "WYJDŹ DO MENU GŁÓWNEGO"
+
+[connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/RestartLevelButton" to="." method="_on_restart_level_button_pressed"]
+[connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/ExitToMainMenuButton" to="." method="_on_exit_to_main_menu_button_pressed"]

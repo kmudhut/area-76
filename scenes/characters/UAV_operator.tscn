@@ -537,6 +537,7 @@ animations = [{
 size = Vector2(85, 315)
 
 [node name="UavOperator" type="CharacterBody2D" groups=["enemies"]]
+process_mode = 1
 script = ExtResource("1_ujmii")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

@@ -66,6 +66,7 @@ animations = [{
 radius = 330.03787
 
 [node name="EctsCoin" type="Area2D"]
+process_mode = 1
 script = ExtResource("1_ix1bg")
 type = 3
 
