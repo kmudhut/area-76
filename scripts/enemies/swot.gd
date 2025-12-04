@@ -68,7 +68,9 @@ func _attack():
 	velocity.x = 0
 	$AnimatedSprite2D.play("attack")
 	await $AnimatedSprite2D.animation_finished
-	if is_dying: return
+	if is_dying or is_hurt: 
+		can_attack = true 
+		return
 
 	if $AttackArea.overlaps_body(player) and player.has_method("take_damage"):
 		AudioManager.play_sfx("sfx/book_hit")
