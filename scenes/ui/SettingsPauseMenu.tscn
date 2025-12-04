@@ -13,8 +13,8 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i3pfa"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t4gyo"]
-bg_color = Color(0, 0, 0, 0.8235294)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_roesx"]
+bg_color = Color(0, 0, 0, 0.84313726)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7jfgf"]
 content_margin_left = 8.0
@@ -74,14 +74,10 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_i3pfa")
 
-[node name="Background" type="Panel" parent="PanelContainer"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-
 [node name="SettingsContainer" type="Panel" parent="PanelContainer"]
 custom_minimum_size = Vector2(530, 0)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_t4gyo")
+theme_override_styles/panel = SubResource("StyleBoxFlat_roesx")
 
 [node name="TextureButton" type="TextureButton" parent="PanelContainer/SettingsContainer"]
 layout_mode = 1

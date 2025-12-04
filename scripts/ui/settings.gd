@@ -41,6 +41,7 @@ const screen_resolutions = [
 	]
 	
 func _ready() -> void:
+	self.get_parent().get_node('ColorRect').visible = false
 	# --- SEKCJA TRUDNOŚCI ---
 	# 1. Pobieramy ustawienie z pliku konfiguracyjnego (UserPreferences)
 	current_difficulty_index = int(UserPreferences.get_setting("general", "difficulty_level"))
@@ -76,6 +77,7 @@ func _ready() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
+		self.get_parent().get_node('ColorRect').visible = true
 		queue_free()
 		get_viewport().set_input_as_handled()
 		
@@ -88,8 +90,9 @@ func setup_slider(slider, label, setting_name):
 		
 func _on_return_button_pressed() -> void:
 	AudioManager.play_ui_sound("ui/click")
+	self.get_parent().get_node('ColorRect').visible = true
 	queue_free()
-
+	
 # --- ZMIANA TRUDNOŚCI ---
 
 func _on_difficulty_left_arrow_pressed() -> void:

@@ -379,6 +379,7 @@ size = Vector2(166, 281)
 size = Vector2(318, 201)
 
 [node name="Swot" type="CharacterBody2D" groups=["enemies"]]
+process_mode = 1
 script = ExtResource("1_dabvj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

@@ -6667,5 +6667,5 @@ scale = Vector2(0.8, 0.8)
 [node name="EctsCoin13" parent="." instance=ExtResource("22_qcx6o")]
 position = Vector2(10232, 105)
 
-[node name="GoldenDrink2" parent="." instance=ExtResource("28_t6bfo")]
-position = Vector2(4704.9995, 763.99994)
+[node name="GoldenDrink" parent="." instance=ExtResource("28_t6bfo")]
+position = Vector2(4703, 768)

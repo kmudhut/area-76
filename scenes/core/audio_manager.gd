@@ -13,7 +13,7 @@ func _ready():
 	ui_player = AudioStreamPlayer.new()
 	add_child(music_player)
 	add_child(ui_player)
-	for i in range(8):
+	for i in range(10):
 		var p = AudioStreamPlayer.new()
 		add_child(p)
 		sfx_players.append(p)
@@ -32,6 +32,7 @@ func apply_sound_settings(settings: Dictionary) -> bool:
 	for sfx_player in sfx_players:
 		sfx_player.volume_db = linear_to_db(main_volume * sfx_volume)
 	return 1
+	
 func preload_all_sounds(base_path := AUDIO_PATH):
 	var dir = DirAccess.open(base_path)
 	if not dir:

@@ -21,10 +21,12 @@ func toggle_pause_game() -> void:
 		self.remove_child(setting_scene_instance)
 	
 func _on_resume_button_pressed() -> void:
+	AudioManager.play_ui_sound("ui/click")
 	toggle_pause_game() 
 
 
 func _on_exit_to_main_menu_button_pressed() -> void:
+	AudioManager.play_ui_sound("ui/click")
 	toggle_pause_game()
 	AudioManager.stop_music()
 	SceneManager.goto_menu();
@@ -33,11 +35,13 @@ func _on_exit_to_main_menu_button_pressed() -> void:
 
 func _on_settings_button_pressed() -> void:
 	#self.get_node("ColorRect").visible = false
+	AudioManager.play_ui_sound("ui/click")
 	setting_scene_instance = setting_scene.instantiate()
 	self.add_child(setting_scene_instance)
 
 
 func _on_restart_level_button_pressed() -> void:
+	AudioManager.play_ui_sound("ui/click")
 	toggle_pause_game()
 	GameState.ects = 0
 	SceneManager.goto_lvl("Level_01.tscn")

@@ -13,19 +13,25 @@ var current_attack_timer := 0.0
 var current_cooldown_timer := 0.0 
 var player_in_zone := false
 var electro_shock_audio_player
-var drone_sound_audio_player
+var drone_sound_audio_player: AudioStreamPlayer
+var drone_sound_audio_player_initial_volume := 0.0
 var time := 0.0
 var to_be_destroyed:=false
 
 var player: Node2D
 func _ready():
 	drone_sound_audio_player = AudioManager.play_sfx("sfx/drone_sound")
+	if drone_sound_audio_player:
+		drone_sound_audio_player_initial_volume = drone_sound_audio_player.volume_db
 	var players = get_tree().get_nodes_in_group("player")
 	if players.size() > 0:
 		player = players[0]
 		
 func _exit_tree():
 	drone_sound_audio_player.stop()
+	if drone_sound_audio_player:
+		drone_sound_audio_player.stop()
+		drone_sound_audio_player.volume_db = drone_sound_audio_player_initial_volume
 	
 func _process(delta):
 	var hover_offset = Vector2(
