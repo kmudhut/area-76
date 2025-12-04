@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
-const ATTACK_COOLDOWN = 2.0
+const ATTACK_COOLDOWN = 1.25
 const FOOTSTEP_INTERVAL := 0.4 
 
 var player: CharacterBody2D

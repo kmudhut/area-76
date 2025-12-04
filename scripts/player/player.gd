@@ -3,13 +3,15 @@ extends CharacterBody2D
 @export var BASE_SPEED = 500.0
 var current_speed = 500.0
 const JUMP_VELOCITY = -850.0
-
+const STANDARD_ATTACK_INTERVAL = 1.5
+const KEYBOARD_ATTACK_INTERVAL = 2.5
+var standard_attack_cooldown = 0.0
+var keyboard_attack_cooldown = 0.0
 var last_facing_left = false
 var is_attacking = false
 var is_attacking2 = false
 var is_hurt = false
 
-# --- NOWE ZMIENNE ---
 var is_invincible = false # Nieśmiertelność dla LLM
 var can_use_llm_item = true # Blokada spamowania kombinacji
 
@@ -45,6 +47,8 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if footstep_cooldown > 0.0: footstep_cooldown -= delta
+	if keyboard_attack_cooldown > 0.0: keyboard_attack_cooldown -= delta
+	if standard_attack_cooldown > 0.0: standard_attack_cooldown -= delta
 	if is_attacking or is_attacking2 or is_hurt:
 		if not is_on_floor():
 			velocity += get_gravity() * delta
@@ -87,23 +91,14 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, 60)
 
 	if Input.is_action_just_pressed("attack"):
-		#is_attacking = true
-		#AudioManager.play_sfx("sfx/punch")
-		#velocity.x = 0
-		#animated_sprite_2d.play("attack")
-		#animated_sprite_2d.position.y = original_sprite_position_y + 20
-		attack1()
+		if standard_attack_cooldown <= 0.0:
+			attack1()
+			standard_attack_cooldown = STANDARD_ATTACK_INTERVAL
 
 	if Input.is_action_just_pressed("attack2"):
-		attack2()
-		#is_attacking2 = true
-		#velocity.x = 0
-		#animated_sprite_2d.play("attack2")
-		#if last_facing_left:
-			#animated_sprite_2d.position.x = original_sprite_position_x - 105
-		#else:
-			#animated_sprite_2d.position.x = original_sprite_position_x + 105
-		#animated_sprite_2d.position.y = original_sprite_position_y + 2
+		if keyboard_attack_cooldown <= 0.0:
+			attack2()
+			keyboard_attack_cooldown = KEYBOARD_ATTACK_INTERVAL
 
 	if Input.is_action_just_pressed("hurt"):
 		take_damage(10.0) 
