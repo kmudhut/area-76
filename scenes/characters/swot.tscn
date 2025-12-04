@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://dgijdsl8cfnng"]
+[gd_scene load_steps=56 format=3 uid="uid://dgijdsl8cfnng"]
 
 [ext_resource type="Script" uid="uid://dn5pyowpb4j03" path="res://scripts/enemies/swot.gd" id="1_dabvj"]
 [ext_resource type="Texture2D" uid="uid://dgq7ey6h7y5hp" path="res://assets/characters/enemies/kujon_attack.png" id="1_f7pgh"]
@@ -93,14 +93,6 @@ region = Rect2(7480, 0, 374, 374)
 [sub_resource type="AtlasTexture" id="AtlasTexture_nk2cy"]
 atlas = ExtResource("3_fb7se")
 region = Rect2(0, 0, 374, 374)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_y7a38"]
-atlas = ExtResource("3_fb7se")
-region = Rect2(374, 0, 374, 374)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_a8vjm"]
-atlas = ExtResource("3_fb7se")
-region = Rect2(748, 0, 374, 374)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6l3m1"]
 atlas = ExtResource("3_fb7se")
@@ -277,12 +269,6 @@ animations = [{
 "texture": SubResource("AtlasTexture_nk2cy")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_y7a38")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_a8vjm")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_6l3m1")
 }, {
 "duration": 1.0,
@@ -299,7 +285,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"hurt",
-"speed": 8.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
