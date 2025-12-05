@@ -443,16 +443,16 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_bshof")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_7txem")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_5xluc")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_2h0ns")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_2qrog")
 }],
 "loop": false,
@@ -542,8 +542,10 @@ script = ExtResource("1_ujmii")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qvtp5")
-animation = &"starting_drone"
+animation = &"hurt"
 autoplay = "idle"
+frame = 7
+frame_progress = 1.0
 offset = Vector2(0, -7)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
