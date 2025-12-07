@@ -251,7 +251,9 @@ func throw_hat():
 
 	velocity.x = 0
 	animated_sprite_2d.play("distanceattack")
-	await animated_sprite_2d.animation_finished
+
+	# --- EARLY THROW (0.15s po rozpoczęciu animacji) ---
+	await get_tree().create_timer(0.35).timeout
 
 	var hat = hat_scene.instantiate()
 	get_tree().current_scene.add_child(hat)
@@ -261,5 +263,8 @@ func throw_hat():
 		hat.launch(global_position - offset, -1)
 	else:
 		hat.launch(global_position + offset, 1)
+
+	# --- POZWÓL DOKOŃCZYĆ ANIMACJĘ ---
+	await animated_sprite_2d.animation_finished
 
 	is_distance_attacking = false
