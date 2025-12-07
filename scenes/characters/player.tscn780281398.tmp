@@ -18,10 +18,10 @@
 [ext_resource type="Texture2D" uid="uid://cabuyqcrmxcvg" path="res://assets/characters/player/attack7.png" id="8_a2luo"]
 [ext_resource type="Texture2D" uid="uid://qnw66pt0uf2h" path="res://assets/characters/player/attack8.png" id="9_eir2k"]
 [ext_resource type="Texture2D" uid="uid://cekwvln23dcmu" path="res://assets/characters/player/attack9.png" id="10_inhyd"]
-[ext_resource type="Texture2D" uid="uid://dgun5pjeitu6w" path="res://assets/characters/player/da1.png" id="11_kmyvj"]
-[ext_resource type="Texture2D" uid="uid://c23a7mcijydeq" path="res://assets/characters/player/da3.png" id="12_wqk1x"]
-[ext_resource type="Texture2D" uid="uid://bcmokw16jwit4" path="res://assets/characters/player/da4.png" id="13_dm10o"]
-[ext_resource type="Texture2D" uid="uid://bu7to1qaw288v" path="res://assets/characters/player/da5.png" id="14_o6auj"]
+[ext_resource type="Texture2D" uid="uid://bd81mjq0lvm7q" path="res://assets/characters/player/da2.png" id="11_inhyd"]
+[ext_resource type="Texture2D" uid="uid://vorvg1u25x82" path="res://assets/characters/player/da3.png" id="12_wqk1x"]
+[ext_resource type="Texture2D" uid="uid://dhi6674gkalab" path="res://assets/characters/player/da4.png" id="13_dm10o"]
+[ext_resource type="Texture2D" uid="uid://cuxhc8rwr8la" path="res://assets/characters/player/da5.png" id="14_o6auj"]
 [ext_resource type="Script" uid="uid://ek7cmqfwbpwd" path="res://scripts/player/MotivationComponent.gd" id="19_3wg1y"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2l4js"]
@@ -60,21 +60,21 @@ region = Rect2(0, 0, 644, 550)
 atlas = ExtResource("10_inhyd")
 region = Rect2(0, 0, 644, 550)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_inhyd"]
-atlas = ExtResource("11_kmyvj")
-region = Rect2(0, 0, 615, 581)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_yhyq5"]
-atlas = ExtResource("12_wqk1x")
-region = Rect2(0, 0, 615, 581)
+atlas = ExtResource("11_inhyd")
+region = Rect2(0, 0, 700, 568)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5jukt"]
-atlas = ExtResource("13_dm10o")
-region = Rect2(0, 0, 615, 581)
+atlas = ExtResource("12_wqk1x")
+region = Rect2(0, 0, 700, 568)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vwwfy"]
+atlas = ExtResource("13_dm10o")
+region = Rect2(0, 0, 700, 568)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dg40j"]
 atlas = ExtResource("14_o6auj")
-region = Rect2(0, 0, 615, 578)
+region = Rect2(0, 0, 700, 565)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kmyvj"]
 atlas = ExtResource("3_eojnx")
@@ -149,9 +149,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_inhyd")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_yhyq5")
 }, {
 "duration": 1.0,
@@ -159,6 +156,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vwwfy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dg40j")
 }],
 "loop": true,
 "name": &"distanceattack",
