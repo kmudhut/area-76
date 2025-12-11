@@ -155,7 +155,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"attack2",
-"speed": 15.0
+"speed": 24.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -242,10 +242,9 @@ script = ExtResource("1_onrkg")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_onrkg")
-animation = &"distanceattack"
+animation = &"attack2"
 autoplay = "idle"
-frame = 3
-frame_progress = 0.5794794
+frame_progress = 0.15219255
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(4, 8)
