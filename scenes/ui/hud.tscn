@@ -18,7 +18,7 @@ border_color = Color(0, 0, 0, 1)
 font = ExtResource("4_136eg")
 font_size = 500
 
-[node name="Hud" type="CanvasLayer"]
+[node name="Hud" type="CanvasLayer" groups=["hud"]]
 script = ExtResource("1_8qguk")
 
 [node name="MotivationContainer" type="HBoxContainer" parent="."]
@@ -57,14 +57,29 @@ label_settings = SubResource("LabelSettings_oj5la")
 layout_mode = 2
 texture = ExtResource("4_gss2c")
 
-[node name="GoldenDrinkContainer" type="HBoxContainer" parent="."]
-offset_left = 1512.17
-offset_top = 13.0
-offset_right = 2399.17
-offset_bottom = 860.0
-scale = Vector2(0.1, 0.1)
+[node name="LLM_PowerUpContainer" type="HBoxContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 99.0
+offset_top = 7.0000005
+offset_right = 10099.0
+offset_bottom = 1632.095
+grow_horizontal = 2
+scale = Vector2(0.06, 0.06)
 
-[node name="GoldenDrinkIcon" type="TextureRect" parent="GoldenDrinkContainer"]
-visible = false
+[node name="LLM_Label" type="RichTextLabel" parent="LLM_PowerUpContainer"]
+custom_minimum_size = Vector2(7800, 0)
+layout_direction = 3
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 282
+bbcode_enabled = true
+fit_content = true
+
+[node name="LLM_PowerUpIcon" type="TextureRect" parent="LLM_PowerUpContainer"]
 layout_mode = 2
 texture = ExtResource("5_136eg")
+expand_mode = 2
+stretch_mode = 4

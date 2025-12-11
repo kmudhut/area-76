@@ -90,6 +90,9 @@ func apply_effect(player):
 			
 		ItemType.LLM_ITEM:
 			if gs: gs.add_llm_charge()
+			var hud = get_tree().get_first_node_in_group("hud")
+			if hud and hud.has_method("show_llm_powerup"):
+				hud.show_llm_powerup(true)
 			print("Podniesiono Wiedzę LLM!")
 		
 		ItemType.ECTS:

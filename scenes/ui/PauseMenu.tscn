@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=3 uid="uid://dy0o7r5t4pq6j"]
 
 [ext_resource type="Script" uid="uid://bdri11kikmsda" path="res://scripts/ui/pause_menu.gd" id="1_vb6pq"]
-[ext_resource type="Texture2D" uid="uid://ddtpchtbitn1f" path="res://assets/ui/input_prompts/Xbox Series/Double/xbox_button_a.png" id="2_5twic"]
+[ext_resource type="Texture2D" uid="uid://ddtpchtbitn1f" path="res://assets/input_prompts/Xbox Series/Double/xbox_button_a.png" id="2_5twic"]
 [ext_resource type="Shader" uid="uid://21gm5w7lujew" path="res://scenes/ui/PauseMenu.gdshader" id="2_v5pi0"]
-[ext_resource type="Texture2D" uid="uid://j5laysymaufe" path="res://assets/ui/input_prompts/Xbox Series/Double/xbox_button_y.png" id="3_v5pi0"]
-[ext_resource type="Texture2D" uid="uid://dir5lmxq2wwdj" path="res://assets/ui/input_prompts/Xbox Series/Double/xbox_button_b.png" id="4_cctyv"]
+[ext_resource type="Texture2D" uid="uid://j5laysymaufe" path="res://assets/input_prompts/Xbox Series/Double/xbox_button_y.png" id="3_v5pi0"]
+[ext_resource type="Texture2D" uid="uid://dir5lmxq2wwdj" path="res://assets/input_prompts/Xbox Series/Double/xbox_button_b.png" id="4_cctyv"]
 [ext_resource type="PackedScene" uid="uid://1edkr0dqnhio" path="res://scenes/ui/SettingsPauseMenu.tscn" id="6_cctyv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cctyv"]

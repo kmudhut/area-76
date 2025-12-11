@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://ploi3kvbt5ap"]
+
+[ext_resource type="Script" uid="uid://owmlqhqebvsh" path="res://scripts/items/tutorial_text.gd" id="1_u5yxp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_41yw4"]
+radius = 188.95767
+
+[node name="TutorialText" type="Area2D"]
+script = ExtResource("1_u5yxp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_41yw4")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = -120.0
+offset_top = -208.0
+offset_right = 120.99933
+offset_bottom = -168.0
+mouse_filter = 2
+bbcode_enabled = true
+fit_content = true

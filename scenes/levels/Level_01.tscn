@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://d1dhd5njv8hw2"]
+[gd_scene load_steps=68 format=3 uid="uid://d1dhd5njv8hw2"]
 
 [ext_resource type="Script" uid="uid://dl8pubuxmlxpf" path="res://scripts/levels/Level_01.gd" id="1_lswbx"]
 [ext_resource type="Texture2D" uid="uid://b7ar0mlw21b1a" path="res://assets/environment/backgrounds/level1/00.png" id="1_mhiu8"]
@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://cha8mom7nf2ty" path="res://scenes/items/EnergyDrink.tscn" id="27_uujh0"]
 [ext_resource type="PackedScene" uid="uid://hbog7licpit8" path="res://scenes/items/GoldenDrink.tscn" id="28_t6bfo"]
 [ext_resource type="PackedScene" uid="uid://df8r8v0ywhms5" path="res://scenes/items/LLM_PowerUp.tscn" id="28_ys2jg"]
+[ext_resource type="PackedScene" uid="uid://ploi3kvbt5ap" path="res://assets/items/tutorial/TutorialText.tscn" id="29_t6bfo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ebb2h"]
 texture = ExtResource("12_d86x1")
@@ -6509,9 +6510,6 @@ libraries = {
 }
 autoplay = "move"
 
-[node name="EctsCoin" parent="." instance=ExtResource("22_qcx6o")]
-position = Vector2(792, 603)
-
 [node name="EctsCoin2" parent="." instance=ExtResource("22_qcx6o")]
 position = Vector2(663, 185)
 
@@ -6667,14 +6665,40 @@ scale = Vector2(0.8, 0.8)
 [node name="EctsCoin13" parent="." instance=ExtResource("22_qcx6o")]
 position = Vector2(10232, 105)
 
-[node name="GoldenDrink" parent="." instance=ExtResource("28_t6bfo")]
-position = Vector2(4703, 768)
+[node name="TutorialText" parent="." instance=ExtResource("29_t6bfo")]
+position = Vector2(122, 889)
+text = "Pierwszy rok? Sala wykładowa jest w tamtą stronę ➡️➡️➡️
+Użyj {left} i {right}."
 
-[node name="GoldenDrink2" parent="." instance=ExtResource("28_t6bfo")]
-position = Vector2(451.99997, 1021.99994)
+[node name="TutorialText2" parent="." instance=ExtResource("29_t6bfo")]
+position = Vector2(789, 974)
+text = "Wysokie progi na tej uczelni. Wciśnij {jump}, żeby dosięgnąć marzeń"
+
+[node name="TutorialText3" parent="." instance=ExtResource("29_t6bfo")]
+position = Vector2(1297, 680)
+text = "To nie Bitcoin, to coś cenniejszego. To ECTS. Zbieraj wszystkie, bo warunek kosztuje."
+detection_radius = 200.0
+
+[node name="TutorialText4" parent="." instance=ExtResource("29_t6bfo")]
+position = Vector2(3878, 988)
+text = "Niebieska Moc. W składzie sama chemia i miłość do nauki."
 
 [node name="EnergyDrink3" parent="." instance=ExtResource("27_uujh0")]
-position = Vector2(522, 1023)
+position = Vector2(3925, 1018)
 
-[node name="LLM_PowerUp2" parent="." instance=ExtResource("28_ys2jg")]
-position = Vector2(656.99994, 1026.9999)
+[node name="GoldenDrink" parent="." instance=ExtResource("28_t6bfo")]
+position = Vector2(6099, 1020)
+
+[node name="TutorialText5" parent="." instance=ExtResource("29_t6bfo")]
+position = Vector2(6030, 895)
+text = "To bezalkoholowe! Chyba... Daje kopa i leczy duszę. Bierz, póki zimne."
+
+[node name="TutorialText6" parent="." instance=ExtResource("29_t6bfo")]
+position = Vector2(2778, 948)
+text = "Student ci dokucza? Spróbuj rozwiązać problem wciskając {attack}"
+detection_radius = 250.0
+
+[node name="TutorialText7" parent="." instance=ExtResource("29_t6bfo")]
+position = Vector2(4261, -338)
+text = "Zakazany owoc dziekanatu. Wygląda jak darmowe zaliczenie, ale smakuje jak ryzyko plagiatu. Bierzesz?"
+one_shot = false

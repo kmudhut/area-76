@@ -132,6 +132,9 @@ func use_llm_powerup():
 		apply_speed_boost(duration, 1.4)
 		AudioManager.play_sfx("sfx/powerup")
 		play_visual_effect(1, duration)
+		var hud = get_tree().get_first_node_in_group("hud")
+		if hud:
+			hud.show_llm_powerup(false)
 		await get_tree().create_timer(duration).timeout
 		is_invincible = false
 
