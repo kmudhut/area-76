@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var sprite = $AnimatedSprite2D
 @onready var attack_area = $AnimatedSprite2D/Area2D
-@onready var timer = $Timer
+#@onready var timer = $Timer
 
 @export var time_to_stay_out: float = 1
 @export var time_to_stay_in: float = 2.0 

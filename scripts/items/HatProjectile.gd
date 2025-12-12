@@ -1,36 +1,42 @@
-extends Area2D
+extends CharacterBody2D
 
 @export var speed: float = 700.0
-@export var gravity_strength: float = 700.0
-@export var lifetime: float = 3.0
+@export var gravity_strength: float = 500.0
 @export var damage: int = 30
 
-var velocity: Vector2 = Vector2.ZERO
-var direction: int = 1
-
-@onready var sprite: Sprite2D = $Sprite2D  # upewnij się, że Sprite2D istnieje w scenie
-
-func launch(start_pos: Vector2, dir: int) -> void:
-	global_position = start_pos
-	direction = dir
-	velocity = Vector2(speed * direction, -250)
-	set_physics_process(true)
-	sprite.visible = true  # upewniamy się, że sprite jest widoczny
+@onready var sprite: Sprite2D = $Sprite2D
 
 func _ready() -> void:
 	set_physics_process(false)
-	sprite.visible = false  # początkowo niewidoczna
-	if lifetime > 0:
-		var t = get_tree().create_timer(lifetime)
-		t.timeout.connect(queue_free)
+	sprite.visible = false
+	
+func launch(start_pos: Vector2, direction: int) -> void:
+	global_position = start_pos
+	velocity = Vector2(speed * direction, -250)
+	
+	if direction == -1:
+		sprite.flip_h = true
+	else:
+		sprite.flip_h = false
+	set_physics_process(true)
+	sprite.visible = true
 
 func _physics_process(delta: float) -> void:
 	velocity.y += gravity_strength * delta
-	global_position += velocity * delta
-	sprite.position = Vector2.ZERO  # sprite zawsze w centrum Area2D
+	move_and_slide()
 
-	for body in get_overlapping_bodies():
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var body = collision.get_collider()
+		
+		if body.is_in_group("player"):
+			continue
+
 		if body.is_in_group("enemies") and body.has_method("take_damage"):
 			body.take_damage(damage)
 			queue_free()
 			return
+		
+		else:
+			var t = get_tree().create_timer(1.0)
+			t.timeout.connect(queue_free)

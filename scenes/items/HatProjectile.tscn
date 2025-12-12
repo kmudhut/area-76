@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1o108"]
 size = Vector2(86, 50)
 
-[node name="Area2D" type="Area2D"]
+[node name="Area2D" type="CharacterBody2D"]
 script = ExtResource("1_wdvpm")
 metadata/_edit_group_ = true
 

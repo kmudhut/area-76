@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cf3togy7vwmxc"]
+
+[ext_resource type="Texture2D" uid="uid://baurfd27oh41n" path="res://assets/characters/enemies/mug.png" id="1_ff8yq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ga307"]
+size = Vector2(757, 1206)
+
+[node name="Mug" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ff8yq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.5, -5)
+shape = SubResource("RectangleShape2D_ga307")

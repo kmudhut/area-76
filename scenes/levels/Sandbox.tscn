@@ -17,9 +17,9 @@
 [ext_resource type="Texture2D" uid="uid://c0naha1d3rmev" path="res://assets/environment/backgrounds/level1/70.png" id="10_0f20a"]
 [ext_resource type="Texture2D" uid="uid://c8mtomiudc1yn" path="res://assets/environment/backgrounds/level1/80.png" id="11_ys2jg"]
 [ext_resource type="Texture2D" uid="uid://7uoj57nc4tni" path="res://assets/environment/backgrounds/level1/90.png" id="12_t6bfo"]
-[ext_resource type="PackedScene" uid="uid://df8r8v0ywhms5" path="res://scenes/items/GoldenDrink.tscn" id="16_x6f5j"]
 [ext_resource type="PackedScene" uid="uid://cha8mom7nf2ty" path="res://scenes/items/EnergyDrink.tscn" id="19_uj5uh"]
 [ext_resource type="PackedScene" uid="uid://df8r8v0ywhms5" path="res://scenes/items/LLM_PowerUp.tscn" id="20_tj285"]
+[ext_resource type="PackedScene" uid="uid://cf3togy7vwmxc" path="res://scenes/characters/mug.tscn" id="21_1h6b3"]
 [ext_resource type="PackedScene" uid="uid://o1bopq7wr7h" path="res://scenes/characters/spikes.tscn" id="22_nct51"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_10xc4"]
@@ -264,7 +264,7 @@ position = Vector2(208, 640)
 [node name="EnergyDrink" parent="." instance=ExtResource("19_uj5uh")]
 position = Vector2(526, 920)
 
-[node name="GoldenDrink" parent="." instance=ExtResource("16_x6f5j")]
+[node name="GoldenDrink" parent="." instance=ExtResource("20_tj285")]
 position = Vector2(997, 924)
 
 [node name="LLM_PowerUp" parent="." instance=ExtResource("20_tj285")]
@@ -277,3 +277,7 @@ position = Vector2(1777, 255)
 [node name="Spikes" parent="." instance=ExtResource("22_nct51")]
 position = Vector2(360.00003, 944)
 scale = Vector2(0.1, 0.1)
+
+[node name="Mug" parent="." instance=ExtResource("21_1h6b3")]
+position = Vector2(511, 570)
+scale = Vector2(0.05, 0.05)
