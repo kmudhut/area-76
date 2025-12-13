@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://lv1b1mek0uv7"]
+[gd_scene load_steps=42 format=3 uid="uid://lv1b1mek0uv7"]
 
 [ext_resource type="Texture2D" uid="uid://dwp24cq0unv2" path="res://assets/characters/enemies/student_1_sprite.png" id="1_0afnl"]
 [ext_resource type="Script" uid="uid://cm8isiypi87ja" path="res://scripts/enemies/student_enemy_1.gd" id="1_gmc73"]
@@ -95,47 +95,43 @@ region = Rect2(12096, 0, 576, 720)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_71p02"]
 atlas = ExtResource("3_e3ui8")
-region = Rect2(0, 0, 1280, 720)
+region = Rect2(0, 0, 1280, 750)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c2xgw"]
 atlas = ExtResource("3_e3ui8")
-region = Rect2(1280, 0, 1280, 720)
+region = Rect2(1280, 0, 1280, 750)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4km3t"]
 atlas = ExtResource("3_e3ui8")
-region = Rect2(2560, 0, 1280, 720)
+region = Rect2(2560, 0, 1280, 750)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_noiu6"]
 atlas = ExtResource("3_e3ui8")
-region = Rect2(3840, 0, 1280, 720)
+region = Rect2(3840, 0, 1280, 750)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e7u8l"]
 atlas = ExtResource("3_e3ui8")
-region = Rect2(5120, 0, 1280, 720)
+region = Rect2(5120, 0, 1280, 750)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rtt5e"]
 atlas = ExtResource("3_e3ui8")
-region = Rect2(6400, 0, 1280, 720)
+region = Rect2(6400, 0, 1280, 750)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_er0k2"]
 atlas = ExtResource("3_e3ui8")
-region = Rect2(7680, 0, 1280, 720)
+region = Rect2(7680, 0, 1280, 750)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ew3jk"]
 atlas = ExtResource("3_e3ui8")
-region = Rect2(8960, 0, 1280, 720)
+region = Rect2(8960, 0, 1280, 750)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_73fp1"]
 atlas = ExtResource("3_e3ui8")
-region = Rect2(10240, 0, 1280, 720)
+region = Rect2(10240, 0, 1280, 750)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_48q3q"]
 atlas = ExtResource("3_e3ui8")
-region = Rect2(11520, 0, 1280, 720)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_y2m4l"]
-atlas = ExtResource("3_e3ui8")
-region = Rect2(12800, 0, 1280, 720)
+region = Rect2(11520, 0, 1280, 750)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wtwdk"]
 atlas = ExtResource("2_gmc73")
@@ -248,9 +244,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_48q3q")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_y2m4l")
 }],
 "loop": false,
 "name": &"hurt",
@@ -281,7 +274,7 @@ script = ExtResource("1_gmc73")
 sprite_frames = SubResource("SpriteFrames_71p02")
 animation = &"hurt"
 autoplay = "idle"
-frame = 10
+frame = 9
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
