@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://cf3togy7vwmxc"]
+[gd_scene load_steps=4 format=3 uid="uid://cf3togy7vwmxc"]
 
 [ext_resource type="Texture2D" uid="uid://baurfd27oh41n" path="res://assets/characters/enemies/mug.png" id="1_ff8yq"]
+[ext_resource type="Script" uid="uid://euycnawxaihs" path="res://scripts/enemies/mug.gd" id="1_ga307"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ga307"]
 size = Vector2(757, 1206)
 
 [node name="Mug" type="CharacterBody2D"]
+script = ExtResource("1_ga307")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_ff8yq")

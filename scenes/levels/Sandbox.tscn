@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://cjkwtlacvwsoe" path="res://assets/environment/backgrounds/level1/30.png" id="6_0rjyr"]
 [ext_resource type="Texture2D" uid="uid://7kn0iaem3d0d" path="res://assets/environment/tilesets/terrain-tilemap.png" id="6_5mpa8"]
 [ext_resource type="Texture2D" uid="uid://cuq332phyate8" path="res://assets/environment/backgrounds/level1/40.png" id="7_0k37p"]
-[ext_resource type="PackedScene" uid="uid://dy0o7r5t4pq6j" path="res://scenes/ui/PauseMenu.tscn" id="7_10xc4"]
 [ext_resource type="Texture2D" uid="uid://bc0lf4tfx4c6e" path="res://assets/environment/backgrounds/level1/50.png" id="8_4h14u"]
 [ext_resource type="Texture2D" uid="uid://ddnvt6b3pj6aa" path="res://assets/environment/backgrounds/level1/60.png" id="9_bbars"]
 [ext_resource type="PackedScene" uid="uid://c4nqcrp2hf18c" path="res://scenes/characters/UAV_operator.tscn" id="9_c83vx"]
@@ -20,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://cha8mom7nf2ty" path="res://scenes/items/EnergyDrink.tscn" id="19_uj5uh"]
 [ext_resource type="PackedScene" uid="uid://df8r8v0ywhms5" path="res://scenes/items/LLM_PowerUp.tscn" id="20_tj285"]
 [ext_resource type="PackedScene" uid="uid://cf3togy7vwmxc" path="res://scenes/characters/mug.tscn" id="21_1h6b3"]
+[ext_resource type="PackedScene" uid="uid://lv1b1mek0uv7" path="res://scenes/characters/StudentEnemy_1.tscn" id="22_j0pak"]
 [ext_resource type="PackedScene" uid="uid://o1bopq7wr7h" path="res://scenes/characters/spikes.tscn" id="22_nct51"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_10xc4"]
@@ -186,7 +186,7 @@ texture = ExtResource("6_5mpa8")
 physics_layer_0/collision_layer = 1
 sources/2 = SubResource("TileSetAtlasSource_10xc4")
 
-[node name="Level_01" type="Node2D"]
+[node name="Level_01" type="Node2D" groups=["gameplayScene"]]
 process_mode = 1
 script = ExtResource("1_rmf85")
 
@@ -259,7 +259,7 @@ layer_0/tile_data = PackedInt32Array(1572864, 393218, 0, 1638400, 393218, 1, 170
 position = Vector2(1632, 736)
 
 [node name="Player" parent="." instance=ExtResource("2_80q6e")]
-position = Vector2(208, 640)
+position = Vector2(1406, 788)
 
 [node name="EnergyDrink" parent="." instance=ExtResource("19_uj5uh")]
 position = Vector2(526, 920)
@@ -270,14 +270,14 @@ position = Vector2(997, 924)
 [node name="LLM_PowerUp" parent="." instance=ExtResource("20_tj285")]
 position = Vector2(1777, 255)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("7_10xc4")]
-
 [node name="Spikes" parent="." instance=ExtResource("22_nct51")]
 position = Vector2(360.00003, 944)
 scale = Vector2(0.1, 0.1)
 
 [node name="Mug" parent="." instance=ExtResource("21_1h6b3")]
-position = Vector2(511, 570)
+position = Vector2(115.00003, 407.00003)
 scale = Vector2(0.05, 0.05)
+
+[node name="StudentEnemy1" parent="." instance=ExtResource("22_j0pak")]
+position = Vector2(835, 727)
+scale = Vector2(0.5, 0.5)
