@@ -117,8 +117,7 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_dy7ct")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_jix8l")
 text = "NOWA GRA"
 
-[node name="ContinueButton" type="Button" parent="PanelContainer/OptionsContainer/VBoxContainer"]
-unique_name_in_owner = true
+[node name="ContinueGameButton" type="Button" parent="PanelContainer/OptionsContainer/VBoxContainer"]
 clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 4
@@ -185,6 +184,6 @@ texture = ExtResource("4_7mi0g")
 stretch_mode = 3
 
 [connection signal="pressed" from="PanelContainer/OptionsContainer/VBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
-[connection signal="pressed" from="PanelContainer/OptionsContainer/VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="PanelContainer/OptionsContainer/VBoxContainer/ContinueGameButton" to="." method="_on_continue_game_button_pressed"]
 [connection signal="pressed" from="PanelContainer/OptionsContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="PanelContainer/OptionsContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

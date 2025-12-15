@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://d1dhd5njv8hw2"]
+[gd_scene load_steps=69 format=3 uid="uid://pxkhy2qst1fo"]
 
 [ext_resource type="Script" uid="uid://dl8pubuxmlxpf" path="res://scripts/levels/Level_01.gd" id="1_lswbx"]
 [ext_resource type="Texture2D" uid="uid://b7ar0mlw21b1a" path="res://assets/environment/backgrounds/level1/00.png" id="1_mhiu8"]
@@ -29,6 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://hbog7licpit8" path="res://scenes/items/GoldenDrink.tscn" id="28_t6bfo"]
 [ext_resource type="PackedScene" uid="uid://df8r8v0ywhms5" path="res://scenes/items/LLM_PowerUp.tscn" id="28_ys2jg"]
 [ext_resource type="PackedScene" uid="uid://ploi3kvbt5ap" path="res://assets/items/tutorial/TutorialText.tscn" id="29_t6bfo"]
+[ext_resource type="PackedScene" uid="uid://ddogqb8nbcqqb" path="res://scenes/checkpoint.tscn" id="30_e5bmj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t6bfo"]
 texture = ExtResource("12_d86x1")
@@ -6702,3 +6703,9 @@ detection_radius = 250.0
 position = Vector2(4261, -338)
 text = "Zakazany owoc dziekanatu. Wygląda jak darmowe zaliczenie, ale smakuje jak ryzyko plagiatu. Bierzesz?"
 one_shot = false
+
+[node name="Checkpoint" parent="." instance=ExtResource("30_e5bmj")]
+position = Vector2(162, 954)
+
+[node name="Checkpoint2" parent="." instance=ExtResource("30_e5bmj")]
+position = Vector2(1781, 968)

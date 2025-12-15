@@ -32,10 +32,12 @@ var rainbow_material: ShaderMaterial
 var was_attacking_before_hurt: bool = false
 
 func _ready() -> void:
+	# --- TWOJA ORYGINALNA INICJALIZACJA ---
 	current_speed = BASE_SPEED
 	original_sprite_position_y = animated_sprite_2d.position.y
 	original_sprite_position_x = animated_sprite_2d.position.x
 
+	# Naprawa pętli animacji (to, co robiliśmy wcześniej)
 	for anim in ["attack", "attack2", "hurt", "distanceattack"]:
 		if animated_sprite_2d.sprite_frames.has_animation(anim):
 			animated_sprite_2d.sprite_frames.set_animation_loop(anim, false)
@@ -47,6 +49,27 @@ func _ready() -> void:
 		motivation_component.motivation_depleted.connect(_on_death)
 	
 	_setup_visual_effects_shader()
+	# --- NOWE: OBSŁUGA CHECKPOINTU ---
+	if GameState.last_checkpoint_position != Vector2.ZERO:
+		
+		var level_name = ""
+		
+		if owner != null:
+			# Pobieramy nazwę z pliku
+			level_name = owner.scene_file_path.get_file().get_basename()
+		else:
+			level_name = get_parent().name
+					
+		print("DEBUG GRACZ: Jestem na mapie: ", level_name, " | Zapis jest z mapy: ", GameState.current_level_name)
+				
+				# ZMIANA TUTAJ: Porównujemy obie nazwy zamienione na małe litery (.to_lower())
+				# To sprawi, że "Level_01" i "level_01" będą traktowane jako to samo!
+		if level_name.to_lower() == GameState.current_level_name.to_lower():
+			print("SUKCES! Przenoszę gracza na checkpoint.")
+			global_position = GameState.last_checkpoint_position
+		else:
+			print("Gracz: Nazwy map się różnią. Ignoruję.")
+
 
 func _physics_process(delta: float) -> void:
 	# Odliczanie cooldownów
