@@ -54,7 +54,6 @@ func attack_sequence():
 				return
 			await $AnimatedSprite2D.frame_changed
 		spawn_mug()
-		
 		await $AnimatedSprite2D.animation_finished
 		$AnimatedSprite2D.play("idle")
 		

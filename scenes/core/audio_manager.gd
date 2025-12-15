@@ -20,7 +20,6 @@ func _ready():
 	preload_all_sounds()
 	apply_sound_settings(UserPreferences.get_settings_by_category("audio"))
 	
-	play_music("music/no-place-to-go-216744")
 
 func apply_sound_settings(settings: Dictionary) -> bool:
 	var main_volume = settings["main_volume"]

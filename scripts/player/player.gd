@@ -229,6 +229,7 @@ func attack1():
 	is_attacking = true
 	$AttackArea/CollisionShape2D.disabled = false
 	$AttackArea/CollisionShape2D2.disabled = true
+	AudioManager.play_sfx("sfx/punch")
 	velocity.x = 0
 	animated_sprite_2d.play("attack")
 	animated_sprite_2d.position.y = original_sprite_position_y + 20
@@ -240,6 +241,7 @@ func attack2():
 	is_attacking2 = true
 	$AttackArea/CollisionShape2D.disabled = true
 	$AttackArea/CollisionShape2D2.disabled = false
+	AudioManager.play_sfx("sfx/punch")
 	velocity.x = 0
 	animated_sprite_2d.play("attack2")
 	animated_sprite_2d.position = Vector2(original_sprite_position_x, original_sprite_position_y)
