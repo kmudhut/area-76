@@ -22,7 +22,7 @@ var llm_charges: int = 0
 var current_level_name: String = "level_01" # Domyślny startowy poziom
 var last_checkpoint_position: Vector2 = Vector2.ZERO
 var is_boss_accessible: bool = false
-var collected_items: Array = [] # <-- TUTAJ TRZYMAMY ID ZEBRANYCH RZECZY
+var collected_items: Array = [] 
 
 enum Difficulty { EASY, NORMAL, HARD }
 var current_difficulty: Difficulty = Difficulty.NORMAL
@@ -155,3 +155,11 @@ func reset_new_game():
 	# Reset UI
 	set_motivation(motivation, max_motivation)
 	set_ects(ects)
+
+
+func restart_level_data():
+	last_checkpoint_position = Vector2.ZERO
+	ects = 0
+	set_ects(0) 
+	motivation = max_motivation
+	set_motivation(motivation, max_motivation)

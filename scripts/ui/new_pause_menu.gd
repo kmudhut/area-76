@@ -43,5 +43,6 @@ func _on_settings_button_pressed() -> void:
 func _on_restart_level_button_pressed() -> void:
 	AudioManager.play_ui_sound("ui/click")
 	toggle_pause_game()
-	GameState.ects = 0
+	GameState.restart_level_data()
 	SceneManager.goto_lvl("Level_01.tscn")
+	

@@ -32,6 +32,11 @@ func _physics_process(delta: float) -> void:
 		
 	if footstep_cooldown > 0.0: 
 		footstep_cooldown -= delta
+	
+	if not player:
+		var players = get_tree().get_nodes_in_group("player")
+		if players.size() > 0:
+			player = players[0]
 		
 	if player:
 		if $VisibleOnScreenNotifier2D.is_on_screen():
