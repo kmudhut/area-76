@@ -6708,4 +6708,7 @@ one_shot = false
 position = Vector2(162, 954)
 
 [node name="Checkpoint2" parent="." instance=ExtResource("30_e5bmj")]
-position = Vector2(1781, 968)
+position = Vector2(3284, 802)
+
+[node name="Checkpoint3" parent="." instance=ExtResource("30_e5bmj")]
+position = Vector2(8521, 634)
