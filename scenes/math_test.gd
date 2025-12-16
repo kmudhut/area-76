@@ -4,14 +4,18 @@ extends CenterContainer
 var player : CharacterBody2D
 var answers = {
 		"math1.png": "10",
-		"math2": ["sword", "shield", "map"],
-		"math3": "Castellion",
-		"math4": 67
+		"math2.png": "8",
 	}
 
 func _ready() -> void:
 	get_parent().get_node("Boss1").process_mode = Node.PROCESS_MODE_DISABLED
 	get_parent().get_node("Player").process_mode = Node.PROCESS_MODE_DISABLED
+	var exercise = load("res://assets/tests/math%s.png" % randi_range(1, 2))
+	if exercise:
+		exercise_texture_rect.texture = exercise
+	else:
+		print("Nie znaleziono pliku z teksturą!")
+		
 	var players = get_tree().get_nodes_in_group("player")
 	if players.size() > 0:
 		player = players[0]
