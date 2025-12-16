@@ -1,0 +1,146 @@
+[gd_scene load_steps=10 format=3 uid="uid://b0k5uwsk08t5f"]
+
+[ext_resource type="Script" uid="uid://63b4rklosqu2" path="res://scenes/math_test.gd" id="1_4khcd"]
+[ext_resource type="Texture2D" uid="uid://dgj1bs1x5t6ee" path="res://assets/tests/math1.png" id="1_l75jm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ha5ti"]
+content_margin_left = 70.0
+content_margin_top = 5.0
+content_margin_right = 10.0
+content_margin_bottom = 5.0
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l75jm"]
+content_margin_left = 10.0
+content_margin_top = 5.0
+content_margin_right = 10.0
+content_margin_bottom = 5.0
+bg_color = Color(0.8776157, 0.8776158, 0.8776157, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.24115604, 0.24115604, 0.24115604, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ha5ti"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4khcd"]
+content_margin_left = 15.0
+content_margin_top = 10.0
+content_margin_right = 15.0
+content_margin_bottom = 10.0
+bg_color = Color(0.41981313, 0.41981313, 0.4198131, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ljxc8"]
+bg_color = Color(0.34117648, 0.34117648, 0.34117648, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_abqdg"]
+bg_color = Color(0.38039216, 0.38039216, 0.38039216, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l75jm"]
+
+[node name="TestForm" type="CenterContainer"]
+offset_right = 1921.0
+offset_bottom = 1080.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_4khcd")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(420, 600)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ha5ti")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -210.0
+offset_top = -299.0
+offset_right = 210.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleMargin" type="MarginContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/TitleMargin"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+text = "KOLOKWIUM PANA"
+horizontal_alignment = 1
+
+[node name="MarginContainer4" type="MarginContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+
+[node name="TextureRect" type="TextureRect" parent="Panel/VBoxContainer/MarginContainer4"]
+clip_contents = true
+custom_minimum_size = Vector2(8, 189)
+layout_mode = 2
+texture = ExtResource("1_l75jm")
+expand_mode = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 46
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 18
+text = "Podaj rozwiązanie:"
+horizontal_alignment = 1
+
+[node name="MarginContainer3" type="MarginContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_bottom = 35
+
+[node name="UserAnswer" type="LineEdit" parent="Panel/VBoxContainer/MarginContainer3"]
+custom_minimum_size = Vector2(135, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/caret_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_l75jm")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ha5ti")
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_4khcd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ljxc8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_abqdg")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_l75jm")
+text = "Sprawdź wynik"
+
+[connection signal="pressed" from="Panel/VBoxContainer/Button" to="." method="_on_button_pressed"]

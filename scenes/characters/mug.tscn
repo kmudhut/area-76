@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://euycnawxaihs" path="res://scripts/enemies/mug.gd" id="1_ga307"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ga307"]
-size = Vector2(757, 1206)
+size = Vector2(316, 205)
 
 [node name="Mug" type="CharacterBody2D"]
 script = ExtResource("1_ga307")

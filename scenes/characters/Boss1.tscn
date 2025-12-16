@@ -548,6 +548,8 @@ script = ExtResource("1_qrykl")
 sprite_frames = SubResource("SpriteFrames_p74go")
 animation = &"special_attack"
 autoplay = "idle"
+frame = 12
+frame_progress = 1.0
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -555,7 +557,7 @@ position = Vector2(5.5, 31.25)
 shape = SubResource("RectangleShape2D_8osd6")
 
 [node name="TestSpawnPoint" type="Node2D" parent="."]
-position = Vector2(-222, -143)
+position = Vector2(-200, -130)
 
 [node name="AttackArea" type="Area2D" parent="."]
 

@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-const MugScene = preload("res://scenes/characters/mug.tscn")
-var mug_spawned := false
+const TestScene = preload("res://scenes/characters/Test.tscn")
+var test_spawned := false
 var health_points = 1000
 
 var attack_cooldown_time := 1.5 
@@ -13,7 +13,7 @@ var player_in_range: bool = false
 var is_attacking: bool = false 
 var is_hurt := false
 var is_dying := false
-var mug
+var test
 var player : CharacterBody2D
 
 var hurt_interrupt_id: int = 0 
@@ -68,7 +68,7 @@ func perform_special_attack():
 		if player_in_range:
 			return 
 		await get_tree().process_frame
-	spawn_mug()
+	spawn_test()
 	await anim.animation_finished
 	
 	if anim.animation != "special_attack":
@@ -97,13 +97,13 @@ func perform_attack():
 	
 	current_cooldown = attack_cooldown_time
 
-func spawn_mug():
-	mug = MugScene.instantiate()
-	mug.scale = Vector2(0.04, 0.04)
-	mug.global_position = $TestSpawnPoint.global_position
-	mug.direction = direction
-	self.get_parent().add_child(mug)
-	mug_spawned = true
+func spawn_test():
+	test = TestScene.instantiate()
+	test.scale = Vector2(0.175, 0.175)
+	test.global_position = $TestSpawnPoint.global_position
+	test.direction = direction
+	self.get_parent().add_child(test)
+	test_spawned = true
 
 func _on_attacking_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
