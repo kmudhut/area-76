@@ -44,5 +44,6 @@ func play_hurt_effects():
 	
 
 func _die():
-	drone.fly_away()
+	if(drone):
+		drone.fly_away()
 	queue_free()
