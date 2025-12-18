@@ -86,6 +86,7 @@ func perform_attack():
 		if anim.animation != "attack":
 			return
 		if anim.frame >= 6 and anim.frame <= 11 and not damage_dealt:
+			print(player)
 			if attack_area.overlaps_body(player):
 				if player.has_method("take_damage"):
 					AudioManager.play_sfx("sfx/book_hit")
