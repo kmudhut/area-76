@@ -57,7 +57,7 @@ label_settings = SubResource("LabelSettings_oj5la")
 layout_mode = 2
 texture = ExtResource("4_gss2c")
 
-[node name="LLM_PowerUpContainer" type="HBoxContainer" parent="."]
+[node name="LLM_PowerUpContainer" type="HBoxContainer" parent="." groups=["hud"]]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5

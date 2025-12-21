@@ -1,0 +1,117 @@
+[gd_scene load_steps=13 format=3 uid="uid://bplpp6dkuvo6q"]
+
+[ext_resource type="Script" uid="uid://c6qc1kqdcxas" path="res://scripts/ui/boss_intro_ui.gd" id="1_ngv26"]
+[ext_resource type="FontFile" uid="uid://c1v7ay0fevib3" path="res://assets/ui/fonts/pixelsix10.ttf" id="2_evokb"]
+[ext_resource type="FontFile" uid="uid://dm3domdo1gscu" path="res://assets/ui/fonts/pixelsix14.ttf" id="3_puj0h"]
+[ext_resource type="FontFile" uid="uid://da4ww4swf8ctb" path="res://assets/ui/fonts/Tiny5-Regular.ttf" id="4_mhn0o"]
+[ext_resource type="FontFile" uid="uid://cthypqg6wjhgu" path="res://assets/ui/fonts/pixelsix00.ttf" id="5_j80aw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qr2s2"]
+bg_color = Color(0.7079665, 0.7079665, 0.7079664, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2xa8t"]
+line_spacing = 6.0
+font_size = 76
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spevf"]
+bg_color = Color(0.25882354, 0.24705882, 0.36862746, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_eoee0"]
+font = ExtResource("2_evokb")
+font_size = 65
+
+[sub_resource type="LabelSettings" id="LabelSettings_1fgw2"]
+font = ExtResource("3_puj0h")
+font_size = 61
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_bphdr"]
+font = ExtResource("4_mhn0o")
+font_size = 56
+font_color = Color(0.23753911, 0.23753914, 0.23753911, 1)
+shadow_color = Color(0, 0, 0, 0.09019608)
+stacked_outline_count = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_1i8n8"]
+font = ExtResource("5_j80aw")
+font_size = 34
+
+[node name="BossIntroUI" type="CanvasLayer"]
+script = ExtResource("1_ngv26")
+
+[node name="BackgroundDim" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WindowPanel" type="Panel" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="GrayHeader" type="Panel" parent="WindowPanel"]
+layout_mode = 0
+offset_right = 357.0
+offset_bottom = 1083.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qr2s2")
+
+[node name="TitleLabel" type="Label" parent="WindowPanel/GrayHeader"]
+layout_mode = 0
+offset_left = 117.0
+offset_top = 965.0
+offset_right = 892.0
+offset_bottom = 1070.0
+rotation = -1.5707964
+text = "Zaliczenia etapów"
+label_settings = SubResource("LabelSettings_2xa8t")
+
+[node name="BlueHeader" type="Panel" parent="WindowPanel"]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 192.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_spevf")
+
+[node name="TitleLabel" type="Label" parent="WindowPanel/BlueHeader"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 60.0
+offset_right = 835.0
+offset_bottom = 135.0
+text = "Politechnika Opolska"
+label_settings = SubResource("LabelSettings_eoee0")
+
+[node name="HeaderLabel" type="Label" parent="WindowPanel"]
+layout_mode = 0
+offset_left = 410.0
+offset_top = 363.0
+offset_right = 1150.0
+offset_bottom = 433.0
+text = "PRZEKROCZENIE LIMITU MIEJSC"
+label_settings = SubResource("LabelSettings_1fgw2")
+
+[node name="DescriptionLabel" type="Label" parent="WindowPanel"]
+layout_mode = 0
+offset_left = 422.0
+offset_top = 497.0
+offset_right = 1727.0
+offset_bottom = 626.0
+text = "Brak wolnych miejsc w grupie 'Zaliczenie na 3.0'. Zostałeś przydzielony do grupy 'Walka o Przetrwanie'."
+label_settings = SubResource("LabelSettings_bphdr")
+autowrap_mode = 2
+
+[node name="StartButton" type="Button" parent="WindowPanel"]
+layout_mode = 0
+offset_left = 940.0
+offset_top = 784.0
+offset_right = 1209.0
+offset_bottom = 866.0
+
+[node name="Label" type="Label" parent="WindowPanel/StartButton"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 24.0
+offset_right = 247.0
+offset_bottom = 63.0
+text = "AKCEPTUJ LOS"
+label_settings = SubResource("LabelSettings_1i8n8")

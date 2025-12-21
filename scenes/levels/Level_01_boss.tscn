@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://dqao334d7eiqh"]
+[gd_scene load_steps=11 format=3 uid="uid://dqao334d7eiqh"]
 
 [ext_resource type="Texture2D" uid="uid://7kn0iaem3d0d" path="res://assets/environment/tilesets/terrain-tilemap.png" id="1_ipy7a"]
+[ext_resource type="PackedScene" uid="uid://bplpp6dkuvo6q" path="res://scenes/ui/BossIntroUI.tscn" id="1_t48ki"]
 [ext_resource type="PackedScene" uid="uid://bmmq7dvcq4bva" path="res://scenes/characters/player.tscn" id="2_si67t"]
 [ext_resource type="PackedScene" uid="uid://cu62lq41428po" path="res://scenes/characters/Boss1.tscn" id="3_861rs"]
 [ext_resource type="PackedScene" uid="uid://ctapa34kpnlht" path="res://scenes/ui/hud.tscn" id="4_si67t"]
@@ -5504,6 +5505,8 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_ni1ev")
 
 [node name="Level01Boss" type="Node2D" groups=["gameplayScene"]]
+
+[node name="BossIntroUI" parent="." instance=ExtResource("1_t48ki")]
 
 [node name="TileMap Candy" type="TileMap" parent="."]
 position = Vector2(0, -25)
