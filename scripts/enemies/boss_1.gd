@@ -23,9 +23,10 @@ var hurt_interrupt_id: int = 0
 @onready var attack_area = $AttackArea
 
 func _ready() -> void:
+	await get_tree().process_frame
 	var players = get_tree().get_nodes_in_group("player")
 	if players.size() > 0:
-		player = players[0]
+		player = players[0]	
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -86,7 +87,6 @@ func perform_attack():
 		if anim.animation != "attack":
 			return
 		if anim.frame >= 6 and anim.frame <= 11 and not damage_dealt:
-			print(player)
 			if attack_area.overlaps_body(player):
 				if player.has_method("take_damage"):
 					AudioManager.play_sfx("sfx/book_hit")
