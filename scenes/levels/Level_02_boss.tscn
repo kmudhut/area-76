@@ -5525,4 +5525,4 @@ layer_0/tile_data = PackedInt32Array(-2293762, 2097152, 10, -2228226, 2097152, 1
 position = Vector2(212, 888)
 
 [node name="Boss2" parent="." groups=["enemies"] instance=ExtResource("5_s6g3b")]
-position = Vector2(933, 908)
+position = Vector2(1401, 889)
