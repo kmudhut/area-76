@@ -1,41 +1,63 @@
-[gd_scene load_steps=8 format=3 uid="uid://ctapa34kpnlht"]
+[gd_scene load_steps=9 format=3 uid="uid://ctapa34kpnlht"]
 
 [ext_resource type="Script" uid="uid://ccgk1b4lapjyi" path="res://scripts/ui/hud.gd" id="1_8qguk"]
-[ext_resource type="Texture2D" uid="uid://bpbs3jwnj1bvl" path="res://assets/icons/heart.png" id="2_136eg"]
-[ext_resource type="FontFile" uid="uid://c1v7ay0fevib3" path="res://assets/ui/fonts/pixelsix10.ttf" id="4_136eg"]
-[ext_resource type="Texture2D" uid="uid://xqrfs3cvscu0" path="res://assets/icons/coin.png" id="4_gss2c"]
+[ext_resource type="Texture2D" uid="uid://bywgvaweh168w" path="res://assets/ui/hud_elements/hp.png" id="2_136eg"]
+[ext_resource type="FontFile" uid="uid://cwe686e85ukcq" path="res://assets/ui/fonts/PixelifySans-VariableFont_wght.ttf" id="3_136eg"]
+[ext_resource type="Texture2D" uid="uid://dx5waj2tkummb" path="res://assets/ui/hud_elements/ects.png" id="4_oj5la"]
 [ext_resource type="Texture2D" uid="uid://dc7noohoput5i" path="res://assets/items/powerup/LLM_powerup.png" id="5_136eg"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_gss2c"]
+font = ExtResource("3_136eg")
+font_size = 456
+outline_size = 115
+outline_color = Color(0, 0, 0, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_136eg"]
-bg_color = Color(1, 0, 0, 1)
-border_width_left = 40
-border_width_top = 40
-border_width_right = 40
-border_width_bottom = 40
+bg_color = Color(0.9764706, 0.83137256, 0.06666667, 1)
+border_width_left = 35
+border_width_top = 35
+border_width_right = 35
+border_width_bottom = 35
 border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_oj5la"]
-font = ExtResource("4_136eg")
+font = ExtResource("3_136eg")
 font_size = 500
+outline_size = 115
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Hud" type="CanvasLayer" groups=["hud"]]
 script = ExtResource("1_8qguk")
 
 [node name="MotivationContainer" type="HBoxContainer" parent="."]
-offset_left = 105.399956
-offset_right = 6101.4
-offset_bottom = 1056.0
+offset_right = 5279.0
+offset_bottom = 1174.9999
 scale = Vector2(0.1, 0.1)
 pivot_offset = Vector2(0, 25)
+mouse_filter = 2
+theme_override_constants/separation = 184
 
 [node name="TextureRect" type="TextureRect" parent="MotivationContainer"]
 layout_mode = 2
 texture = ExtResource("2_136eg")
-stretch_mode = 2
+expand_mode = 3
+stretch_mode = 4
 
-[node name="MotivationBar" type="ProgressBar" parent="MotivationContainer"]
-custom_minimum_size = Vector2(5000, 500)
+[node name="VBoxContainer" type="VBoxContainer" parent="MotivationContainer"]
 layout_mode = 2
+size_flags_vertical = 0
+mouse_filter = 2
+
+[node name="MotivationLabel" type="Label" parent="MotivationContainer/VBoxContainer"]
+layout_mode = 2
+text = "MOTYWACJA: 100/100"
+label_settings = SubResource("LabelSettings_gss2c")
+vertical_alignment = 1
+
+[node name="MotivationBar" type="ProgressBar" parent="MotivationContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 2
+mouse_filter = 2
 theme_override_constants/outline_size = 0
 theme_override_styles/fill = SubResource("StyleBoxFlat_136eg")
 step = 1.0
@@ -43,30 +65,42 @@ value = 100.0
 show_percentage = false
 
 [node name="CoinContainer" type="HBoxContainer" parent="."]
-offset_left = 1665.0
-offset_right = 3692.0
-offset_bottom = 1024.0
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -384.0
+offset_right = 2269.9998
+offset_bottom = 480.00012
+grow_vertical = 2
 scale = Vector2(0.1, 0.1)
+theme_override_constants/separation = 226
+
+[node name="TextureRect" type="TextureRect" parent="CoinContainer"]
+layout_mode = 2
+texture = ExtResource("4_oj5la")
+expand_mode = 2
 
 [node name="CoinLabel" type="Label" parent="CoinContainer"]
 layout_mode = 2
 text = "0/30"
 label_settings = SubResource("LabelSettings_oj5la")
 
-[node name="TextureRect" type="TextureRect" parent="CoinContainer"]
-layout_mode = 2
-texture = ExtResource("4_gss2c")
-
 [node name="LLM_PowerUpContainer" type="HBoxContainer" parent="." groups=["hud"]]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 99.0
-offset_top = 7.0000005
-offset_right = 10099.0
-offset_bottom = 1632.095
+offset_left = -959.99976
+offset_top = 263.99997
+offset_right = 9040.0
+offset_bottom = 1889.095
 grow_horizontal = 2
 scale = Vector2(0.06, 0.06)
+
+[node name="LLM_PowerUpIcon" type="TextureRect" parent="LLM_PowerUpContainer"]
+layout_mode = 2
+texture = ExtResource("5_136eg")
+expand_mode = 2
+stretch_mode = 4
 
 [node name="LLM_Label" type="RichTextLabel" parent="LLM_PowerUpContainer"]
 custom_minimum_size = Vector2(7800, 0)
@@ -74,12 +108,7 @@ layout_direction = 3
 layout_mode = 2
 size_flags_vertical = 4
 mouse_filter = 2
-theme_override_font_sizes/normal_font_size = 282
+theme_override_fonts/normal_font = ExtResource("3_136eg")
+theme_override_font_sizes/normal_font_size = 322
 bbcode_enabled = true
 fit_content = true
-
-[node name="LLM_PowerUpIcon" type="TextureRect" parent="LLM_PowerUpContainer"]
-layout_mode = 2
-texture = ExtResource("5_136eg")
-expand_mode = 2
-stretch_mode = 4

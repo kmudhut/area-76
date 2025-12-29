@@ -5506,7 +5506,7 @@ sources/0 = SubResource("TileSetAtlasSource_ni1ev")
 
 [node name="Level01Boss" type="Node2D" groups=["gameplayScene"]]
 
-[node name="BossIntroUI" parent="." instance=ExtResource("1_t48ki")]
+[node name="Hud" parent="." instance=ExtResource("4_si67t")]
 
 [node name="TileMap Candy" type="TileMap" parent="."]
 position = Vector2(0, -25)
@@ -5519,8 +5519,6 @@ layer_0/tile_data = PackedInt32Array(1703936, 393216, 0, 1703937, 458752, 0, 170
 position = Vector2(963, 846.00006)
 scale = Vector2(0.6, 0.6)
 
-[node name="Hud" parent="." instance=ExtResource("4_si67t")]
-
 [node name="TileMap BigMap" type="TileMap" parent="."]
 visible = false
 position = Vector2(0, 1)
@@ -5530,3 +5528,5 @@ layer_0/tile_data = PackedInt32Array(-2293762, 2097152, 10, -2228226, 2097152, 1
 
 [node name="Player" parent="." instance=ExtResource("2_si67t")]
 position = Vector2(212, 888)
+
+[node name="BossIntroUI" parent="." instance=ExtResource("1_t48ki")]
