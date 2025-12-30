@@ -19,7 +19,7 @@ bg_color = Color(0.25882354, 0.24705882, 0.36862746, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_eoee0"]
 font = ExtResource("2_evokb")
-font_size = 65
+font_size = 110
 
 [sub_resource type="LabelSettings" id="LabelSettings_1fgw2"]
 font = ExtResource("2_puj0h")
@@ -75,11 +75,11 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_spevf")
 
 [node name="TitleLabel" type="Label" parent="WindowPanel/BlueHeader"]
 layout_mode = 0
-offset_left = 60.0
-offset_top = 60.0
-offset_right = 835.0
-offset_bottom = 135.0
-text = "Politechnika Opolska"
+offset_left = 55.0
+offset_top = 35.0
+offset_right = 830.0
+offset_bottom = 160.0
+text = "AREA 76"
 label_settings = SubResource("LabelSettings_eoee0")
 
 [node name="HeaderLabel" type="Label" parent="WindowPanel"]

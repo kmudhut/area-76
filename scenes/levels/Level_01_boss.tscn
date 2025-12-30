@@ -1,11 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://dqao334d7eiqh"]
+[gd_scene load_steps=13 format=3 uid="uid://dqao334d7eiqh"]
 
 [ext_resource type="Texture2D" uid="uid://7kn0iaem3d0d" path="res://assets/environment/tilesets/terrain-tilemap.png" id="1_ipy7a"]
 [ext_resource type="PackedScene" uid="uid://bplpp6dkuvo6q" path="res://scenes/ui/BossIntroUI.tscn" id="1_t48ki"]
+[ext_resource type="Script" uid="uid://bji2igf6rmvn3" path="res://scripts/levels/Level_01_boss.gd" id="1_ujfgi"]
 [ext_resource type="PackedScene" uid="uid://bmmq7dvcq4bva" path="res://scenes/characters/player.tscn" id="2_si67t"]
 [ext_resource type="PackedScene" uid="uid://cu62lq41428po" path="res://scenes/characters/Boss1.tscn" id="3_861rs"]
 [ext_resource type="PackedScene" uid="uid://ctapa34kpnlht" path="res://scenes/ui/hud.tscn" id="4_si67t"]
 [ext_resource type="Texture2D" uid="uid://c8ry7wkdu44mr" path="res://assets/environment/tilesets/W+5OcG.png" id="5_861rs"]
+[ext_resource type="PackedScene" uid="uid://8hhtm33pbbbd" path="res://scenes/ui/EndScreen.tscn" id="6_ni1ev"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t48ki"]
 texture = ExtResource("1_ipy7a")
@@ -5505,6 +5507,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_ni1ev")
 
 [node name="Level01Boss" type="Node2D" groups=["gameplayScene"]]
+script = ExtResource("1_ujfgi")
 
 [node name="Hud" parent="." instance=ExtResource("4_si67t")]
 
@@ -5530,3 +5533,5 @@ layer_0/tile_data = PackedInt32Array(-2293762, 2097152, 10, -2228226, 2097152, 1
 position = Vector2(212, 888)
 
 [node name="BossIntroUI" parent="." instance=ExtResource("1_t48ki")]
+
+[node name="EndScreen" parent="." instance=ExtResource("6_ni1ev")]
