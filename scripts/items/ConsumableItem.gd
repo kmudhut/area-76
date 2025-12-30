@@ -14,26 +14,20 @@ enum ItemType {
 @onready var animated_sprite = get_node_or_null("AnimatedSprite2D")
 @onready var detection_zone = get_node_or_null("DetectionZone")
 
-# Referencje do efektów specjalnych (Aury)
 @onready var rainbow_aura = get_node_or_null("RainbowAura") 
 @onready var glow_effect = get_node_or_null("GlowEffect")   
 
 # --- ZMIENNA DO SYSTEMU ZAPISU ---
-var unique_id: String = "" # <--- ZMIANA: Zmienna na unikalne ID
+var unique_id: String = ""
 
 # --- INICJALIZACJA ---
 func _ready():
-	# <--- ZMIANA: GENEROWANIE UNIKALNEGO ID ---
-	# Tworzymy ID na podstawie nazwy sceny i pozycji. To musi być unikalne dla każdego obiektu!
 	unique_id = get_tree().current_scene.name + "_" + str(global_position)
 	
-	# <--- ZMIANA: SPRAWDZANIE CZY JUŻ ZEBRANO ---
-	# Pytamy GameState, czy ten przedmiot jest na liście "zebranych"
 	if GameState.is_item_collected(unique_id):
-		queue_free() # Jeśli tak, usuwamy go natychmiast
-		return       # I przerywamy dalsze ładowanie
+		queue_free()
+		return
 	
-	# --- Standardowa reszta funkcji _ready ---
 	body_entered.connect(_on_body_entered)
 	
 	if type == ItemType.GOLDEN_DRINK or type == ItemType.LLM_ITEM:
@@ -50,16 +44,13 @@ func _ready():
 # --- OBSŁUGA ZDARZEŃ (KOLIZJE) ---
 func _on_body_entered(body):
 	if body.is_in_group("player"):
-		# <--- ZMIANA: REJESTRACJA ZEBRANIA ---
-		# Zanim usuniemy obiekt, mówimy GameState: "Zapamiętaj, że ten ID zniknął"
 		GameState.register_collected_item(unique_id)
 		
 		play_pickup_sound()
 		apply_effect(body)
 		
-		# Ukrywamy wizualnie, żeby gracz nie widział momentu usunięcia
 		visible = false 
-		call_deferred("queue_free") # Bezpieczne usunięcie
+		call_deferred("queue_free")
 
 func _on_detection_enter(body):
 	if body.is_in_group("player"):
@@ -84,7 +75,6 @@ func set_aura_active(is_active: bool):
 
 # --- DŹWIĘKI ---
 func play_pickup_sound():
-	# Zabezpieczenie, gdyby AudioManager nie istniał (dla testów)
 	if not AudioManager: return 
 	
 	match type:
@@ -95,7 +85,6 @@ func play_pickup_sound():
 
 # --- EFEKTY PRZEDMIOTÓW ---
 func apply_effect(player):
-	# Używamy bezpośrednio GameState (bo jest Autoloadem), ale get_node też jest OK
 	var gs = GameState 
 	var stats = player.get_node_or_null("MotivationComponent")
 
@@ -112,7 +101,6 @@ func apply_effect(player):
 			if player.has_method("play_golden_flash_effect"):
 				player.play_golden_flash_effect()
 			
-			# <--- ZMIANA: Dodajemy też napój do ekwipunku w GameState
 			if gs: gs.add_golden_drink() 
 			print("Wypito Złoty Napój!")
 			
