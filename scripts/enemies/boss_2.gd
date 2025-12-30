@@ -145,6 +145,6 @@ func play_hurt_effects():
 		
 func _die():
 	is_dying = true
-	#$AnimatedSprite2D.play("die")
-	#await $AnimatedSprite2D.animation_finished
+	$AnimatedSprite2D.play("die")
+	await $AnimatedSprite2D.animation_finished
 	queue_free()
