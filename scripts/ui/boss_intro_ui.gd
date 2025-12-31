@@ -1,10 +1,9 @@
 extends CanvasLayer
 
 # --- KONFIGURACJA ---
-@export_group("Treść Komunikatu")
-@export var alert_title: String = "PRZEKROCZENIE LIMITU MIEJSC"
-@export_multiline var alert_description: String = "Brak wolnych miejsc w grupie 'Zaliczenie na 3.0'.\nZostałeś przydzielony do grupy 'Walka o Przetrwanie'."
-@export var button_text: String = "akceptuj los"
+var alert_title: String = "PRZEKROCZENIE LIMITU MIEJSC"
+var alert_description: String = "Brak wolnych miejsc w grupie 'Zaliczenie na 3.0'.\nZostałeś przydzielony do grupy 'Walka o Przetrwanie'."
+var button_text: String = "akceptuj los"
 
 # --- REFERENCJE ---
 @onready var header_label = $WindowPanel/HeaderLabel

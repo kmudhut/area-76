@@ -16,6 +16,7 @@ var is_attacking: bool = false
 var is_attacking2: bool = false
 var is_distance_attacking: bool = false
 var is_hurt: bool = false
+var is_knocked_back: bool = false
 
 var is_invincible: bool = false
 var can_use_llm_item: bool = true
@@ -78,7 +79,7 @@ func _physics_process(delta: float) -> void:
 	if standard_attack_cooldown > 0.0: standard_attack_cooldown -= delta
 
 	# Blokada ruchu podczas ataku/rzutu/rany
-	if is_attacking or is_attacking2 or is_distance_attacking or is_hurt:
+	if is_attacking or is_attacking2 or is_distance_attacking or is_hurt or is_knocked_back:
 		if not is_on_floor():
 			velocity += get_gravity() * delta
 		move_and_slide()
@@ -297,3 +298,13 @@ func throw_hat():
 	await animated_sprite_2d.animation_finished
 
 	is_distance_attacking = false
+	
+func apply_knockback(force_vector: Vector2, duration: float = 0.25):
+	# Nadpisujemy velocity, żeby gracz "poleciał"
+	velocity = force_vector
+	is_knocked_back = true
+	
+	# Czekamy ułamek sekundy (blokada sterowania)
+	await get_tree().create_timer(duration).timeout
+	
+	is_knocked_back = false

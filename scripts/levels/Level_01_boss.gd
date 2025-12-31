@@ -9,8 +9,8 @@ func _ready():
 		end_screen.visible = false
 	if boss:
 		boss.boss_defeated.connect(_on_boss_died)
-	else:
-		print("UWAGA: Nie znaleziono węzła Boss1!")
+		
+	GameState.game_over.connect(_on_game_over)
 
 func _on_boss_died():
 	if not is_inside_tree(): return
@@ -27,4 +27,14 @@ func _on_boss_died():
 	# Wywołanie ekranu
 	if end_screen:
 		end_screen.setup_win_screen(final_ects, max_ects, next_level_path, "I")
+		end_screen.visible = true
+
+func _on_game_over():
+	if not is_inside_tree(): return
+	
+	print("Gracz pokonany przez Bossa!")
+	GameState.is_usos_active = true # blokowanie ekranu pauzy
+	
+	if end_screen:
+		end_screen.setup_game_over_screen()
 		end_screen.visible = true

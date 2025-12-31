@@ -92,7 +92,14 @@ func perform_attack():
 			if attack_area.overlaps_body(player):
 				if player.has_method("take_damage"):
 					AudioManager.play_sfx("sfx/book_hit")
-					player.take_damage(1)
+					player.take_damage(5)
+					# --- NOWY FRAGMENT: ODRZUT ---
+					if player.has_method("apply_knockback"):
+						# direction to kierunek bossa (-1 lewo, 1 prawo).
+						# Mnożymy * 400 (siła w bok) i dodajemy -250 (siła w górę).
+						var kick_vector = Vector2(direction * 800, -250)
+						player.apply_knockback(kick_vector)
+					# -----------------------------
 					damage_dealt = true
 		await get_tree().process_frame
 	anim.play("idle")

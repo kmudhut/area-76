@@ -115,7 +115,7 @@ func _on_next_level_button_pressed():
 
 func _on_retry_button_pressed():
 	get_tree().paused = false
-	GameState.restart_level_data()
+	GameState.reset_new_game()
 	SceneManager.goto_lvl("Level_01")
 
 func _on_menu_button_pressed():
