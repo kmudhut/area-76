@@ -244,9 +244,10 @@ func _on_animation_finished():
 			animated_sprite_2d.play("idle")
 
 func _on_death():
+	set_physics_process(false)
 	AudioManager.stop_music()
-	var scene_manager = get_node("/root/Main/SceneManager")
-	scene_manager.goto_menu()
+	visible = false
+	
 
 func attack1():
 	is_attacking = true

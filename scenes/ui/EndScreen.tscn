@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://8hhtm33pbbbd"]
+[gd_scene load_steps=20 format=3 uid="uid://8hhtm33pbbbd"]
 
 [ext_resource type="Script" uid="uid://bditiop3pjeln" path="res://scripts/ui/end_screen.gd" id="1_1ad5n"]
 [ext_resource type="FontFile" uid="uid://wjwhi8dt8axk" path="res://assets/ui/fonts/PressStart2P-Regular.ttf" id="2_1imq6"]
@@ -34,11 +34,6 @@ font_size = 71
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_h4xmw"]
-font = ExtResource("2_1imq6")
-font_size = 36
-font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_13w58"]
 font = ExtResource("2_1imq6")
 font_size = 36
 font_color = Color(0, 0, 0, 1)
@@ -220,11 +215,6 @@ theme_override_constants/separation = 9
 layout_mode = 2
 text = "PUNKTY ECTS: /30"
 label_settings = SubResource("LabelSettings_h4xmw")
-
-[node name="TimeLabel" type="Label" parent="Control/Panel/VBoxContainer/StatsContainer"]
-layout_mode = 2
-text = "CZAS: 0:00"
-label_settings = SubResource("LabelSettings_13w58")
 
 [node name="CommentLabel" type="Label" parent="Control/Panel/VBoxContainer"]
 layout_mode = 2

@@ -8,11 +8,13 @@ func _process(delta: float) -> void:
 	pass
 func _unhandled_input(event: InputEvent) -> void:
 	if(event.is_action_pressed("pause") and SceneManager.get_active_scene().is_in_group("gameplayScene")):
-			toggle_pause_game()
-		
+		if GameState.is_usos_active:
+			return
+		toggle_pause_game()
+
 func toggle_visibility() -> void:
 	self.visible = not self.visible
-	
+
 func toggle_pause_game() -> void:
 	var new_pause_state = not get_tree().paused
 	get_tree().paused = new_pause_state

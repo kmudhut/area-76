@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://pxkhy2qst1fo"]
+[gd_scene load_steps=71 format=3 uid="uid://pxkhy2qst1fo"]
 
 [ext_resource type="Script" uid="uid://dl8pubuxmlxpf" path="res://scripts/levels/Level_01.gd" id="1_lswbx"]
 [ext_resource type="Texture2D" uid="uid://b7ar0mlw21b1a" path="res://assets/environment/backgrounds/level1/00.png" id="1_mhiu8"]
@@ -31,6 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://ploi3kvbt5ap" path="res://assets/items/tutorial/TutorialText.tscn" id="29_t6bfo"]
 [ext_resource type="PackedScene" uid="uid://ddogqb8nbcqqb" path="res://scenes/checkpoint.tscn" id="30_e5bmj"]
 [ext_resource type="PackedScene" uid="uid://bclx5fh3rso2q" path="res://scenes/levels/LevelExit.tscn" id="31_o2j7d"]
+[ext_resource type="PackedScene" uid="uid://8hhtm33pbbbd" path="res://scenes/ui/EndScreen.tscn" id="32_jcvym"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t6bfo"]
 texture = ExtResource("12_d86x1")
@@ -6807,3 +6808,5 @@ position = Vector2(1518, 1023)
 
 [node name="EctsCoin42" parent="." instance=ExtResource("22_qcx6o")]
 position = Vector2(1084, 982)
+
+[node name="EndScreen" parent="." instance=ExtResource("32_jcvym")]

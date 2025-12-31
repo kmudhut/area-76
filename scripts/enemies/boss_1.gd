@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal boss_defeated
+
 const TestScene = preload("res://scenes/characters/Test.tscn")
 var test_spawned := false
 var health_points = 1000
@@ -147,5 +149,7 @@ func play_hurt_effects():
 func _die():
 	is_dying = true
 	$AnimatedSprite2D.play("die")
+	emit_signal("boss_defeated")
 	await $AnimatedSprite2D.animation_finished
+	await get_tree().create_timer(1.0).timeout
 	queue_free()

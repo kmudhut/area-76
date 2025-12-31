@@ -14,6 +14,7 @@ extends CanvasLayer
 @onready var window_panel = $WindowPanel
 
 func _ready():
+	GameState.is_usos_active = true # blokowanie ekranu pauzy
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	get_tree().paused = true
 	
@@ -41,12 +42,10 @@ func _ready():
 
 func _on_start_button_pressed():
 	get_tree().paused = false
-	
-	# --- NOWE: POKAZYWANIE HUD-A ---
+	GameState.is_usos_active = false # odblokowanie ekranu pauzy
 	var hud = get_tree().get_first_node_in_group("hud")
 	if hud:
 		hud.visible = true
-	# -------------------------------
 	
 	var tween = create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
 	tween.tween_property(window_panel, "scale", Vector2(0, 0), 0.2)

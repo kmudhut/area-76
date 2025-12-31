@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bplpp6dkuvo6q"]
+[gd_scene load_steps=15 format=3 uid="uid://bplpp6dkuvo6q"]
 
 [ext_resource type="Script" uid="uid://c6qc1kqdcxas" path="res://scripts/ui/boss_intro_ui.gd" id="1_ngv26"]
 [ext_resource type="FontFile" uid="uid://c1v7ay0fevib3" path="res://assets/ui/fonts/pixelsix10.ttf" id="2_evokb"]
@@ -32,6 +32,36 @@ font_size = 49
 font_color = Color(0.23753911, 0.23753914, 0.23753911, 1)
 shadow_color = Color(0, 0, 0, 0.09019608)
 stacked_outline_count = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_evokb"]
+content_margin_left = 30.0
+content_margin_right = 30.0
+bg_color = Color(0.25882354, 0.24705882, 0.36862746, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_detail = 1
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 5
+shadow_offset = Vector2(5, 5)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_puj0h"]
+content_margin_left = 30.0
+content_margin_right = 30.0
+bg_color = Color(0.18657982, 0.17724505, 0.27254856, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_detail = 1
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 5
+shadow_offset = Vector2(10, 10)
+anti_aliasing = false
 
 [sub_resource type="LabelSettings" id="LabelSettings_1i8n8"]
 font = ExtResource("5_j80aw")
@@ -107,6 +137,8 @@ offset_left = 940.0
 offset_top = 784.0
 offset_right = 1209.0
 offset_bottom = 866.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_evokb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_puj0h")
 
 [node name="Label" type="Label" parent="WindowPanel/StartButton"]
 layout_mode = 0

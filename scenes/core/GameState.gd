@@ -17,6 +17,7 @@ var max_motivation: float = 100.0
 var ects: int = 0
 var golden_drinks_count: int = 0 
 var llm_charges: int = 0
+var is_usos_active: bool = false
 
 # --- ZMIENNE SYSTEMU ZAPISU ---
 var current_level_name: String = "level_01" # Domyślny startowy poziom
@@ -151,6 +152,7 @@ func reset_new_game():
 	current_level_name = "level_01" # Ustaw tu nazwę swojego pierwszego poziomu!
 	last_checkpoint_position = Vector2.ZERO
 	is_boss_accessible = false
+	is_usos_active = false
 	
 	# Reset UI
 	set_motivation(motivation, max_motivation)
