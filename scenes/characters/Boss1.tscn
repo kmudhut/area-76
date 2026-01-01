@@ -539,7 +539,7 @@ size = Vector2(191, 648.5)
 size = Vector2(286, 367)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rnil2"]
-size = Vector2(964, 709)
+size = Vector2(547, 306)
 
 [node name="Boss1" type="CharacterBody2D"]
 script = ExtResource("1_qrykl")
@@ -568,7 +568,7 @@ shape = SubResource("RectangleShape2D_qrykl")
 [node name="AttackingArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackingArea"]
-position = Vector2(2, -0.5)
+position = Vector2(0.5, 148)
 shape = SubResource("RectangleShape2D_rnil2")
 
 [connection signal="body_entered" from="AttackingArea" to="." method="_on_attacking_area_body_entered"]
