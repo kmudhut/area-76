@@ -28,7 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://cha8mom7nf2ty" path="res://scenes/items/EnergyDrink.tscn" id="27_uujh0"]
 [ext_resource type="PackedScene" uid="uid://hbog7licpit8" path="res://scenes/items/GoldenDrink.tscn" id="28_t6bfo"]
 [ext_resource type="PackedScene" uid="uid://df8r8v0ywhms5" path="res://scenes/items/LLM_PowerUp.tscn" id="28_ys2jg"]
-[ext_resource type="PackedScene" uid="uid://ploi3kvbt5ap" path="res://assets/items/tutorial/TutorialText.tscn" id="29_t6bfo"]
+[ext_resource type="PackedScene" uid="uid://ploi3kvbt5ap" path="res://scenes/TutorialText.tscn" id="29_t6bfo"]
 [ext_resource type="PackedScene" uid="uid://ddogqb8nbcqqb" path="res://scenes/checkpoint.tscn" id="30_e5bmj"]
 [ext_resource type="PackedScene" uid="uid://bclx5fh3rso2q" path="res://scenes/levels/LevelExit.tscn" id="31_o2j7d"]
 [ext_resource type="PackedScene" uid="uid://8hhtm33pbbbd" path="res://scenes/ui/EndScreen.tscn" id="32_jcvym"]
@@ -6810,3 +6810,4 @@ position = Vector2(1518, 1023)
 position = Vector2(1084, 982)
 
 [node name="EndScreen" parent="." instance=ExtResource("32_jcvym")]
+visible = false

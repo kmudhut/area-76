@@ -3,13 +3,20 @@ extends Node2D
 @onready var boss = $Boss1
 @onready var end_screen = $EndScreen
 @onready var boss_intro = $BossIntroUI
+#@onready var boss_hud = $BossHealthBar
 
 func _ready():
+	if boss_intro:
+		boss_intro.visible = true
 	if end_screen:
 		end_screen.visible = false
 	if boss:
 		boss.boss_defeated.connect(_on_boss_died)
 		
+	#if boss_hud:
+			#boss_hud.initialize(boss.health_points)
+			#boss.health_changed.connect(boss_hud.update_health)
+	
 	GameState.game_over.connect(_on_game_over)
 
 func _on_boss_died():

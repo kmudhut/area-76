@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://b4rcsfi565ssj"]
+[gd_scene load_steps=11 format=3 uid="uid://b4rcsfi565ssj"]
 
 [ext_resource type="Texture2D" uid="uid://7kn0iaem3d0d" path="res://assets/environment/tilesets/terrain-tilemap.png" id="1_s6g3b"]
 [ext_resource type="PackedScene" uid="uid://ctapa34kpnlht" path="res://scenes/ui/hud.tscn" id="3_xpnx8"]
 [ext_resource type="Texture2D" uid="uid://c8ry7wkdu44mr" path="res://assets/environment/tilesets/W+5OcG.png" id="4_r076e"]
 [ext_resource type="PackedScene" uid="uid://bmmq7dvcq4bva" path="res://scenes/characters/player.tscn" id="5_8gasw"]
 [ext_resource type="PackedScene" uid="uid://b5akqyocn6clh" path="res://scenes/characters/Boss2.tscn" id="5_s6g3b"]
+[ext_resource type="PackedScene" uid="uid://i3xn0ut7l2rv" path="res://scenes/ui/BossHUD.tscn" id="6_5xtmj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t48ki"]
 texture = ExtResource("1_s6g3b")
@@ -5526,3 +5527,6 @@ position = Vector2(212, 888)
 
 [node name="Boss2" parent="." groups=["enemies"] instance=ExtResource("5_s6g3b")]
 position = Vector2(1401, 889)
+
+[node name="BossHud" parent="." node_paths=PackedStringArray("boss_node") instance=ExtResource("6_5xtmj")]
+boss_node = NodePath("../Boss2")

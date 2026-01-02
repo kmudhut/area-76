@@ -1,10 +1,12 @@
 extends CharacterBody2D
 
 signal boss_defeated
+signal health_changed(current_hp, max_hp)
 
 const TestScene = preload("res://scenes/characters/Test.tscn")
 var test_spawned := false
 var health_points = 1000
+var max_health_points = health_points
 
 var attack_cooldown_time := 1.5 
 var special_attack_cooldown_time := 10.0
@@ -29,6 +31,7 @@ func _ready() -> void:
 	var players = get_tree().get_nodes_in_group("player")
 	if players.size() > 0:
 		player = players[0]	
+	max_health_points = health_points
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -132,6 +135,7 @@ func _on_attacking_area_body_exited(body: Node2D) -> void:
 
 func take_damage(amount: float):
 	health_points -= amount
+	emit_signal("health_changed", health_points, max_health_points)
 	if health_points <= 0:
 		_die()
 		return

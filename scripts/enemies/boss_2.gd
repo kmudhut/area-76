@@ -1,6 +1,9 @@
 extends CharacterBody2D
 
+signal health_changed(current_hp, max_hp)
+
 var health_points = 200
+var max_health_points = health_points
 
 var attack_cooldown_time := 1.5 
 var special_attack_cooldown_time := 10.0
@@ -117,6 +120,7 @@ func _on_attacking_area_body_exited(body: Node2D) -> void:
 
 func take_damage(amount: float):
 	health_points -= amount
+	emit_signal("health_changed", health_points, max_health_points)
 	if health_points <= 0:
 		_die()
 		return
