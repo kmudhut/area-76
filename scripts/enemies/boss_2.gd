@@ -15,7 +15,7 @@ var test
 var player : CharacterBody2D
 
 var hurt_interrupt_id: int = 0 
-
+var electric_shock_player
 @onready var anim = $AnimatedSprite2D
 @onready var attack_area = $AttackArea
 
@@ -59,10 +59,11 @@ func perform_special_attack():
 		return
 	is_attacking = true
 	anim.play("special_attack")
-	AudioManager.play_sfx("sfx/electric-shock")
+	electric_shock_player = AudioManager.play_sfx("sfx/electric-shock")
 	while anim.frame < 12:
 		if anim.animation != "special_attack" or player_in_range: 
 			$ElectricArc.visible = false
+			electric_shock_player.stop()
 			return 
 			
 		if anim.frame == 6:

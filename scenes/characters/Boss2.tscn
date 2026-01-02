@@ -1,4 +1,4 @@
-[gd_scene load_steps=107 format=3 uid="uid://b5akqyocn6clh"]
+[gd_scene load_steps=96 format=3 uid="uid://b5akqyocn6clh"]
 
 [ext_resource type="Script" uid="uid://byapvexi1hmmb" path="res://scripts/enemies/boss_2.gd" id="1_pjdib"]
 [ext_resource type="Texture2D" uid="uid://8n2jft20rgu6" path="res://assets/characters/enemies/boss2_attack_sprite.png" id="2_pjdib"]
@@ -196,50 +196,6 @@ region = Rect2(2560, 2160, 1280, 720)
 [sub_resource type="AtlasTexture" id="AtlasTexture_cxe2o"]
 atlas = ExtResource("3_m1fep")
 region = Rect2(0, 2880, 1280, 720)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qo60y"]
-atlas = ExtResource("3_pjdib")
-region = Rect2(0, 0, 1280, 720)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bcldb"]
-atlas = ExtResource("3_pjdib")
-region = Rect2(1280, 0, 1280, 720)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mlo35"]
-atlas = ExtResource("3_pjdib")
-region = Rect2(2560, 0, 1280, 720)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_msl1f"]
-atlas = ExtResource("3_pjdib")
-region = Rect2(3840, 0, 1280, 720)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_12143"]
-atlas = ExtResource("3_pjdib")
-region = Rect2(5120, 0, 1280, 720)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_efa1x"]
-atlas = ExtResource("3_pjdib")
-region = Rect2(0, 720, 1280, 720)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_44ysc"]
-atlas = ExtResource("3_pjdib")
-region = Rect2(1280, 720, 1280, 720)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_prwph"]
-atlas = ExtResource("3_pjdib")
-region = Rect2(2560, 720, 1280, 720)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_g2nlg"]
-atlas = ExtResource("3_pjdib")
-region = Rect2(3840, 720, 1280, 720)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_njgmi"]
-atlas = ExtResource("3_pjdib")
-region = Rect2(5120, 720, 1280, 720)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4idxq"]
-atlas = ExtResource("3_pjdib")
-region = Rect2(0, 1440, 1280, 720)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_547rt"]
 atlas = ExtResource("3_pjdib")
@@ -531,40 +487,7 @@ animations = [{
 "speed": 18.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qo60y")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bcldb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mlo35")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_msl1f")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_12143")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_efa1x")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_44ysc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_prwph")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_g2nlg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_njgmi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4idxq")
-}, {
-"duration": 1.0,
+"duration": 10.0,
 "texture": SubResource("AtlasTexture_547rt")
 }, {
 "duration": 1.0,
@@ -582,7 +505,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ul812")
 }, {
-"duration": 1.0,
+"duration": 5.0,
 "texture": SubResource("AtlasTexture_s5g34")
 }, {
 "duration": 1.0,
@@ -594,7 +517,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qmda8")
 }, {
-"duration": 1.0,
+"duration": 10.0,
 "texture": SubResource("AtlasTexture_a1sdv")
 }, {
 "duration": 1.0,
@@ -623,7 +546,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 12.0
+"speed": 18.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -710,8 +633,9 @@ script = ExtResource("1_pjdib")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_p74go")
-animation = &"special_attack"
+animation = &"idle"
 autoplay = "idle"
+frame_progress = 0.14444257
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["enemies"]]
 position = Vector2(-2.0000038, -11.999987)
