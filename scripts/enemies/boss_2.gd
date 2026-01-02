@@ -1,11 +1,9 @@
 extends CharacterBody2D
 
-#const TestScene = preload("res://scenes/characters/Test.tscn")
-#var test_spawned := false
 var health_points = 200
 
 var attack_cooldown_time := 1.5 
-#var special_attack_cooldown_time := 10.0
+var special_attack_cooldown_time := 10.0
 var current_cooldown: float = 0.0
 
 var direction := 1
@@ -18,7 +16,6 @@ var player : CharacterBody2D
 
 var hurt_interrupt_id: int = 0 
 
-#@onready var spawn_offset_x = $TestSpawnPoint.position.x
 @onready var anim = $AnimatedSprite2D
 @onready var attack_area = $AttackArea
 
@@ -39,14 +36,14 @@ func _physics_process(delta: float) -> void:
 		if player.global_position.x < self.global_position.x:
 			anim.flip_h = false
 			direction = -1
-			#$TestSpawnPoint.position.x = -abs(spawn_offset_x)
 			$AttackArea/CollisionShape2D.position.x = -abs($AttackArea/CollisionShape2D.position.x)
+			$ElectricArc.position.x = -abs($ElectricArc.position.x)
 		else:
 			anim.flip_h = true
 			direction = 1
-			#$TestSpawnPoint.position.x = abs(spawn_offset_x)
 			$AttackArea/CollisionShape2D.position.x = abs($AttackArea/CollisionShape2D.position.x)
-
+			$ElectricArc.position.x = abs($ElectricArc.position.x)
+			
 	if not is_attacking and not is_hurt and not is_dying:
 		if current_cooldown <= 0:
 			decide_combat()
@@ -54,28 +51,32 @@ func _physics_process(delta: float) -> void:
 func decide_combat():
 	if player_in_range:
 		perform_attack()
-	#else:
-		#perform_special_attack()
+	else:
+		perform_special_attack()
 
-#func perform_special_attack():
-	#if is_attacking: 
-		#return
-	#is_attacking = true
-	#anim.play("special_attack")
-	#while anim.frame < 12:
-		#if anim.animation != "special_attack": 
-			#return 
-		#if player_in_range:
-			#return 
-		#await get_tree().process_frame
-	#spawn_test()
-	#await anim.animation_finished
-	#
-	#if anim.animation != "special_attack":
-		#return
-	#anim.play("idle")
-	#is_attacking = false
-	#current_cooldown = special_attack_cooldown_time
+func perform_special_attack():
+	if is_attacking: 
+		return
+	is_attacking = true
+	anim.play("special_attack")
+	AudioManager.play_sfx("sfx/electric-shock")
+	while anim.frame < 12:
+		if anim.animation != "special_attack" or player_in_range: 
+			$ElectricArc.visible = false
+			return 
+			
+		if anim.frame == 6:
+			$ElectricArc.visible = true
+		else:
+			$ElectricArc.visible = false
+		await get_tree().process_frame	
+	await anim.animation_finished
+	
+	if anim.animation != "special_attack":
+		return
+	anim.play("idle")
+	is_attacking = false
+	current_cooldown = special_attack_cooldown_time
 
 func perform_attack():
 	if is_attacking and anim.animation == "attack": return
@@ -97,13 +98,6 @@ func perform_attack():
 	
 	current_cooldown = attack_cooldown_time
 
-#func spawn_test():
-	#test = TestScene.instantiate()
-	#test.scale = Vector2(0.175, 0.175)
-	#test.global_position = $TestSpawnPoint.global_position
-	#test.direction = direction
-	#self.get_parent().add_child(test)
-	#test_spawned = true
 
 func _on_attacking_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
