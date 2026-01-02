@@ -1,6 +1,7 @@
-[gd_scene load_steps=46 format=3 uid="uid://ctrk48g5tbcx2"]
+[gd_scene load_steps=49 format=3 uid="uid://ctrk48g5tbcx2"]
 
 [ext_resource type="Texture2D" uid="uid://1478jfh4kd66" path="res://assets/characters/enemies/boss3_attack_sprite.png" id="1_frtfy"]
+[ext_resource type="Script" uid="uid://17ffojyh36wn" path="res://scripts/enemies/boss_3.gd" id="1_wpqvd"]
 [ext_resource type="Texture2D" uid="uid://dgvyfakinqfs7" path="res://assets/characters/enemies/boss3_hurt_sprite.png" id="2_gic7k"]
 [ext_resource type="Texture2D" uid="uid://dkxb45vrn5eb7" path="res://assets/characters/enemies/boss3_idle_sprite.png" id="3_wpqvd"]
 [ext_resource type="Texture2D" uid="uid://bxibf2jr674ed" path="res://assets/characters/enemies/boss3_special_attack_sprite.png" id="4_gic7k"]
@@ -296,7 +297,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1jef0")
 }],
-"loop": true,
+"loop": false,
 "name": &"special_attack",
 "speed": 18.0
 }]
@@ -304,14 +305,38 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_00l3l"]
 size = Vector2(231, 672)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wpqvd"]
+size = Vector2(270.125, 73)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mpk2r"]
+size = Vector2(704, 707.5)
+
 [node name="Boss3" type="CharacterBody2D"]
+script = ExtResource("1_wpqvd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_6w20e")
-animation = &"special_attack"
-frame_progress = 0.8452298
+animation = &"attack"
+autoplay = "idle"
+frame = 9
+frame_progress = 1.0
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3.5, 9)
 shape = SubResource("RectangleShape2D_00l3l")
+
+[node name="AttackArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(-137.9375, -136.5)
+shape = SubResource("RectangleShape2D_wpqvd")
+
+[node name="AttackingArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackingArea"]
+position = Vector2(-2, -0.75)
+shape = SubResource("RectangleShape2D_mpk2r")
+
+[connection signal="body_entered" from="AttackingArea" to="." method="_on_attacking_area_body_entered"]
+[connection signal="body_exited" from="AttackingArea" to="." method="_on_attacking_area_body_exited"]

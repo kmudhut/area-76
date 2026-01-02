@@ -17,7 +17,7 @@ var is_attacking2: bool = false
 var is_distance_attacking: bool = false
 var is_hurt: bool = false
 var is_knocked_back: bool = false
-
+var is_stunned: bool = false
 var is_invincible: bool = false
 var can_use_llm_item: bool = true
 
@@ -33,12 +33,10 @@ var rainbow_material: ShaderMaterial
 var was_attacking_before_hurt: bool = false
 
 func _ready() -> void:
-	# --- TWOJA ORYGINALNA INICJALIZACJA ---
 	current_speed = BASE_SPEED
 	original_sprite_position_y = animated_sprite_2d.position.y
 	original_sprite_position_x = animated_sprite_2d.position.x
 
-	# Naprawa pętli animacji (to, co robiliśmy wcześniej)
 	for anim in ["attack", "attack2", "hurt", "distanceattack"]:
 		if animated_sprite_2d.sprite_frames.has_animation(anim):
 			animated_sprite_2d.sprite_frames.set_animation_loop(anim, false)
@@ -50,21 +48,18 @@ func _ready() -> void:
 		motivation_component.motivation_depleted.connect(_on_death)
 	
 	_setup_visual_effects_shader()
-	# --- NOWE: OBSŁUGA CHECKPOINTU ---
 	if GameState.last_checkpoint_position != Vector2.ZERO:
 		
 		var level_name = ""
 		
 		if owner != null:
-			# Pobieramy nazwę z pliku
+
 			level_name = owner.scene_file_path.get_file().get_basename()
 		else:
 			level_name = get_parent().name
 					
 		print("DEBUG GRACZ: Jestem na mapie: ", level_name, " | Zapis jest z mapy: ", GameState.current_level_name)
 				
-				# ZMIANA TUTAJ: Porównujemy obie nazwy zamienione na małe litery (.to_lower())
-				# To sprawi, że "Level_01" i "level_01" będą traktowane jako to samo!
 		if level_name.to_lower() == GameState.current_level_name.to_lower():
 			print("SUKCES! Przenoszę gracza na checkpoint.")
 			global_position = GameState.last_checkpoint_position
@@ -73,7 +68,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	# Odliczanie cooldownów
+	if is_stunned: return
 	if footstep_cooldown > 0.0: footstep_cooldown -= delta
 	if keyboard_attack_cooldown > 0.0: keyboard_attack_cooldown -= delta
 	if standard_attack_cooldown > 0.0: standard_attack_cooldown -= delta
@@ -87,11 +82,10 @@ func _physics_process(delta: float) -> void:
 
 	check_item_input()
 
-	# Skok
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
-	# Animacja w powietrzu lub na ziemi
+
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 		animated_sprite_2d.animation = "jump"
@@ -104,7 +98,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			animated_sprite_2d.animation = "idle"
 
-	# Ruch poziomy
+
 	var input_dir := Input.get_axis("left", "right")
 	if input_dir != 0:
 		velocity.x = input_dir * current_speed
@@ -285,7 +279,6 @@ func throw_hat():
 	velocity.x = 0
 	animated_sprite_2d.play("distanceattack")
 
-	# --- EARLY THROW (0.15s po rozpoczęciu animacji) ---
 	await get_tree().create_timer(0.35).timeout
 
 	var hat = hat_scene.instantiate()
@@ -297,7 +290,6 @@ func throw_hat():
 	else:
 		hat.launch(global_position + offset, 1)
 
-	# --- POZWÓL DOKOŃCZYĆ ANIMACJĘ ---
 	await animated_sprite_2d.animation_finished
 
 	is_distance_attacking = false

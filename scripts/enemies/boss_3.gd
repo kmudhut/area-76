@@ -17,7 +17,6 @@ var is_dying := false
 var player : CharacterBody2D
 
 var hurt_interrupt_id: int = 0 
-var electric_shock_player
 @onready var anim = $AnimatedSprite2D
 @onready var attack_area = $AttackArea
 
@@ -36,15 +35,13 @@ func _physics_process(delta: float) -> void:
 
 	if player and not is_dying and not is_hurt and not is_attacking:
 		if player.global_position.x < self.global_position.x:
-			anim.flip_h = false
+			anim.flip_h = true
 			direction = -1
 			$AttackArea/CollisionShape2D.position.x = -abs($AttackArea/CollisionShape2D.position.x)
-			$ElectricArc.position.x = -abs($ElectricArc.position.x)
 		else:
-			anim.flip_h = true
+			anim.flip_h = false
 			direction = 1
 			$AttackArea/CollisionShape2D.position.x = abs($AttackArea/CollisionShape2D.position.x)
-			$ElectricArc.position.x = abs($ElectricArc.position.x)
 			
 	if not is_attacking and not is_hurt and not is_dying:
 		if current_cooldown <= 0:
@@ -61,22 +58,20 @@ func perform_special_attack():
 		return
 	is_attacking = true
 	anim.play("special_attack")
-	electric_shock_player = AudioManager.play_sfx("sfx/electric-shock")
-	while anim.frame < 12:
-		if anim.animation != "special_attack" or player_in_range: 
-			$ElectricArc.visible = false
-			electric_shock_player.stop()
-			return 
-			
-		if anim.frame == 6:
-			$ElectricArc.visible = true
-		else:
-			$ElectricArc.visible = false
-		await get_tree().process_frame	
+	
+	while anim.is_playing() and anim.animation == "special_attack":
+		player.is_stunned = true
+		player.global_position.y = move_toward(player.global_position.y, 650, 8)
+		if anim.frame==9:
+			player.is_stunned = false
+			player.velocity.y = 2000
+			player.take_damage(10)
+			break
+		await get_tree().process_frame
+		
 	await anim.animation_finished
 	
-	if anim.animation != "special_attack":
-		return
+	
 	anim.play("idle")
 	is_attacking = false
 	current_cooldown = special_attack_cooldown_time
@@ -89,7 +84,7 @@ func perform_attack():
 	while anim.is_playing() and anim.animation == "attack":
 		if anim.animation != "attack":
 			return
-		if anim.frame >= 13 and anim.frame <= 15 and not damage_dealt:
+		if anim.frame == 5 and not damage_dealt:
 			if attack_area.overlaps_body(player):
 				if player.has_method("take_damage"):
 					AudioManager.play_sfx("sfx/book_hit")
