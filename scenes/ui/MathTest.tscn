@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://b0k5uwsk08t5f"]
 
-[ext_resource type="Script" uid="uid://63b4rklosqu2" path="res://scenes/math_test.gd" id="1_4khcd"]
+[ext_resource type="Script" uid="uid://63b4rklosqu2" path="res://scripts/items/math_test.gd" id="1_4khcd"]
 [ext_resource type="Texture2D" uid="uid://dgj1bs1x5t6ee" path="res://assets/tests/math1.png" id="1_l75jm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ha5ti"]

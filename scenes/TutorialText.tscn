@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://ploi3kvbt5ap"]
 
-[ext_resource type="Script" uid="uid://owmlqhqebvsh" path="res://scripts/items/tutorial_text.gd" id="1_u5yxp"]
+[ext_resource type="Script" uid="uid://owmlqhqebvsh" path="res://scripts/tutorial_text.gd" id="1_u5yxp"]
 [ext_resource type="FontFile" uid="uid://cwe686e85ukcq" path="res://assets/ui/fonts/PixelifySans-VariableFont_wght.ttf" id="2_0fwtd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_41yw4"]
