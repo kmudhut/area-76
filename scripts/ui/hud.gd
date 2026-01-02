@@ -11,6 +11,9 @@ extends CanvasLayer
 @onready var llm_label = $LLM_PowerUpContainer/LLM_Label
 @onready var llm_icon = $LLM_PowerUpContainer/LLM_PowerUpIcon 
 
+@onready var biret_container = $BiretContainer
+var biret_icon_texture = preload("res://assets/items/biret/b1.png")
+
 # --- KONFIGURACJA ---
 var llm_text_template = "Wciśnij {bumper_left}+{bumper_right}, aby zapytać Bota. Odpowiedź może być zmyślona, ale brzmi tak mądrze, że przeciwnicy zgłupieją."
 var using_gamepad = false
@@ -31,6 +34,8 @@ func _ready():
 	style.content_margin_left = 10; style.content_margin_right = 10
 	style.content_margin_top = 5; style.content_margin_bottom = 5
 	llm_label.add_theme_stylebox_override("normal", style)
+	if biret_container:
+		biret_container.add_theme_constant_override("separation", 5)
 	
 	# Podłączanie sygnałów
 	if not GameState.ects_changed.is_connected(update_ects):
@@ -38,10 +43,14 @@ func _ready():
 	
 	if not GameState.motivation_changed.is_connected(update_motivation):
 		GameState.motivation_changed.connect(update_motivation)
+	
+	if not GameState.birets_changed.is_connected(update_birets_display):
+		GameState.birets_changed.connect(update_birets_display)
 
 	# Inicjalizacja UI
 	update_ects(GameState.ects)
 	update_motivation(GameState.motivation, GameState.max_motivation)
+	update_birets_display(GameState.birets)
 	
 	if Input.get_connected_joypads().size() > 0:
 		using_gamepad = true
@@ -168,19 +177,29 @@ func update_motivation(current_val, max_val):
 		var max_txt = str(int(max_val))
 		motivation_label.text = "MOTYWACJA: " + curr_txt + "/" + max_txt
 	
-	# Mignięcie na biało przy otrzymaniu obrażeń
 	if current_val < previous_val:
 		flash_damage()
 
-# NOWE: Efekt mignięcia paska na biało
+func update_birets_display(count):
+	if not biret_container: return
+	
+	for child in biret_container.get_children():
+		child.queue_free()
+		
+	for i in range(count):
+		var icon = TextureRect.new()
+		icon.texture = biret_icon_texture
+		icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		icon.custom_minimum_size = Vector2(100, 100)
+		icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		biret_container.add_child(icon)
+
 func flash_damage():
 	if damage_tween:
 		damage_tween.kill()
 	
 	damage_tween = create_tween()
 	
-	# Mignij na biało
 	damage_tween.tween_property(motivation_bar, "modulate", Color(1, 0, 0), 0.1)
 	
-	# Wróć do normalnego koloru (Biały w modulate oznacza "oryginalny kolor paska")
 	damage_tween.tween_property(motivation_bar, "modulate", Color(1, 1, 1, 1), 0.3)

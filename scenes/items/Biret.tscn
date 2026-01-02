@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://k4h4s5k0kgw1"]
+
+[ext_resource type="Script" uid="uid://dym2ot468dmlv" path="res://scripts/items/ConsumableItem.gd" id="1_pbont"]
+[ext_resource type="Texture2D" uid="uid://c0p4exduj3gyl" path="res://assets/items/biret/b1.png" id="2_1plnc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x66wq"]
+size = Vector2(129, 71)
+
+[node name="Biret" type="Area2D"]
+scale = Vector2(0.665, 0.665)
+script = ExtResource("1_pbont")
+type = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_1plnc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 2.5)
+shape = SubResource("RectangleShape2D_x66wq")

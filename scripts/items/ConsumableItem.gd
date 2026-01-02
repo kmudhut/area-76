@@ -5,11 +5,12 @@ enum ItemType {
 	ENERGY_DRINK, 
 	GOLDEN_DRINK, 
 	LLM_ITEM, 
-	ECTS
+	ECTS,
+	BIRET
 }
 
 @export var type: ItemType = ItemType.ENERGY_DRINK
-@export var ects_value: int = 1 
+var ects_value: int = 1 
 
 @onready var animated_sprite = get_node_or_null("AnimatedSprite2D")
 @onready var detection_zone = get_node_or_null("DetectionZone")
@@ -44,6 +45,10 @@ func _ready():
 # --- OBSŁUGA ZDARZEŃ (KOLIZJE) ---
 func _on_body_entered(body):
 	if body.is_in_group("player"):
+		if type == ItemType.BIRET:
+			if GameState.birets >= GameState.max_birets:
+				return
+		
 		GameState.register_collected_item(unique_id)
 		
 		play_pickup_sound()
@@ -93,7 +98,7 @@ func apply_effect(player):
 			if stats: stats.heal_percent(20.0)
 			if player.has_method("apply_speed_boost"):
 				player.apply_speed_boost(5.0, 1.25)
-				
+		
 		ItemType.GOLDEN_DRINK:
 			if stats: stats.heal_percent(50.0)
 			if player.has_method("apply_speed_boost"):
@@ -103,7 +108,7 @@ func apply_effect(player):
 			
 			if gs: gs.add_golden_drink() 
 			print("Wypito Złoty Napój!")
-			
+		
 		ItemType.LLM_ITEM:
 			if gs: gs.add_llm_charge()
 			var hud = get_tree().get_first_node_in_group("hud")
@@ -113,3 +118,7 @@ func apply_effect(player):
 		
 		ItemType.ECTS:
 			if gs: gs.add_ects(ects_value)
+		
+		ItemType.BIRET:
+			if gs: gs.add_birets(1)
+			print("Podniesiono Biret!")

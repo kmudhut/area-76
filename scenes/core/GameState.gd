@@ -10,6 +10,7 @@ signal golden_drink_changed(has_drink)
 signal llm_charges_changed(count)
 signal boss_unlocked() 
 signal game_over()
+signal birets_changed(count)
 
 # --- ZMIENNE STANU GRY ---
 var motivation: float = 100.0
@@ -18,6 +19,8 @@ var ects: int = 0
 var golden_drinks_count: int = 0 
 var llm_charges: int = 0
 var is_usos_active: bool = false
+var birets: int = 0
+var max_birets: int = 4
 
 # --- ZMIENNE SYSTEMU ZAPISU ---
 var current_level_name: String = "level_01" # Domyślny startowy poziom
@@ -54,10 +57,15 @@ func set_llm_charges(new_value):
 	llm_charges = new_value
 	llm_charges_changed.emit(llm_charges)
 
+func set_birets(value: int):
+	birets = clamp(value, 0, max_birets)
+	emit_signal("birets_changed", birets)
+
 # --- FUNKCJE POMOCNICZE ---
 func add_ects(amount): set_ects(ects + amount)
 func add_golden_drink(): set_golden_drink_count(golden_drinks_count + 1)
 func add_llm_charge(): set_llm_charges(llm_charges + 1)
+func add_birets(amount: int): set_birets(birets + amount)
 
 func use_golden_drink() -> bool:
 	if golden_drinks_count > 0:
@@ -68,6 +76,12 @@ func use_golden_drink() -> bool:
 func use_llm_charge() -> bool:
 	if llm_charges > 0:
 		set_llm_charges(llm_charges - 1)
+		return true
+	return false
+
+func use_biret() -> bool:
+	if birets > 0:
+		set_birets(birets - 1)
 		return true
 	return false
 
@@ -100,6 +114,7 @@ func save_game():
 		"ects": ects,
 		"golden_drinks": golden_drinks_count,
 		"llm_charges": llm_charges,
+		"birets": birets,
 		"current_level": current_level_name,
 		"checkpoint_x": last_checkpoint_position.x,
 		"checkpoint_y": last_checkpoint_position.y,
@@ -127,6 +142,7 @@ func load_game() -> bool:
 		ects = data.get("ects", 0)
 		golden_drinks_count = data.get("golden_drinks", 0)
 		llm_charges = data.get("llm_charges", 0)
+		birets = data.get("birets", 0)
 		current_level_name = data.get("current_level", "Level_01")
 		current_difficulty = data.get("difficulty", Difficulty.NORMAL)
 		is_boss_accessible = data.get("boss_unlocked", false)
@@ -148,6 +164,7 @@ func reset_new_game():
 	ects = 0
 	golden_drinks_count = 0
 	llm_charges = 0
+	birets = 0
 	collected_items.clear() # Czyścimy listę zebranych rzeczy!
 	current_level_name = "level_01" # Ustaw tu nazwę swojego pierwszego poziomu!
 	last_checkpoint_position = Vector2.ZERO
@@ -162,6 +179,7 @@ func reset_new_game():
 func restart_level_data():
 	last_checkpoint_position = Vector2.ZERO
 	ects = 0
-	set_ects(0) 
+	set_ects(0)
+	set_birets(0)
 	motivation = max_motivation
 	set_motivation(motivation, max_motivation)

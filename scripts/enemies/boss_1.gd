@@ -160,7 +160,7 @@ func play_hurt_effects():
 func _die():
 	is_dying = true
 	$AnimatedSprite2D.play("die")
-	emit_signal("boss_defeated")
 	await $AnimatedSprite2D.animation_finished
 	await get_tree().create_timer(1.0).timeout
+	emit_signal("boss_defeated")
 	queue_free()

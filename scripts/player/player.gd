@@ -277,6 +277,9 @@ func attack2():
 func throw_hat():
 	if is_distance_attacking:
 		return
+	if not GameState.use_biret():
+		print("Brak biretów w ekwipunku!")
+		return
 	is_distance_attacking = true
 
 	velocity.x = 0

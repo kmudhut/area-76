@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://pxkhy2qst1fo"]
+[gd_scene load_steps=72 format=3 uid="uid://pxkhy2qst1fo"]
 
 [ext_resource type="Script" uid="uid://dl8pubuxmlxpf" path="res://scripts/levels/Level_01.gd" id="1_lswbx"]
 [ext_resource type="Texture2D" uid="uid://b7ar0mlw21b1a" path="res://assets/environment/backgrounds/level1/00.png" id="1_mhiu8"]
@@ -32,6 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://ddogqb8nbcqqb" path="res://scenes/checkpoint.tscn" id="30_e5bmj"]
 [ext_resource type="PackedScene" uid="uid://bclx5fh3rso2q" path="res://scenes/levels/LevelExit.tscn" id="31_o2j7d"]
 [ext_resource type="PackedScene" uid="uid://8hhtm33pbbbd" path="res://scenes/ui/EndScreen.tscn" id="32_jcvym"]
+[ext_resource type="PackedScene" uid="uid://k4h4s5k0kgw1" path="res://scenes/items/Biret.tscn" id="33_hm15d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t6bfo"]
 texture = ExtResource("12_d86x1")
@@ -6711,7 +6712,7 @@ position = Vector2(5454, 1013)
 position = Vector2(7307, 1009)
 
 [node name="EctsCoin9" parent="." instance=ExtResource("22_qcx6o")]
-position = Vector2(7013, 43)
+position = Vector2(7009, -315)
 
 [node name="EctsCoin10" parent="." instance=ExtResource("22_qcx6o")]
 position = Vector2(7950, 1012)
@@ -6754,3 +6755,18 @@ position = Vector2(4265, -226)
 
 [node name="EctsCoin23" parent="." instance=ExtResource("22_qcx6o")]
 position = Vector2(10533, 630)
+
+[node name="Biret" parent="." instance=ExtResource("33_hm15d")]
+position = Vector2(510, 1010)
+
+[node name="Biret2" parent="." instance=ExtResource("33_hm15d")]
+position = Vector2(406, 1012)
+
+[node name="Biret3" parent="." instance=ExtResource("33_hm15d")]
+position = Vector2(495, 750)
+
+[node name="Biret4" parent="." instance=ExtResource("33_hm15d")]
+position = Vector2(397, 750)
+
+[node name="Biret5" parent="." instance=ExtResource("33_hm15d")]
+position = Vector2(301, 1015)
