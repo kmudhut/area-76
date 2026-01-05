@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1pfi8bmxumqo"
-path="res://.godot/imported/boss2_arc.png-5abf98757d865345dbf1b77bab9cd5e0.ctex"
+uid="uid://djdeqj51s5o22"
+path="res://.godot/imported/boss2_arc_sprite.png-1964108c34dfe33069dfc33a53121646.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/enemies/boss2_arc.png"
-dest_files=["res://.godot/imported/boss2_arc.png-5abf98757d865345dbf1b77bab9cd5e0.ctex"]
+source_file="res://assets/characters/enemies/boss2/boss2_arc_sprite.png"
+dest_files=["res://.godot/imported/boss2_arc_sprite.png-1964108c34dfe33069dfc33a53121646.ctex"]
 
 [params]
 

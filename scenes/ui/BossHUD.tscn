@@ -21,15 +21,6 @@ outline_color = Color(0, 0, 0, 1)
 script = ExtResource("1_l6msj")
 
 [node name="BossTitleArt" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(0, 20)
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 40.0
-grow_horizontal = 2
-stretch_mode = 5
 
 [node name="HealthContainer" type="Control" parent="."]
 layout_mode = 3

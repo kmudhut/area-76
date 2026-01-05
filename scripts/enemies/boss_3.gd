@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 signal health_changed(current_hp, max_hp)
+signal boss_defeated
 
 var health_points = 200
 var max_health_points = health_points
@@ -140,4 +141,6 @@ func _die():
 	is_dying = true
 	$AnimatedSprite2D.play("die")
 	await $AnimatedSprite2D.animation_finished
+	await get_tree().create_timer(1.0).timeout
+	emit_signal("boss_defeated")
 	queue_free()

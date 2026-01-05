@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxibf2jr674ed"
-path="res://.godot/imported/boss3_special_attack_sprite.png-9a486c8761faef316f2afa8905128298.ctex"
+uid="uid://1478jfh4kd66"
+path="res://.godot/imported/boss3_attack_sprite.png-1ba2d125828aeb1a2106b96e42834ce0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/enemies/boss3_special_attack_sprite.png"
-dest_files=["res://.godot/imported/boss3_special_attack_sprite.png-9a486c8761faef316f2afa8905128298.ctex"]
+source_file="res://assets/characters/enemies/boss3/boss3_attack_sprite.png"
+dest_files=["res://.godot/imported/boss3_attack_sprite.png-1ba2d125828aeb1a2106b96e42834ce0.ctex"]
 
 [params]
 

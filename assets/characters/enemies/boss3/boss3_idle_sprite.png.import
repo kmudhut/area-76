@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmwcik8a7er5y"
-path="res://.godot/imported/boss3_die_sprite.png-a015cd2893a02b1fe46a9bb8b6a2f023.ctex"
+uid="uid://dkxb45vrn5eb7"
+path="res://.godot/imported/boss3_idle_sprite.png-2f07efeb3b717c635d4eae71f2ccd0fe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/enemies/boss3_die_sprite.png"
-dest_files=["res://.godot/imported/boss3_die_sprite.png-a015cd2893a02b1fe46a9bb8b6a2f023.ctex"]
+source_file="res://assets/characters/enemies/boss3/boss3_idle_sprite.png"
+dest_files=["res://.godot/imported/boss3_idle_sprite.png-2f07efeb3b717c635d4eae71f2ccd0fe.ctex"]
 
 [params]
 

@@ -1,11 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://b2be2l0r6aoxa"]
+[gd_scene load_steps=14 format=3 uid="uid://b2be2l0r6aoxa"]
 
 [ext_resource type="Texture2D" uid="uid://7kn0iaem3d0d" path="res://assets/environment/tilesets/terrain-tilemap.png" id="1_7fmgv"]
+[ext_resource type="Script" uid="uid://ctxc2a47xj2er" path="res://scripts/levels/Level_03_boss.gd" id="1_fdeh1"]
 [ext_resource type="PackedScene" uid="uid://ctapa34kpnlht" path="res://scenes/ui/hud.tscn" id="2_fdeh1"]
 [ext_resource type="Texture2D" uid="uid://c8ry7wkdu44mr" path="res://assets/environment/tilesets/W+5OcG.png" id="3_bmbqh"]
 [ext_resource type="PackedScene" uid="uid://bmmq7dvcq4bva" path="res://scenes/characters/player.tscn" id="4_uqyuu"]
 [ext_resource type="PackedScene" uid="uid://ctrk48g5tbcx2" path="res://scenes/characters/Boss3.tscn" id="6_7fmgv"]
 [ext_resource type="PackedScene" uid="uid://i3xn0ut7l2rv" path="res://scenes/ui/BossHUD.tscn" id="6_7p3r7"]
+[ext_resource type="PackedScene" uid="uid://bplpp6dkuvo6q" path="res://scenes/ui/BossIntroUI.tscn" id="8_uqyuu"]
+[ext_resource type="PackedScene" uid="uid://8hhtm33pbbbd" path="res://scenes/ui/EndScreen.tscn" id="9_w2scs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t48ki"]
 texture = ExtResource("1_7fmgv")
@@ -5504,7 +5507,8 @@ texture = ExtResource("3_bmbqh")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_ni1ev")
 
-[node name="Level01Boss" type="Node2D" groups=["gameplayScene"]]
+[node name="Level03Boss" type="Node2D" groups=["gameplayScene"]]
+script = ExtResource("1_fdeh1")
 
 [node name="TileMap Candy" type="TileMap" parent="."]
 position = Vector2(0, -25)
@@ -5525,8 +5529,14 @@ layer_0/tile_data = PackedInt32Array(-2293762, 2097152, 10, -2228226, 2097152, 1
 [node name="Player" parent="." instance=ExtResource("4_uqyuu")]
 position = Vector2(212, 888)
 
-[node name="BossHud" parent="." instance=ExtResource("6_7p3r7")]
-
 [node name="Boss3" parent="." instance=ExtResource("6_7fmgv")]
 position = Vector2(1381, 848)
 scale = Vector2(0.45, 0.45)
+
+[node name="BossHud" parent="." instance=ExtResource("6_7p3r7")]
+
+[node name="BossIntroUI" parent="." instance=ExtResource("8_uqyuu")]
+visible = false
+
+[node name="EndScreen" parent="." instance=ExtResource("9_w2scs")]
+visible = false

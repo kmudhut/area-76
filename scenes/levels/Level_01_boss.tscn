@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dqao334d7eiqh"]
+[gd_scene load_steps=19 format=3 uid="uid://dqao334d7eiqh"]
 
 [ext_resource type="PackedScene" uid="uid://bplpp6dkuvo6q" path="res://scenes/ui/BossIntroUI.tscn" id="1_t48ki"]
 [ext_resource type="Script" uid="uid://bji2igf6rmvn3" path="res://scripts/levels/Level_01_boss.gd" id="1_ujfgi"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://i3xn0ut7l2rv" path="res://scenes/ui/BossHUD.tscn" id="3_bsjjx"]
 [ext_resource type="PackedScene" uid="uid://ctapa34kpnlht" path="res://scenes/ui/hud.tscn" id="4_si67t"]
 [ext_resource type="PackedScene" uid="uid://8hhtm33pbbbd" path="res://scenes/ui/EndScreen.tscn" id="6_ni1ev"]
+[ext_resource type="Texture2D" uid="uid://b6htembaej5h6" path="res://assets/characters/enemies/boss1/boss1_title.png" id="6_pv0t1"]
 [ext_resource type="PackedScene" uid="uid://cha8mom7nf2ty" path="res://scenes/items/EnergyDrink.tscn" id="8_bsjjx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mfdis"]
@@ -61,6 +62,8 @@ position = Vector2(302, 706)
 
 [node name="BossHud" parent="." node_paths=PackedStringArray("boss_node") instance=ExtResource("3_bsjjx")]
 boss_node = NodePath("../Boss1")
+boss_title_texture = ExtResource("6_pv0t1")
+title_scale = Vector2(0.2, 0.2)
 
 [node name="Hud" parent="." instance=ExtResource("4_si67t")]
 

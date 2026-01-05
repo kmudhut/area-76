@@ -4,6 +4,7 @@ extends CanvasLayer
 @export_group("Konfiguracja Bossa")
 @export var boss_node: CharacterBody2D  # Przeciągnij tu Bossa ze sceny
 @export var boss_title_texture: Texture2D # Tu wrzuć obrazek z napisem
+@export var title_scale: Vector2 = Vector2(1.0, 1.0)
 
 # --- REFERENCJE DO WĘZŁÓW ---
 @onready var title_art = $BossTitleArt
@@ -21,11 +22,19 @@ func _ready():
 		set_process(false)
 
 func _setup_hud():
-	# 1. Ustawienie grafiki tytułowej
 	if boss_title_texture:
 		title_art.texture = boss_title_texture
+		title_art.visible = true 
+		title_art.set_anchors_preset(Control.PRESET_TOP_LEFT)
+		var screen_w = get_viewport().get_visible_rect().size.x
+		var tex_w = boss_title_texture.get_width()
+		var tex_h = boss_title_texture.get_height()
+		title_art.pivot_offset = Vector2(tex_w / 2, tex_h / 2)
+		title_art.scale = title_scale
+		title_art.position.x = (screen_w / 2) - (tex_w / 2)
+		title_art.position.y = -350
 	else:
-		title_art.visible = false # Ukryj jeśli brak obrazka
+		title_art.visible = false
 		
 	# 2. Ustawienie paska
 	progress_bar.max_value = boss_node.max_health_points

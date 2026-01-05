@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://blf5judshswkg"
-path="res://.godot/imported/boss1_smoking_sprite.png-a3202e8ebc9a59492c22838bf112d986.ctex"
+uid="uid://blj14j1mtycsr"
+path="res://.godot/imported/boss2_special_attack_sprite.png-6f509e992bd0d0dfb3d9c85e42f881aa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/enemies/boss1_smoking_sprite.png"
-dest_files=["res://.godot/imported/boss1_smoking_sprite.png-a3202e8ebc9a59492c22838bf112d986.ctex"]
+source_file="res://assets/characters/enemies/boss2/boss2_special_attack_sprite.png"
+dest_files=["res://.godot/imported/boss2_special_attack_sprite.png-6f509e992bd0d0dfb3d9c85e42f881aa.ctex"]
 
 [params]
 

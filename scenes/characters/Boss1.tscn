@@ -1,11 +1,11 @@
 [gd_scene load_steps=82 format=3 uid="uid://cu62lq41428po"]
 
-[ext_resource type="Texture2D" uid="uid://blf5judshswkg" path="res://assets/characters/enemies/boss1_smoking_sprite.png" id="1_kaklh"]
+[ext_resource type="Texture2D" uid="uid://blf5judshswkg" path="res://assets/characters/enemies/boss1/boss1_smoking_sprite.png" id="1_kaklh"]
 [ext_resource type="Script" uid="uid://thrffjdg76yo" path="res://scripts/enemies/boss_1.gd" id="1_qrykl"]
-[ext_resource type="Texture2D" uid="uid://bd0wuvstd0f3s" path="res://assets/characters/enemies/boss1_attack_sprite.png" id="1_walrt"]
-[ext_resource type="Texture2D" uid="uid://gf78vhrpaoy" path="res://assets/characters/enemies/boss1_die_sprite.png" id="2_qrykl"]
-[ext_resource type="Texture2D" uid="uid://bi08v7cxl3cb6" path="res://assets/characters/enemies/boss1_hurt_sprite.png" id="2_rhy6r"]
-[ext_resource type="Texture2D" uid="uid://b7ad6fobw5k51" path="res://assets/characters/enemies/boss1_special_attack_sprite.png" id="2_sqxku"]
+[ext_resource type="Texture2D" uid="uid://bd0wuvstd0f3s" path="res://assets/characters/enemies/boss1/boss1_attack_sprite.png" id="1_walrt"]
+[ext_resource type="Texture2D" uid="uid://gf78vhrpaoy" path="res://assets/characters/enemies/boss1/boss1_die_sprite.png" id="2_qrykl"]
+[ext_resource type="Texture2D" uid="uid://bi08v7cxl3cb6" path="res://assets/characters/enemies/boss1/boss1_hurt_sprite.png" id="2_rhy6r"]
+[ext_resource type="Texture2D" uid="uid://b7ad6fobw5k51" path="res://assets/characters/enemies/boss1/boss1_special_attack_sprite.png" id="2_sqxku"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p74go"]
 atlas = ExtResource("1_walrt")
