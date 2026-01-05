@@ -6441,43 +6441,73 @@ _data = {
 process_mode = 1
 script = ExtResource("1_lswbx")
 
-[node name="Background1" type="Sprite2D" parent="."]
+[node name="Parallax2D" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.8, 0.8)
+
+[node name="Background1" type="Sprite2D" parent="Parallax2D"]
 position = Vector2(1176.5, 62)
 texture = ExtResource("1_mhiu8")
 
-[node name="Background2" type="Sprite2D" parent="."]
+[node name="Parallax2D2" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.8, 0.8)
+
+[node name="Background2" type="Sprite2D" parent="Parallax2D2"]
 position = Vector2(3529.5, 62)
 texture = ExtResource("2_lswbx")
 
-[node name="Background3" type="Sprite2D" parent="."]
+[node name="Parallax2D3" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.8, 0.8)
+
+[node name="Background3" type="Sprite2D" parent="Parallax2D3"]
 position = Vector2(5882.5, 62)
 texture = ExtResource("3_uujh0")
 
-[node name="Background4" type="Sprite2D" parent="."]
+[node name="Parallax2D4" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.8, 0.8)
+
+[node name="Background4" type="Sprite2D" parent="Parallax2D4"]
 position = Vector2(8235.5, 62)
 texture = ExtResource("4_3t34l")
 
-[node name="Background5" type="Sprite2D" parent="."]
+[node name="Parallax2D5" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.8, 0.8)
+
+[node name="Background5" type="Sprite2D" parent="Parallax2D5"]
 position = Vector2(10588.5, 62)
 texture = ExtResource("5_qy4h0")
 
-[node name="Background6" type="Sprite2D" parent="."]
+[node name="Parallax2D6" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.8, 0.8)
+
+[node name="Background6" type="Sprite2D" parent="Parallax2D6"]
 position = Vector2(12941.5, 62)
 texture = ExtResource("6_e5bmj")
 
-[node name="Background7" type="Sprite2D" parent="."]
+[node name="Parallax2D7" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.8, 0.8)
+
+[node name="Background7" type="Sprite2D" parent="Parallax2D7"]
 position = Vector2(15294.5, 62)
 texture = ExtResource("7_iqf6e")
 
-[node name="Background8" type="Sprite2D" parent="."]
+[node name="Parallax2D8" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.8, 0.8)
+
+[node name="Background8" type="Sprite2D" parent="Parallax2D8"]
 position = Vector2(17647.5, 62)
 texture = ExtResource("8_stkom")
 
-[node name="Background9" type="Sprite2D" parent="."]
+[node name="Parallax2D9" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.8, 0.8)
+
+[node name="Background9" type="Sprite2D" parent="Parallax2D9"]
 position = Vector2(20000.5, 62)
 texture = ExtResource("9_5t8rk")
 
-[node name="Background10" type="Sprite2D" parent="."]
+[node name="Parallax2D10" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.8, 0.8)
+
+[node name="Background10" type="Sprite2D" parent="Parallax2D10"]
 position = Vector2(22352.5, 62)
 texture = ExtResource("10_cag23")
 

@@ -38,7 +38,7 @@ func setup_win_screen(ects_collected: int, max_ects: int, next_level: String, ro
 		next_level_btn.visible = true
 
 	if get_node_or_null("/root/AudioManager"):
-		AudioManager.play_sfx("victory")
+		AudioManager.play_sfx("sfx/victory")
 
 # --- OPCJA 2: PRZEGRANA (Poprawka / Śmierć) ---
 func setup_game_over_screen():
@@ -59,7 +59,7 @@ func setup_game_over_screen():
 	next_level_btn.visible = false
 	
 	if get_node_or_null("/root/AudioManager"):
-		AudioManager.play_sfx("game-over")
+		AudioManager.play_sfx("sfx/game-over")
 
 # --- FUNKCJA ANIMACJI PIECZĄTKI ---
 func animate_stamp_effect():
