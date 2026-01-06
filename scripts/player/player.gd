@@ -240,10 +240,11 @@ func _on_animation_finished():
 
 func _on_death():
 	set_physics_process(false)
+	animated_sprite_2d.play("die")
+	await $AnimatedSprite2D.animation_finished
 	AudioManager.stop_music()
 	visible = false
 	
-
 func attack1():
 	is_attacking = true
 	$AttackArea/CollisionShape2D.disabled = false

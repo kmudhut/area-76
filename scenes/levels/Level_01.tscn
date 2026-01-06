@@ -6532,6 +6532,7 @@ layer_0/tile_data = PackedInt32Array(-2293762, 2097152, 10, -2228226, 2097152, 1
 [node name="Player" parent="." instance=ExtResource("20_i652i")]
 position = Vector2(161.00049, 874)
 scale = Vector2(0.7, 0.7)
+BASE_SPEED = null
 
 [node name="Platform Stone" parent="." instance=ExtResource("21_6gto5")]
 position = Vector2(2280, 264)
