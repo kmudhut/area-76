@@ -22,10 +22,13 @@ var electric_shock_player
 @onready var anim = $AnimatedSprite2D
 @onready var attack_area = $AttackArea
 
+var background_sprite : AnimatedSprite2D
+
 func _ready() -> void:
 	var players = get_tree().get_nodes_in_group("player")
 	if players.size() > 0:
 		player = players[0]
+	background_sprite = get_parent().get_node_or_null("Background")
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -61,12 +64,16 @@ func perform_special_attack():
 	if is_attacking: 
 		return
 	is_attacking = true
+	
+	background_sprite.play("pioruny")
+	
 	anim.play("special_attack")
 	electric_shock_player = AudioManager.play_sfx("sfx/electric-shock")
 	while anim.frame < 12:
 		if anim.animation != "special_attack" or player_in_range: 
 			$ElectricArc.visible = false
 			electric_shock_player.stop()
+			background_sprite.play("deszcz")
 			return 
 			
 		if anim.frame == 6:
@@ -77,7 +84,14 @@ func perform_special_attack():
 	await anim.animation_finished
 	
 	if anim.animation != "special_attack":
+		
+		if background_sprite and background_sprite.animation == "pioruny":
+			background_sprite.play("deszcz")
+			
 		return
+	
+	background_sprite.play("deszcz")
+	
 	anim.play("idle")
 	is_attacking = false
 	current_cooldown = special_attack_cooldown_time
@@ -112,6 +126,10 @@ func _on_attacking_area_body_entered(body: Node2D) -> void:
 			
 		is_attacking = false 
 		current_cooldown = 0.0 
+		
+		if background_sprite and background_sprite.animation == "pioruny":
+			background_sprite.play("deszcz")
+		
 		perform_attack()
 
 func _on_attacking_area_body_exited(body: Node2D) -> void:
@@ -131,6 +149,9 @@ func play_hurt_effects():
 	hurt_interrupt_id += 1
 	var my_interrupt_id = hurt_interrupt_id
 	
+	if background_sprite and background_sprite.animation == "pioruny":
+		background_sprite.play("deszcz")
+	
 	anim.stop()
 	anim.play("hurt")
 	AudioManager.play_sfx("sfx/swot_hurt")
@@ -143,8 +164,12 @@ func play_hurt_effects():
 		
 func _die():
 	is_dying = true
-	$AnimatedSprite2D.play("die")
-	await $AnimatedSprite2D.animation_finished
-	await get_tree().create_timer(1.0).timeout
+	
+	if background_sprite:
+		background_sprite.play("przejscie")
+	
+	anim.play("die")
+	await anim.animation_finished
+	await get_tree().create_timer(4.0).timeout
 	emit_signal("boss_defeated")
 	queue_free()

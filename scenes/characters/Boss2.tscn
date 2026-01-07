@@ -633,9 +633,8 @@ script = ExtResource("1_pjdib")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_p74go")
-animation = &"idle"
+animation = &"die"
 autoplay = "idle"
-frame_progress = 0.14444257
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["enemies"]]
 position = Vector2(-2.0000038, -11.999987)
