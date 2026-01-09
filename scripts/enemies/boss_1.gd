@@ -138,8 +138,7 @@ func take_damage(amount: float):
 	emit_signal("health_changed", health_points, max_health_points)
 	if health_points <= 0:
 		_die()
-		return
-	play_hurt_effects()
+	else: play_hurt_effects()
 
 func play_hurt_effects():
 	is_attacking = false 
@@ -161,6 +160,6 @@ func _die():
 	is_dying = true
 	$AnimatedSprite2D.play("die")
 	await $AnimatedSprite2D.animation_finished
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(2.0).timeout
 	emit_signal("boss_defeated")
 	queue_free()

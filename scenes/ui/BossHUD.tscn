@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://i3xn0ut7l2rv"]
 
 [ext_resource type="Script" uid="uid://kaq54664w0md" path="res://scripts/ui/boss_hud.gd" id="1_l6msj"]
-[ext_resource type="FontFile" uid="uid://cwe686e85ukcq" path="res://assets/ui/fonts/PixelifySans-VariableFont_wght.ttf" id="2_denxf"]
+[ext_resource type="FontFile" uid="uid://bqmysxuyn6x1r" path="res://assets/ui/fonts/Pixelbasel.ttf" id="2_l6msj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y26yv"]
 bg_color = Color(1, 0, 0, 1)
@@ -12,9 +12,9 @@ border_width_bottom = 3
 border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_kq02p"]
-font = ExtResource("2_denxf")
-font_size = 46
-outline_size = 10
+font = ExtResource("2_l6msj")
+font_size = 48
+outline_size = 12
 outline_color = Color(0, 0, 0, 1)
 
 [node name="BossHud" type="CanvasLayer"]
@@ -34,9 +34,9 @@ grow_horizontal = 0
 [node name="ProgressBar" type="ProgressBar" parent="HealthContainer"]
 layout_mode = 0
 offset_left = -420.0
-offset_top = 82.0
+offset_top = 70.0
 offset_right = 12.0
-offset_bottom = 125.0
+offset_bottom = 113.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_y26yv")
 step = 1.0
 value = 100.0
@@ -48,6 +48,7 @@ layout_mode = 0
 offset_left = 2.0
 offset_top = -56.0
 offset_right = 432.0
+offset_bottom = 6.0
 text = "BOSS HP: 1000/1000"
 label_settings = SubResource("LabelSettings_kq02p")
 horizontal_alignment = 2

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ccgk1b4lapjyi" path="res://scripts/ui/hud.gd" id="1_8qguk"]
 [ext_resource type="Texture2D" uid="uid://bywgvaweh168w" path="res://assets/ui/hud_elements/hp.png" id="2_136eg"]
-[ext_resource type="FontFile" uid="uid://cwe686e85ukcq" path="res://assets/ui/fonts/PixelifySans-VariableFont_wght.ttf" id="3_136eg"]
+[ext_resource type="FontFile" uid="uid://bqmysxuyn6x1r" path="res://assets/ui/fonts/Pixelbasel.ttf" id="3_136eg"]
 [ext_resource type="Texture2D" uid="uid://dx5waj2tkummb" path="res://assets/ui/hud_elements/ects.png" id="4_oj5la"]
 [ext_resource type="Texture2D" uid="uid://dc7noohoput5i" path="res://assets/items/powerup/LLM_powerup.png" id="5_136eg"]
 
@@ -22,7 +22,7 @@ border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_oj5la"]
 font = ExtResource("3_136eg")
-font_size = 500
+font_size = 610
 outline_size = 115
 outline_color = Color(0, 0, 0, 1)
 

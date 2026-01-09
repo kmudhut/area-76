@@ -6711,8 +6711,17 @@ position = Vector2(3284, 802)
 position = Vector2(8521, 634)
 
 [node name="LevelExit" parent="." instance=ExtResource("31_o2j7d")]
-position = Vector2(10407, 891)
+position = Vector2(10104, 890)
 next_level_scene = "Level_01_boss"
+text_locked = "[center][color=#ff5555]⛔ DOSTĘP ZABLOKOWANY[/color]
+[font_size=20]Wymagane uprawnienia: 12 ECTS[/font_size]
+STATUS: [color=#ff5555]{points} ECTS[/color][/center]"
+text_conditional = "[center][color=#ffff55]⚠ DOSTĘP WARUNKOWY[/color]
+[font_size=20]Ryzyko niezaliczenia wykryte.[/font_size]
+[wave amp=20 freq=5][color=#ffff55][Wciśnij {jump}][/color][/wave][/center]"
+text_perfect = "[center][color=#55ff55]✔ DOSTĘP PRZYZNANY[/color]
+[font_size=20]Student Wzorowy.[/font_size]
+[rainbow freq=0.5][Wciśnij {jump}][/rainbow][/center]"
 
 [node name="EndScreen" parent="." instance=ExtResource("32_jcvym")]
 visible = false

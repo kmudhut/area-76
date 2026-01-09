@@ -170,6 +170,6 @@ func _die():
 	
 	anim.play("die")
 	await anim.animation_finished
-	await get_tree().create_timer(4.0).timeout
+	await get_tree().create_timer(2.0).timeout
 	emit_signal("boss_defeated")
 	queue_free()
