@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
-[gd_scene load_steps=41 format=3 uid="uid://d1fvakn3pl6pb"]
-=======
 [gd_scene load_steps=45 format=3 uid="uid://bemw00asd0xir"]
->>>>>>> Stashed changes
 
 [ext_resource type="Script" uid="uid://dl8pubuxmlxpf" path="res://scripts/levels/Level_01.gd" id="1_wm7ww"]
 [ext_resource type="PackedScene" uid="uid://ctapa34kpnlht" path="res://scenes/ui/hud.tscn" id="2_26y65"]
@@ -6393,13 +6389,7 @@ layer_0/tile_data = PackedInt32Array(-131058, 1114112, 4, -65522, 1114112, 5, 14
 position = Vector2(301, -3445.9998)
 scale = Vector2(0.7, 0.7)
 
-<<<<<<< Updated upstream
-=======
-[node name="LevelExit" parent="." instance=ExtResource("21_fwcly")]
-position = Vector2(17696, 937)
-next_level_scene = "Level_01_boss"
 
->>>>>>> Stashed changes
 [node name="EndScreen" parent="." instance=ExtResource("22_8nu6f")]
 visible = false
 
@@ -6419,11 +6409,10 @@ scale = Vector2(0.7, 0.7)
 position = Vector2(1690.0001, -3409)
 scale = Vector2(0.6, 0.6)
 
-<<<<<<< Updated upstream
 [node name="LevelExit" parent="." instance=ExtResource("21_fwcly")]
 position = Vector2(10050, 839)
 next_level_scene = "uid://b2be2l0r6aoxa"
-=======
+
 [node name="UavOperator2" parent="." instance=ExtResource("14_sywh5")]
 position = Vector2(12123.999, -3443)
 scale = Vector2(0.7, 0.7)
@@ -6508,4 +6497,3 @@ position = Vector2(513.00006, -85)
 [node name="PlatformBrick" parent="." instance=ExtResource("20_l2yap")]
 position = Vector2(17712, -3279)
 scale = Vector2(2.5, 2.5)
->>>>>>> Stashed changes
