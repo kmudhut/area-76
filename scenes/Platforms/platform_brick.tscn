@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bn52tt6c4joc4"]
+
+[ext_resource type="Texture2D" uid="uid://7kn0iaem3d0d" path="res://assets/environment/tilesets/terrain-tilemap.png" id="1_sbg5c"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gxn8y"]
+radius = 9.0
+height = 48.0
+
+[node name="PlatformBrick" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_sbg5c")
+region_enabled = true
+region_rect = Rect2(273.00174, 65.04375, 46.35501, 16.757439)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_gxn8y")
