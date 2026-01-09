@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://bemw00asd0xir"]
+[gd_scene load_steps=41 format=3 uid="uid://d1fvakn3pl6pb"]
 
 [ext_resource type="Script" uid="uid://dl8pubuxmlxpf" path="res://scripts/levels/Level_01.gd" id="1_wm7ww"]
 [ext_resource type="PackedScene" uid="uid://ctapa34kpnlht" path="res://scenes/ui/hud.tscn" id="2_26y65"]
@@ -6383,10 +6383,6 @@ layer_0/tile_data = PackedInt32Array(4129226, 1114112, 4, 4194762, 1114112, 5, 4
 position = Vector2(82.99999, -1706)
 scale = Vector2(0.7, 0.7)
 
-[node name="LevelExit" parent="." instance=ExtResource("21_fwcly")]
-position = Vector2(10359, 839)
-next_level_scene = "Level_01_boss"
-
 [node name="EndScreen" parent="." instance=ExtResource("22_8nu6f")]
 visible = false
 
@@ -6405,3 +6401,7 @@ scale = Vector2(0.7, 0.7)
 [node name="Swot" parent="." instance=ExtResource("15_qs6ra")]
 position = Vector2(1693.0001, -1687)
 scale = Vector2(0.6, 0.6)
+
+[node name="LevelExit" parent="." instance=ExtResource("21_fwcly")]
+position = Vector2(10050, 839)
+next_level_scene = "uid://b2be2l0r6aoxa"

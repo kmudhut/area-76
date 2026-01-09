@@ -2,9 +2,9 @@ extends Area2D
 
 # --- KONFIGURACJA W INSPEKTORZE ---
 @export_file("*.tscn") var next_level_scene: String
-@export_multiline var text_locked: String = "[center][color=#ff5555]⛔ DOSTĘP ZABLOKOWANY[/color]\n[font_size=14]Wymagane uprawnienia: 12 ECTS[/font_size]\nSTATUS: [color=#ff5555]{points} ECTS[/color][/center]"
-@export_multiline var text_conditional: String = "[center][color=#ffff55]⚠ DOSTĘP WARUNKOWY[/color]\n[font_size=14]Ryzyko niezaliczenia wykryte.[/font_size]\n[wave amp=20 freq=5][color=#ffff55][Wciśnij {jump}][/color][/wave][/center]"
-@export_multiline var text_perfect: String = "[center][color=#55ff55]✔ DOSTĘP PRZYZNANY[/color]\n[font_size=14]Student Wzorowy.[/font_size]\n[rainbow freq=0.5][Wciśnij {jump}][/rainbow][/center]"
+@export_multiline var text_locked: String = "[center][color=#ff5555]⛔ DOSTĘP ZABLOKOWANY[/color]\n[font_size=20]Wymagane uprawnienia: 12 ECTS[/font_size]\nSTATUS: [color=#ff5555]{points} ECTS[/color][/center]"
+@export_multiline var text_conditional: String = "[center][color=#ffff55]⚠ DOSTĘP WARUNKOWY[/color]\n[font_size=20]Ryzyko niezaliczenia wykryte.[/font_size]\n[wave amp=20 freq=5][color=#ffff55][Wciśnij {jump}][/color][/wave][/center]"
+@export_multiline var text_perfect: String = "[center][color=#55ff55]✔ DOSTĘP PRZYZNANY[/color]\n[font_size=20]Student Wzorowy.[/font_size]\n[rainbow freq=0.5][Wciśnij {jump}][/rainbow][/center]"
 
 # --- ZMIENNE WEWNĘTRZNE ---
 @onready var label = $RichTextLabel
