@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://bemw00asd0xir"]
+[gd_scene load_steps=51 format=3 uid="uid://bemw00asd0xir"]
 
 [ext_resource type="Script" uid="uid://dl8pubuxmlxpf" path="res://scripts/levels/Level_01.gd" id="1_wm7ww"]
 [ext_resource type="PackedScene" uid="uid://ctapa34kpnlht" path="res://scenes/ui/hud.tscn" id="2_26y65"]
@@ -17,11 +17,18 @@
 [ext_resource type="Texture2D" uid="uid://dljfm56rmh0nr" path="res://assets/environment/tilesets/Stone.png" id="8_hdcp8"]
 [ext_resource type="Texture2D" uid="uid://bah1ei3bpdhs4" path="res://assets/environment/backgrounds/level03/LVL_03_BCKGRND_10.png" id="9_an5u4"]
 [ext_resource type="Texture2D" uid="uid://c1vdoq1ejpi0w" path="res://assets/environment/tilesets/Tiles.png" id="9_jcfwv"]
+[ext_resource type="Texture2D" uid="uid://dcd5teqalowjw" path="res://assets/environment/backgrounds/level03/LVL_03_BCKGRND_11.png" id="10_hdcp8"]
 [ext_resource type="Texture2D" uid="uid://c8ry7wkdu44mr" path="res://assets/environment/tilesets/W+5OcG.png" id="10_k0n1s"]
+[ext_resource type="Texture2D" uid="uid://cww4dvkx1q4ir" path="res://assets/environment/backgrounds/level03/LVL_03_BCKGRND_12.png" id="11_i8ocq"]
 [ext_resource type="PackedScene" uid="uid://bmmq7dvcq4bva" path="res://scenes/characters/player.tscn" id="11_sotxn"]
+[ext_resource type="Texture2D" uid="uid://btj1640wovo3n" path="res://assets/environment/backgrounds/level03/LVL_03_BCKGRND_06.png" id="12_nus5b"]
+[ext_resource type="Texture2D" uid="uid://yfc65lqj4yw8" path="res://assets/environment/backgrounds/level03/LVL_03_BCKGRND_07.png" id="13_1lhsm"]
+[ext_resource type="Texture2D" uid="uid://buoqjglp3ftge" path="res://assets/environment/backgrounds/level03/LVL_03_BCKGRND_13.png" id="14_h6jev"]
 [ext_resource type="PackedScene" uid="uid://c4nqcrp2hf18c" path="res://scenes/characters/UAV_operator.tscn" id="14_sywh5"]
+[ext_resource type="Texture2D" uid="uid://depob46t3ovkm" path="res://assets/environment/backgrounds/level03/LVL_03_BCKGRND_14.png" id="15_q0qah"]
 [ext_resource type="PackedScene" uid="uid://dgijdsl8cfnng" path="res://scenes/characters/swot.tscn" id="15_qs6ra"]
 [ext_resource type="PackedScene" uid="uid://df8r8v0ywhms5" path="res://scenes/items/LLM_PowerUp.tscn" id="16_fei51"]
+[ext_resource type="Texture2D" uid="uid://b1al43rolqc07" path="res://assets/environment/backgrounds/level03/LVL_03_BCKGRND_15.png" id="16_nus5b"]
 [ext_resource type="PackedScene" uid="uid://cha8mom7nf2ty" path="res://scenes/items/EnergyDrink.tscn" id="17_ag8wc"]
 [ext_resource type="PackedScene" uid="uid://hbog7licpit8" path="res://scenes/items/GoldenDrink.tscn" id="18_eaars"]
 [ext_resource type="PackedScene" uid="uid://dq7q07y7rcpyy" path="res://scenes/Platforms/platform_stone.tscn" id="19_eaars"]
@@ -6381,12 +6388,181 @@ position = Vector2(15952, -4034)
 texture = ExtResource("3_wm7ww")
 
 [node name="Background17" type="Sprite2D" parent="."]
-position = Vector2(17085, -4034)
-texture = ExtResource("3_wm7ww")
+position = Vector2(16561, -4034)
+texture = ExtResource("10_hdcp8")
 
 [node name="Background18" type="Sprite2D" parent="."]
-position = Vector2(17991, -4034)
+position = Vector2(17680, -4034)
 texture = ExtResource("3_wm7ww")
+
+[node name="Background19" type="Sprite2D" parent="."]
+position = Vector2(17941, -1478)
+scale = Vector2(0.53391975, 1)
+texture = ExtResource("3_wm7ww")
+
+[node name="Background58" type="Sprite2D" parent="."]
+position = Vector2(17941, 176.5)
+scale = Vector2(0.53391975, 1.3439716)
+texture = ExtResource("3_wm7ww")
+
+[node name="Background20" type="Sprite2D" parent="."]
+position = Vector2(17103, -1478)
+texture = ExtResource("11_i8ocq")
+
+[node name="Background21" type="Sprite2D" parent="."]
+position = Vector2(15971, -1478)
+texture = ExtResource("3_wm7ww")
+
+[node name="Background22" type="Sprite2D" parent="."]
+position = Vector2(14837, -1478)
+texture = ExtResource("3_wm7ww")
+
+[node name="Background23" type="Sprite2D" parent="."]
+position = Vector2(14130, -1478)
+texture = ExtResource("4_26y65")
+
+[node name="Background24" type="Sprite2D" parent="."]
+position = Vector2(12999, -1478)
+texture = ExtResource("7_igsnf")
+
+[node name="Background25" type="Sprite2D" parent="."]
+position = Vector2(11865, -1478)
+texture = ExtResource("12_nus5b")
+
+[node name="Background26" type="Sprite2D" parent="."]
+position = Vector2(10731, -1475)
+texture = ExtResource("3_wm7ww")
+
+[node name="Background27" type="Sprite2D" parent="."]
+position = Vector2(9600, -1475)
+texture = ExtResource("6_718jy")
+
+[node name="Background28" type="Sprite2D" parent="."]
+position = Vector2(8466, -1474)
+texture = ExtResource("13_1lhsm")
+
+[node name="Background29" type="Sprite2D" parent="."]
+position = Vector2(7349, -1474)
+texture = ExtResource("7_igsnf")
+
+[node name="Background30" type="Sprite2D" parent="."]
+position = Vector2(6216, -1474)
+texture = ExtResource("8_an5u4")
+
+[node name="Background31" type="Sprite2D" parent="."]
+position = Vector2(5098, -1474)
+texture = ExtResource("5_j0k6w")
+
+[node name="Background32" type="Sprite2D" parent="."]
+position = Vector2(4269, -1476)
+texture = ExtResource("12_nus5b")
+
+[node name="Background33" type="Sprite2D" parent="."]
+position = Vector2(3137, -1475)
+texture = ExtResource("3_wm7ww")
+
+[node name="Background34" type="Sprite2D" parent="."]
+position = Vector2(2155, -1474)
+texture = ExtResource("4_26y65")
+
+[node name="Background35" type="Sprite2D" parent="."]
+position = Vector2(1022, -1474)
+texture = ExtResource("14_h6jev")
+
+[node name="Background36" type="Sprite2D" parent="."]
+position = Vector2(-50, -1474)
+texture = ExtResource("3_wm7ww")
+
+[node name="Background37" type="Sprite2D" parent="."]
+position = Vector2(-63, 400)
+texture = ExtResource("3_wm7ww")
+
+[node name="Background38" type="Sprite2D" parent="."]
+position = Vector2(1071, 400)
+texture = ExtResource("2_l2yap")
+
+[node name="Background39" type="Sprite2D" parent="."]
+position = Vector2(2203, 401)
+texture = ExtResource("8_an5u4")
+
+[node name="Background40" type="Sprite2D" parent="."]
+position = Vector2(3336, 401)
+texture = ExtResource("5_j0k6w")
+
+[node name="Background41" type="Sprite2D" parent="."]
+position = Vector2(4470, 401)
+texture = ExtResource("6_718jy")
+
+[node name="Background42" type="Sprite2D" parent="."]
+position = Vector2(5605, 401)
+texture = ExtResource("9_an5u4")
+
+[node name="Background43" type="Sprite2D" parent="."]
+position = Vector2(6739, 401)
+texture = ExtResource("7_igsnf")
+
+[node name="Background44" type="Sprite2D" parent="."]
+position = Vector2(7863, 401)
+texture = ExtResource("8_an5u4")
+
+[node name="Background45" type="Sprite2D" parent="."]
+position = Vector2(8995, 399)
+texture = ExtResource("3_wm7ww")
+
+[node name="Background46" type="Sprite2D" parent="."]
+position = Vector2(10127, 399)
+texture = ExtResource("3_wm7ww")
+
+[node name="Background47" type="Sprite2D" parent="."]
+position = Vector2(11261, 399)
+texture = ExtResource("13_1lhsm")
+
+[node name="Background48" type="Sprite2D" parent="."]
+position = Vector2(12205, 399)
+texture = ExtResource("4_26y65")
+
+[node name="Background49" type="Sprite2D" parent="."]
+position = Vector2(13338, 399)
+texture = ExtResource("3_wm7ww")
+
+[node name="Background50" type="Sprite2D" parent="."]
+position = Vector2(14470, 399)
+texture = ExtResource("15_q0qah")
+
+[node name="Background51" type="Sprite2D" parent="."]
+position = Vector2(15603, 399)
+texture = ExtResource("5_j0k6w")
+
+[node name="Background52" type="Sprite2D" parent="."]
+position = Vector2(16732, 399)
+texture = ExtResource("13_1lhsm")
+
+[node name="Background53" type="Sprite2D" parent="."]
+position = Vector2(17857, 399)
+
+[node name="Background54" type="Sprite2D" parent="."]
+position = Vector2(17271, 399)
+texture = ExtResource("10_hdcp8")
+
+[node name="Background55" type="Sprite2D" parent="."]
+position = Vector2(17834.75, -2655)
+scale = Vector2(0.7211459, 1)
+texture = ExtResource("16_nus5b")
+
+[node name="Background56" type="Sprite2D" parent="."]
+position = Vector2(8710.125, -2579)
+scale = Vector2(15.205504, 1)
+texture = ExtResource("16_nus5b")
+
+[node name="Background57" type="Sprite2D" parent="."]
+position = Vector2(9387.501, -488)
+scale = Vector2(15.600883, 0.30607656)
+texture = ExtResource("16_nus5b")
+
+[node name="Background59" type="Sprite2D" parent="."]
+position = Vector2(-90.62491, 34.250008)
+scale = Vector2(0.9539648, 1.2051764)
+texture = ExtResource("16_nus5b")
 
 [node name="Hud" parent="." instance=ExtResource("2_26y65")]
 
