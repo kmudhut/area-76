@@ -6533,6 +6533,10 @@ layer_0/tile_data = PackedInt32Array(-2293762, 2097152, 10, -2228226, 2097152, 1
 position = Vector2(161.00049, 874)
 scale = Vector2(0.7, 0.7)
 BASE_SPEED = null
+metadata/_edit_group_ = true
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+metadata/_edit_group_ = true
 
 [node name="Platform Stone" parent="." instance=ExtResource("21_6gto5")]
 position = Vector2(2280, 264)
@@ -6713,15 +6717,6 @@ position = Vector2(8521, 634)
 [node name="LevelExit" parent="." instance=ExtResource("31_o2j7d")]
 position = Vector2(10104, 890)
 next_level_scene = "Level_01_boss"
-text_locked = "[center][color=#ff5555]⛔ DOSTĘP ZABLOKOWANY[/color]
-[font_size=20]Wymagane uprawnienia: 12 ECTS[/font_size]
-STATUS: [color=#ff5555]{points} ECTS[/color][/center]"
-text_conditional = "[center][color=#ffff55]⚠ DOSTĘP WARUNKOWY[/color]
-[font_size=20]Ryzyko niezaliczenia wykryte.[/font_size]
-[wave amp=20 freq=5][color=#ffff55][Wciśnij {jump}][/color][/wave][/center]"
-text_perfect = "[center][color=#55ff55]✔ DOSTĘP PRZYZNANY[/color]
-[font_size=20]Student Wzorowy.[/font_size]
-[rainbow freq=0.5][Wciśnij {jump}][/rainbow][/center]"
 
 [node name="EndScreen" parent="." instance=ExtResource("32_jcvym")]
 visible = false
