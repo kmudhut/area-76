@@ -1,11 +1,10 @@
 extends Node
 
-
 const CONTAINER_PATH = "/root/Main/SceneContainer"
 
 const PATH_MENU 	  = "res://scenes/ui/MainMenu.tscn"
 const PATH_SETTINGS	  = "res://scenes/ui/SettingsMenu.tscn"
-const PATH_END 	      = "res://scenes/ui/EndScreen.tscn"
+const PATH_END 	 	  = "res://scenes/ui/EndScreen.tscn"
 const PATH_LEVELS 	  = "res://scenes/levels/"
 
 var current_scene: Node = null 
@@ -13,7 +12,6 @@ var last_level_path: String = ""
 var fade_layer: ColorRect
 var is_fading: bool = false
 var fade_time := 0.4
-
 
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS 
@@ -25,7 +23,6 @@ func _ready():
 		print("SceneManager gotowy.")
 		call_deferred("goto_menu")
 
-
 func get_active_scene() -> Node:
 	if is_instance_valid(current_scene):
 		return current_scene
@@ -33,7 +30,7 @@ func get_active_scene() -> Node:
 	var container = get_node_or_null(CONTAINER_PATH)
 	if container and container.get_child_count() > 0:
 		var real_scene = container.get_child(container.get_child_count() - 1)
-		current_scene = real_scene # Aktualizujemy zmienną na przyszłość
+		current_scene = real_scene 
 		return real_scene
 		
 	return null
@@ -48,16 +45,20 @@ func goto_scene(scene_path: String) -> void:
 	await _fade_out()
 	
 	var container = get_node_or_null(CONTAINER_PATH)
-	if container:
-		current_scene = null 
-		for child in container.get_children():
-			child.queue_free()
+	
+	if container == null:
+		printerr("CRITICAL ERROR: Nie znaleziono kontenera: " + CONTAINER_PATH)
+		is_fading = false
+		return
+
+	current_scene = null 
+	for child in container.get_children():
+		child.queue_free()
 	
 	if ResourceLoader.exists(scene_path):
 		var new_scene_packed = load(scene_path)
 		var new_scene = new_scene_packed.instantiate()
 		
-		# Grupy
 		if scene_path.begins_with(PATH_LEVELS):
 			last_level_path = scene_path
 			if not new_scene.is_in_group("gameplay"):
@@ -71,7 +72,6 @@ func goto_scene(scene_path: String) -> void:
 	
 	await _fade_in()
 	is_fading = false
-
 
 func goto_menu(): goto_scene(PATH_MENU)
 func goto_settings(): goto_scene(PATH_SETTINGS)

@@ -1,48 +1,53 @@
-extends Control # Lub CanvasLayer, zależnie od Twojej sceny
+extends Control 
 
 @onready var scene_manager = get_node("/root/Main/SceneManager")
+@onready var save_window = $SaveWindow 
 @onready var continue_button = %ContinueButton 
 
 func _ready() -> void:
 	AudioManager.play_music("music/no-place-to-go-216744")
 	
-	# Sprawdzamy czy jest plik zapisu. Jeśli tak -> włącz przycisk.
-	if FileAccess.file_exists(GameState.SAVE_FILE):
-		continue_button.disabled = false
-		continue_button.visible = true
-	else:
-		continue_button.disabled = true
-		continue_button.visible = false
+	# Sprawdzamy, czy istnieją jakiekolwiek zapisy, by aktywować przycisk Kontynuuj
+	# (Opcjonalne, ale estetyczne)
+	check_continue_availability()
+
+func check_continue_availability():
+	var save_exists = false
+	for i in range(1, 4):
+		if FileAccess.file_exists("user://save_slot_%d.json" % i):
+			save_exists = true
+			break
+	
+	continue_button.disabled = !save_exists
+	# Jeśli wolisz, żeby był zawsze aktywny (bo SaveWindow pokaże puste sloty),
+	# to zakomentuj powyższe i odkomentuj to:
+	# continue_button.disabled = false
 
 func _on_continue_button_pressed():
 	AudioManager.play_ui_sound("ui/click")
-	
-	# 1. Wczytujemy dane do GameState
-	if GameState.load_game():
-		print("Wczytano zapis! Poziom: ", GameState.current_level_name)
-		
-		# 2. Budujemy ścieżkę do poziomu
-		# Zakładam, że GameState trzyma np. "Level_01" (dzięki kodowi z Kroku 1)
-		var level_name = GameState.current_level_name
-		level_name=level_name.to_lower()
-		# UWAGA: Tu wpisz dokładną ścieżkę do folderu z Twoimi poziomami!
-		# Jeśli masz je w "res://scenes/levels/", to zostaw tak jak jest.
-		var full_path =  level_name + ".tscn"
-		
-		# 3. Sprawdzamy czy plik sceny istnieje (dla bezpieczeństwa)
-		if ResourceLoader.exists(full_path):
-			scene_manager.goto_lvl(full_path)
-		else:
-			print("BŁĄD: Nie znaleziono sceny: ", full_path)
-			# Awaryjnie spróbuj załadować samą nazwę (jeśli SceneManager to obsługuje)
-			scene_manager.goto_lvl(level_name + ".tscn")
-	else:
-		print("Błąd wczytywania pliku zapisu.")
+	# Tutaj nadal otwieramy okno slotów, żeby gracz wybrał co wczytać
+	save_window.open_save_window(true)
 
 func _on_new_game_button_pressed():
 	AudioManager.play_ui_sound("ui/click")
-	GameState.reset_new_game()
-	scene_manager.goto_lvl("Level_01.tscn")
+	
+	# --- NOWA LOGIKA: KASOWANIE WSZYSTKIEGO I START ---
+	
+	# 1. Usuwamy pliki zapisów (Slot 1, 2, 3...)
+	var dir = DirAccess.open("user://")
+	if dir:
+		for i in range(1, 4): # Zakładamy 3 sloty
+			var file_path = "save_slot_%d.json" % i
+			if dir.file_exists(file_path):
+				dir.remove(file_path)
+				print("Usunięto zapis: ", file_path)
+	
+	# 2. Resetujemy stan gry na domyślnym Slocie 1
+	# To stworzy nowy, czysty plik save_slot_1.json
+	GameState.reset_new_game(1)
+	
+	# 3. Uruchamiamy pierwszy poziom bezpośrednio
+	SceneManager.goto_lvl("level_01")
 
 func _on_settings_button_pressed():
 	AudioManager.play_ui_sound("ui/click")

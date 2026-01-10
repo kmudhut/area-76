@@ -9,12 +9,20 @@ extends CanvasLayer
 
 var next_level_scene_path: String = ""
 
+var is_triggered: bool = false
+
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	visible = false
+	is_triggered = false # Resetujemy flagę na starcie
 
 # --- OPCJA 1: WYGRANA (Zaliczenie Semestru) ---
 func setup_win_screen(ects_collected: int, max_ects: int, next_level: String, roman_number: String = "I"):
+	# ZABEZPIECZENIE: Jeśli ekran już jest w trakcie wyświetlania, przerwij
+	if is_triggered:
+		return
+	is_triggered = true
+	
 	get_tree().paused = true
 	next_level_scene_path = next_level
 	
@@ -42,6 +50,11 @@ func setup_win_screen(ects_collected: int, max_ects: int, next_level: String, ro
 
 # --- OPCJA 2: PRZEGRANA (Poprawka / Śmierć) ---
 func setup_game_over_screen():
+	# ZABEZPIECZENIE: Jeśli ekran już jest wyświetlany, przerwij
+	if is_triggered:
+		return
+	is_triggered = true
+	
 	get_tree().paused = true
 	
 	# Teksty
@@ -90,7 +103,6 @@ func calculate_grade(current: int, max_val: int) -> float:
 	if percent < 0.95: return 4.5
 	return 5.0
 
-# Nowa funkcja dobierająca kolor
 func get_color_for_grade(grade: float) -> Color:
 	if grade <= 3.5:
 		return Color("ffab1aff")
@@ -111,13 +123,21 @@ func get_comment_for_grade(grade: float) -> String:
 # --- PRZYCISKI ---
 func _on_next_level_button_pressed():
 	get_tree().paused = false
+	GameState.is_usos_active = false
 	SceneManager.goto_lvl(next_level_scene_path)
 
 func _on_retry_button_pressed():
 	get_tree().paused = false
-	GameState.reset_new_game()
-	SceneManager.goto_lvl("Level_01")
+	GameState.is_usos_active = false
+	if GameState.load_game(GameState.current_slot_index):
+		GameState.set_motivation(GameState.max_motivation, GameState.max_motivation)
+		var level_to_load = GameState.current_level_name + ".tscn"
+		SceneManager.goto_lvl(level_to_load)
+	else:
+		GameState.reset_new_game(GameState.current_slot_index)
+		SceneManager.goto_lvl("Level_01.tscn")
 
 func _on_menu_button_pressed():
 	get_tree().paused = false
+	GameState.is_usos_active = false
 	SceneManager.goto_menu()

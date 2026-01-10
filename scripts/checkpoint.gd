@@ -1,5 +1,7 @@
 extends Area2D
 
+@export var checkpoint_id: String = ""
+
 var active = false
 
 func _ready():
@@ -15,13 +17,16 @@ func activate(body):
 		
 	var level_name = ""
 		
-	if owner != null:
-		level_name = owner.scene_file_path.get_file().get_basename()
-	else:		
-		# Wymuszamy małe litery dla spójności
+	if owner != null and owner.scene_file_path != "":
+		level_name = owner.scene_file_path.get_file().get_basename().to_lower()
+	else:
 		level_name = level_name.to_lower()
 		
-	print("Zapisuję Checkpoint dla poziomu: ", level_name)
+	var final_id = checkpoint_id
+	if final_id == "":
+		final_id = name
 		
-	GameState.activate_checkpoint(global_position, level_name)
+	print("Zapisuję Checkpoint: ", final_id, " dla poziomu: ", level_name)
+		
+	GameState.activate_checkpoint(global_position, level_name, final_id)
 	modulate = Color(0, 1, 0)
