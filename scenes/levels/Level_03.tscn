@@ -7087,18 +7087,6 @@ libraries = {
 }
 autoplay = "new_animation"
 
-[node name="EctsCoin" parent="." instance=ExtResource("35_nus5b")]
-position = Vector2(16672, 986)
-
-[node name="EctsCoin2" parent="." instance=ExtResource("35_nus5b")]
-position = Vector2(16880, 986)
-
-[node name="EctsCoin3" parent="." instance=ExtResource("35_nus5b")]
-position = Vector2(17088, 986)
-
-[node name="EctsCoin4" parent="." instance=ExtResource("35_nus5b")]
-position = Vector2(15456, 560)
-
 [node name="EctsCoin5" parent="." instance=ExtResource("35_nus5b")]
 position = Vector2(12688, 1016)
 
@@ -7135,9 +7123,6 @@ position = Vector2(3040, -984)
 [node name="EctsCoin16" parent="." instance=ExtResource("35_nus5b")]
 position = Vector2(4976, -1832)
 
-[node name="EctsCoin17" parent="." instance=ExtResource("35_nus5b")]
-position = Vector2(5304, -1136)
-
 [node name="EctsCoin18" parent="." instance=ExtResource("35_nus5b")]
 position = Vector2(6944, -1776)
 
@@ -7147,17 +7132,8 @@ position = Vector2(6736, -864)
 [node name="EctsCoin20" parent="." instance=ExtResource("35_nus5b")]
 position = Vector2(7696, -864)
 
-[node name="EctsCoin21" parent="." instance=ExtResource("35_nus5b")]
-position = Vector2(9560, -1040)
-
-[node name="EctsCoin22" parent="." instance=ExtResource("35_nus5b")]
-position = Vector2(11160, -1464)
-
 [node name="EctsCoin23" parent="." instance=ExtResource("35_nus5b")]
 position = Vector2(14896, -1552)
-
-[node name="EctsCoin24" parent="." instance=ExtResource("35_nus5b")]
-position = Vector2(13608, -1192)
 
 [node name="EctsCoin25" parent="." instance=ExtResource("35_nus5b")]
 position = Vector2(16312, -1008)
@@ -7200,9 +7176,6 @@ position = Vector2(12192, -4100)
 
 [node name="EctsCoin38" parent="." instance=ExtResource("35_nus5b")]
 position = Vector2(14976, -3404)
-
-[node name="EctsCoin39" parent="." instance=ExtResource("35_nus5b")]
-position = Vector2(15680, -3404)
 
 [node name="EnergyDrink2" parent="." instance=ExtResource("17_ag8wc")]
 position = Vector2(10240, -1240)
