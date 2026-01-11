@@ -6535,14 +6535,9 @@ scale = Vector2(0.7, 0.7)
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-<<<<<<< HEAD
-limit_left = -25
-limit_top = -9999457
-=======
 position = Vector2(0, -100)
 limit_left = -25
->>>>>>> 3e69def (Fixed camera and tile element blocking)
-limit_right = 10608
+limit_top = -9999457
 limit_bottom = 1100
 metadata/_edit_group_ = true
 
