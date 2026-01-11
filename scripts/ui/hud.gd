@@ -9,10 +9,12 @@ extends CanvasLayer
 # --- SEKJA LLM ---
 @onready var llm_container = $LLM_PowerUpContainer
 @onready var llm_label = $LLM_PowerUpContainer/LLM_Label
-@onready var llm_icon = $LLM_PowerUpContainer/LLM_PowerUpIcon 
+@onready var llm_icon = $LLM_PowerUpContainer/LLM_PowerUpIcon
 
 @onready var biret_container = $BiretContainer
 var biret_icon_texture = preload("res://assets/items/biret/b1.png")
+
+@onready var save_notification = $SaveNotification
 
 # --- KONFIGURACJA ---
 var llm_text_template = "Wciśnij {bumper_left}+{bumper_right}, aby zapytać Bota. Odpowiedź może być zmyślona, ale brzmi tak mądrze, że przeciwnicy zgłupieją."
@@ -203,3 +205,12 @@ func flash_damage():
 	damage_tween.tween_property(motivation_bar, "modulate", Color(1, 0, 0), 0.1)
 	
 	damage_tween.tween_property(motivation_bar, "modulate", Color(1, 1, 1, 1), 0.3)
+
+func show_save_popup():
+	if not save_notification: return
+	var tween = create_tween()
+	tween.tween_property(save_notification, "modulate:a", 1.0, 0.5)\
+		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.tween_interval(2.0)
+	tween.tween_property(save_notification, "modulate:a", 0.0, 1.0)\
+		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)

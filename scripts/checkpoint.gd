@@ -30,3 +30,4 @@ func activate(body):
 		
 	GameState.activate_checkpoint(global_position, level_name, final_id)
 	modulate = Color(0, 1, 0)
+	get_tree().call_group("hud", "show_save_popup")
