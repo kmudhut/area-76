@@ -4,7 +4,6 @@ extends Node2D
 
 func _ready() -> void:
 	GameState.current_level_name = "Level_01"
-	GameState.game_over.connect(_on_game_over)
 	AudioManager.play_music("music/big-jason-slap-house-background-music-for-video-vlog-stories-short-394175")
 	
 func _on_finish_level_button_pressed():

@@ -6,6 +6,7 @@ extends CanvasLayer
 @onready var ects_label = $Control/Panel/VBoxContainer/StatsContainer/ECTSLabel
 @onready var comment_label = $Control/Panel/VBoxContainer/CommentLabel
 @onready var next_level_btn = $Control/Panel/VBoxContainer/ButtonsContainer/NextLevelButton
+@onready var menu_btn = $Control/Panel/VBoxContainer/ButtonsContainer/MenuButton
 
 var next_level_scene_path: String = ""
 
@@ -42,15 +43,16 @@ func setup_win_screen(ects_collected: int, max_ects: int, next_level: String, ro
 	# Przyciski
 	if next_level == "":
 		next_level_btn.visible = false
+		menu_btn.visible = true
 	else:
 		next_level_btn.visible = true
+		menu_btn.visible = false
 
 	if get_node_or_null("/root/AudioManager"):
 		AudioManager.play_sfx("sfx/victory")
 
 # --- OPCJA 2: PRZEGRANA (Poprawka / Śmierć) ---
 func setup_game_over_screen():
-	# ZABEZPIECZENIE: Jeśli ekran już jest wyświetlany, przerwij
 	if is_triggered:
 		return
 	is_triggered = true

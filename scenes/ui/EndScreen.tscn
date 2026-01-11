@@ -250,11 +250,10 @@ text = "NASTĘPNY SEMESTR"
 
 [node name="MenuButton" type="Button" parent="Control/Panel/VBoxContainer/ButtonsContainer"]
 process_mode = 3
-visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("2_1imq6")
-theme_override_font_sizes/font_size = 21
+theme_override_fonts/font = ExtResource("4_d7okc")
+theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_a3do1")
 theme_override_styles/hover = SubResource("StyleBoxFlat_4yjhu")
 text = "WRÓĆ DO MENU GŁÓWNEGO"
