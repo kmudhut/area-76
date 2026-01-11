@@ -56,7 +56,6 @@ func setup_game_over_screen():
 	if is_triggered:
 		return
 	is_triggered = true
-	
 	get_tree().paused = true
 	
 	# Teksty

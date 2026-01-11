@@ -35,6 +35,8 @@ func _on_game_over():
 	if not is_inside_tree(): return
 	
 	print("Gracz pokonany przez Bossa3!")
+	
+	await get_tree().create_timer(4.0).timeout
 	GameState.is_usos_active = true # blokowanie ekranu pauzy
 	
 	if end_screen:
