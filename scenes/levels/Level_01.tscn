@@ -6532,10 +6532,13 @@ layer_0/tile_data = PackedInt32Array(-2293762, 2097152, 10, -2228226, 2097152, 1
 [node name="Player" parent="." instance=ExtResource("20_i652i")]
 position = Vector2(161.00049, 874)
 scale = Vector2(0.7, 0.7)
-BASE_SPEED = null
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+limit_left = -25
+limit_top = -9999457
+limit_right = 10608
+limit_bottom = 1100
 metadata/_edit_group_ = true
 
 [node name="Platform Stone" parent="." instance=ExtResource("21_6gto5")]

@@ -227,12 +227,12 @@ func _on_animation_finished():
 			animated_sprite_2d.play("idle")
 		"hurt":
 			is_hurt = false
-			if was_attacking_before_hurt:
-				is_distance_attacking = true
-				animated_sprite_2d.play("distanceattack")
-			else:
-				animated_sprite_2d.play("idle")
-			was_attacking_before_hurt = false
+			#if was_attacking_before_hurt:
+				#is_distance_attacking = true
+				#animated_sprite_2d.play("distanceattack")
+			#else:
+			animated_sprite_2d.play("idle")
+			#was_attacking_before_hurt = false
 		"distanceattack":
 			is_distance_attacking = false
 			animated_sprite_2d.position = Vector2(original_sprite_position_x, original_sprite_position_y)
