@@ -1,0 +1,130 @@
+[gd_scene load_steps=10 format=3 uid="uid://d1c53uohgigqf"]
+
+[ext_resource type="Script" uid="uid://c7ipo43c8losd" path="res://scripts/ui/confirmation_window.gd" id="1_bobcp"]
+[ext_resource type="FontFile" uid="uid://bqmysxuyn6x1r" path="res://assets/ui/fonts/Pixelbasel.ttf" id="2_vvkr6"]
+[ext_resource type="FontFile" uid="uid://da4ww4swf8ctb" path="res://assets/ui/fonts/Tiny5-Regular.ttf" id="3_sxapy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sxapy"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nsxe6"]
+font = ExtResource("2_vvkr6")
+font_size = 36
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vvkr6"]
+content_margin_left = 50.0
+content_margin_right = 50.0
+bg_color = Color(0, 0.3, 0.14000002, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_detail = 1
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 5
+shadow_offset = Vector2(5, 5)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nsxe6"]
+content_margin_left = 50.0
+content_margin_right = 50.0
+bg_color = Color(0.12746292, 0.56709445, 0.310877, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_detail = 1
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 5
+shadow_offset = Vector2(5, 5)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sxapy"]
+content_margin_left = 50.0
+content_margin_right = 50.0
+bg_color = Color(0.3, 0, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_detail = 1
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 5
+shadow_offset = Vector2(5, 5)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ct7p"]
+content_margin_left = 50.0
+content_margin_right = 50.0
+bg_color = Color(0.53, 0, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_detail = 1
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 5
+shadow_offset = Vector2(5, 5)
+anti_aliasing = false
+
+[node name="ConfirmationPopup" type="CanvasLayer"]
+script = ExtResource("1_bobcp")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1933.0
+offset_bottom = 1088.0
+color = Color(0, 0, 0, 0.6745098)
+
+[node name="Panel" type="PanelContainer" parent="."]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -1300.0
+offset_top = -200.0
+offset_bottom = 200.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_sxapy")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/separation = 94
+
+[node name="WarningLabel" type="Label" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+text = "Istnieje zapis gry. Czy na pewno chcesz rozpocząć od nowa? Postępy zostaną utracone."
+label_settings = SubResource("LabelSettings_nsxe6")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="HBC" type="HBoxContainer" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 80
+
+[node name="YesBtn" type="Button" parent="Panel/VBoxContainer/HBC"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_sxapy")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_vvkr6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nsxe6")
+text = "TAK"
+
+[node name="NoBtn" type="Button" parent="Panel/VBoxContainer/HBC"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_sxapy")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_sxapy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1ct7p")
+text = "NIE"
+
+[connection signal="pressed" from="Panel/VBoxContainer/HBC/YesBtn" to="." method="_on_yes_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/HBC/NoBtn" to="." method="_on_no_button_pressed"]

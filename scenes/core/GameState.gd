@@ -5,7 +5,7 @@ const BOSS_UNLOCK_THRESHOLD = 12
 
 # Konfiguracja liczby checkpointów dla poziomów (do obliczania postępu %)
 const LEVEL_TOTAL_CHECKPOINTS = {
-	"level_01": 4,
+	"level_01": 5,
 	"level_02": 6,
 	"level_03": 8
 }
@@ -177,7 +177,6 @@ func load_game(slot_index: int) -> bool:
 		return true
 	return false
 
-# --- UI HELPER (PODGLĄD SLOTU) ---
 func get_slot_preview_data(slot_index: int):
 	var file_path = get_save_path(slot_index)
 	if not FileAccess.file_exists(file_path):
@@ -196,8 +195,6 @@ func get_slot_preview_data(slot_index: int):
 		var total_checkpoints = LEVEL_TOTAL_CHECKPOINTS.get(lvl_name, 5)
 		var progress_percent = 0
 		
-		# --- NOWA LOGIKA PROCENTÓW ---
-		# Odejmujemy 1, żeby zignorować checkpoint startowy
 		var effective_visited = max(0, visited_count - 1)
 		var effective_total = max(1, total_checkpoints - 1)
 		
@@ -213,10 +210,8 @@ func get_slot_preview_data(slot_index: int):
 		}
 	return null
 
-# --- RESET I START NOWEJ GRY ---
 func reset_new_game(slot_index: int):
 	current_slot_index = slot_index
-	
 	motivation = 100.0
 	max_motivation = 100.0
 	ects = 0
@@ -225,49 +220,28 @@ func reset_new_game(slot_index: int):
 	birets = 0
 	collected_items.clear()
 	visited_checkpoints.clear()
-	
 	current_level_name = "level_01"
 	last_checkpoint_position = Vector2.ZERO
 	is_boss_accessible = false
 	is_usos_active = false
-	
 	set_motivation(motivation, max_motivation)
 	set_ects(ects)
 	save_game()
 
 func restart_level_data():
 	print("--- RESTART POZIOMU (SLOT: ", current_slot_index, ") ---")
-	
-	# 1. Reset pozycji (start poziomu)
 	last_checkpoint_position = Vector2.ZERO
-	
-	# 2. Reset liczników w TYM poziomie
 	ects = 0
 	set_ects(0)
-	
 	golden_drinks_count = 0
 	set_golden_drink_count(0)
-	
 	birets = 0
 	set_birets(0)
-	
-	# 3. Pełne leczenie
 	motivation = max_motivation
 	set_motivation(motivation, max_motivation)
-	
-	# 4. Reset Flag
 	is_boss_accessible = false
 	is_usos_active = false
-	
-	# 5. RESET PRZEDMIOTÓW
-	# Skoro każdy slot to oddzielny poziom (plik), to czyścimy wszystko.
-	# To sprawi, że monety i itemy znów pojawią się na mapie.
 	collected_items.clear()
-	
-	# 6. RESET CHECKPOINTÓW
-	# Resetujemy postęp "odkrycia" mapy do 0%
 	visited_checkpoints.clear()
-	
-	# 7. Nadpisujemy plik zapisu tym czystym stanem
 	save_game()
 	print("Zresetowano dane dla slotu ", current_slot_index)

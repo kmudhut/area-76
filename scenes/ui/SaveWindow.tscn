@@ -162,7 +162,7 @@ script = ExtResource("1_yxa05")
 layout_mode = 1
 offset_right = 1920.0
 offset_bottom = 1080.0
-color = Color(0, 0, 0, 0.44705883)
+color = Color(0, 0, 0, 0.7137255)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
