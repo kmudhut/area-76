@@ -42,7 +42,7 @@ func _process(delta):
 	if to_be_destroyed:
 		global_position = global_position.move_toward(target_position, speed * delta)
 		drone_sound_audio_player.volume_db = move_toward(drone_sound_audio_player.volume_db, -80.0, 3.0 * delta)
-		if global_position.y < -1000: 
+		if global_position.y < (player.global_position.y - 1000): 
 			drone_sound_audio_player.stop()
 			queue_free()
 		return 
