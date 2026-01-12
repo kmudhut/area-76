@@ -84,6 +84,7 @@ func _physics_process(delta: float) -> void:
 
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		AudioManager.play_sfx("sfx/jump-grunt-" + str(randi_range(1, 2)))
 
 
 	if not is_on_floor():
