@@ -6834,6 +6834,5 @@ libraries = {
 autoplay = "move"
 
 [node name="Elevator" parent="." instance=ExtResource("12_ivapw")]
-position = Vector2(6771, -1428)
-move_offset = Vector2(0, -2330)
-duration = 10.0
+position = Vector2(176, 328)
+move_offset = Vector2(2000, -4100)
