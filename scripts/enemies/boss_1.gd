@@ -114,7 +114,8 @@ func spawn_test():
 	test = TestScene.instantiate()
 	test.scale = Vector2(0.175, 0.175)
 	test.global_position = $TestSpawnPoint.global_position
-	test.direction = direction
+	test.x_direction = direction
+	test.player_pos = player.position
 	self.get_parent().add_child(test)
 	test_spawned = true
 

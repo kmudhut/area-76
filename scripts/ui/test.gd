@@ -1,15 +1,21 @@
 extends CharacterBody2D
 const MathTestScene = preload("res://scenes/ui/MathTest.tscn")
-@export var speed: float = 700.0
-@export var gravity_strength: float = 500.0
-@export var damage: int = 30
-var direction := -1
-const SPEED = 300.0
-
+var speed: float = 1000.0
+var gravity_strength: float = 1800.0
+var damage: int = 30
+var x_direction := -1
+var y_direction := 0
+var player_pos
 func _ready() -> void:
-	velocity = Vector2(speed * direction, -250)
+	#gravity_strength = randi_range(750, 2250)
+	gravity_strength = player_pos.x
+	speed = randi_range(750, 1000)
+	y_direction = randi_range(-150,150)
+	
+	velocity = Vector2(speed * x_direction, y_direction)
 	
 func _physics_process(delta: float) -> void:
+	print(player_pos.x)
 	velocity.y += gravity_strength * delta
 	move_and_slide()
 
