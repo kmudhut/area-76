@@ -15,6 +15,8 @@ func _on_trigger_area_body_entered(body):
 		return
 
 	if body.is_in_group("player"):
+		AudioManager.stop_music()
+		AudioManager.play_music("music/elevator-music")
 		start_elevator()
 
 func start_elevator():
@@ -31,3 +33,5 @@ func start_elevator():
 func open_walls():
 	left_wall.set_deferred("disabled", true)
 	right_wall.set_deferred("disabled", true)
+	AudioManager.stop_music()
+	AudioManager.play_music("music/big-jason-slap-house-background-music-for-video-vlog-stories-short-394175")
