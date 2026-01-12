@@ -5764,10 +5764,6 @@ b = Vector2(1994, 49)
 [node name="Level02Boss" type="Node2D" groups=["gameplayScene"]]
 script = ExtResource("1_xpnx8")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-offset = Vector2(820.705, 442.835)
-zoom = Vector2(1.245, 1.245)
-
 [node name="Background" type="AnimatedSprite2D" parent="."]
 position = Vector2(1049, 446)
 scale = Vector2(1.64, 1.64)
@@ -5793,6 +5789,13 @@ layer_0/tile_data = PackedInt32Array(-2293762, 2097152, 10, -2228226, 2097152, 1
 [node name="Player" parent="." instance=ExtResource("5_8gasw")]
 position = Vector2(239.00006, 629.00006)
 scale = Vector2(0.91, 0.91)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(1.245, 1.245)
+limit_left = 0
+limit_top = 0
+limit_right = 1950
+limit_bottom = 892
 
 [node name="Boss2" parent="." groups=["enemies"] instance=ExtResource("5_s6g3b")]
 position = Vector2(1080, 696)
