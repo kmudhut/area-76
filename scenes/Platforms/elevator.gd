@@ -2,7 +2,7 @@ extends AnimatableBody2D
 
 @export_group("Ustawienia Windy")
 @export var move_offset: Vector2 = Vector2(0, 500)
-@export var duration: float = 6.0
+@export var duration: float = 16.0
 @export var trigger_on_stand: bool = true
 
 @onready var left_wall = $lewa
