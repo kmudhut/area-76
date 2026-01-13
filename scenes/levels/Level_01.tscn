@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://pxkhy2qst1fo"]
+[gd_scene load_steps=75 format=3 uid="uid://pxkhy2qst1fo"]
 
 [ext_resource type="Script" uid="uid://dl8pubuxmlxpf" path="res://scripts/levels/Level_01.gd" id="1_lswbx"]
 [ext_resource type="Texture2D" uid="uid://b7ar0mlw21b1a" path="res://assets/environment/backgrounds/level01/00.png" id="1_mhiu8"]
@@ -26,12 +26,16 @@
 [ext_resource type="PackedScene" uid="uid://dgijdsl8cfnng" path="res://scenes/characters/swot.tscn" id="23_pff7q"]
 [ext_resource type="PackedScene" uid="uid://c4nqcrp2hf18c" path="res://scenes/characters/UAV_operator.tscn" id="24_ga44r"]
 [ext_resource type="PackedScene" uid="uid://cha8mom7nf2ty" path="res://scenes/items/EnergyDrink.tscn" id="27_uujh0"]
-[ext_resource type="PackedScene" uid="uid://hbog7licpit8" path="res://scenes/items/GoldenDrink.tscn" id="28_t6bfo"]
 [ext_resource type="PackedScene" uid="uid://df8r8v0ywhms5" path="res://scenes/items/LLM_PowerUp.tscn" id="28_ys2jg"]
 [ext_resource type="PackedScene" uid="uid://ploi3kvbt5ap" path="res://scenes/TutorialText.tscn" id="29_t6bfo"]
 [ext_resource type="PackedScene" uid="uid://ddogqb8nbcqqb" path="res://scenes/checkpoint.tscn" id="30_e5bmj"]
 [ext_resource type="PackedScene" uid="uid://bclx5fh3rso2q" path="res://scenes/levels/LevelExit.tscn" id="31_o2j7d"]
+[ext_resource type="Script" uid="uid://dc6j5cg4tem2g" path="res://scripts/ui/store.gd" id="32_hm15d"]
 [ext_resource type="PackedScene" uid="uid://8hhtm33pbbbd" path="res://scenes/ui/EndScreen.tscn" id="32_jcvym"]
+[ext_resource type="Texture2D" uid="uid://b3e3remklwbgk" path="res://assets/icons/energy.png" id="33_hm15d"]
+[ext_resource type="Texture2D" uid="uid://cm14ub3n4kmfl" path="res://assets/items/golden_drink/GoldenDrink.png" id="34_pv4s6"]
+[ext_resource type="Texture2D" uid="uid://c0p4exduj3gyl" path="res://assets/items/biret/b1.png" id="35_veetc"]
+[ext_resource type="Texture2D" uid="uid://dc7noohoput5i" path="res://assets/items/powerup/LLM_powerup.png" id="36_kewsv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t6bfo"]
 texture = ExtResource("12_d86x1")
@@ -6691,7 +6695,7 @@ text = "Niebieska Moc. W składzie sama chemia i miłość do nauki."
 [node name="EnergyDrink3" parent="." instance=ExtResource("27_uujh0")]
 position = Vector2(3925, 1018)
 
-[node name="GoldenDrink" parent="." instance=ExtResource("28_t6bfo")]
+[node name="GoldenDrink" parent="." instance=ExtResource("28_ys2jg")]
 position = Vector2(6099, 1020)
 
 [node name="TutorialText5" parent="." instance=ExtResource("29_t6bfo")]
@@ -6795,3 +6799,170 @@ position = Vector2(4265, -226)
 
 [node name="EctsCoin23" parent="." instance=ExtResource("22_qcx6o")]
 position = Vector2(10533, 630)
+
+[node name="Store" type="CanvasLayer" parent="."]
+script = ExtResource("32_hm15d")
+
+[node name="Background" type="ColorRect" parent="Store"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.7647059)
+
+[node name="CenterContainer" type="CenterContainer" parent="Store"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -763.0
+offset_top = -113.5
+offset_right = 763.0
+offset_bottom = 113.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="PanelContainer" type="PanelContainer" parent="Store/CenterContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Store/CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 200
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Store/CenterContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Store/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "SKLEP ECTS"
+horizontal_alignment = 1
+
+[node name="ECTSCounter" type="Label" parent="Store/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "ECTS:"
+
+[node name="GridContainer" type="GridContainer" parent="Store/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+columns = 3
+
+[node name="EnergyDrink" type="Button" parent="Store/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(100, 120)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Store/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/EnergyDrink"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Store/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/EnergyDrink/VBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("33_hm15d")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Store/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/EnergyDrink/VBoxContainer"]
+layout_mode = 2
+text = "4 ECTS"
+horizontal_alignment = 1
+
+[node name="GoldenDrink" type="Button" parent="Store/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(100, 120)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Store/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/GoldenDrink"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Store/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/GoldenDrink/VBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("34_pv4s6")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Store/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/GoldenDrink/VBoxContainer"]
+layout_mode = 2
+text = "6 ECTS"
+horizontal_alignment = 1
+
+[node name="Hat" type="Button" parent="Store/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(100, 120)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Store/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/Hat"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Store/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/Hat/VBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("35_veetc")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Store/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/Hat/VBoxContainer"]
+layout_mode = 2
+text = "7 ECTS"
+horizontal_alignment = 1
+
+[node name="LLM" type="Button" parent="Store/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(100, 120)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Store/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/LLM"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Store/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/LLM/VBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("36_kewsv")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Store/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/LLM/VBoxContainer"]
+layout_mode = 2
+text = "10 ECTS"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Store/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/EnergyDrink" to="Store" method="_on_energy_drink_pressed"]
+[connection signal="pressed" from="Store/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/GoldenDrink" to="Store" method="_on_golden_drink_pressed"]
+[connection signal="pressed" from="Store/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/Hat" to="Store" method="_on_hat_pressed"]
+[connection signal="pressed" from="Store/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/LLM" to="Store" method="_on_llm_pressed"]
