@@ -15,7 +15,6 @@ func _ready() -> void:
 	velocity = Vector2(speed * x_direction, y_direction)
 	
 func _physics_process(delta: float) -> void:
-	print(player_pos.x)
 	velocity.y += gravity_strength * delta
 	move_and_slide()
 
