@@ -1,8 +1,9 @@
-[gd_scene load_steps=106 format=3 uid="uid://3gm4xjov628p"]
+[gd_scene load_steps=107 format=3 uid="uid://3gm4xjov628p"]
 
 [ext_resource type="PackedScene" uid="uid://ctapa34kpnlht" path="res://scenes/ui/hud.tscn" id="1_j2tld"]
 [ext_resource type="Texture2D" uid="uid://7kn0iaem3d0d" path="res://assets/environment/tilesets/terrain-tilemap.png" id="1_jntcg"]
 [ext_resource type="Texture2D" uid="uid://dgy6ro4tm8bjh" path="res://assets/environment/backgrounds/level02/LVL_02_BCKGRND_02.png" id="1_juc02"]
+[ext_resource type="Script" uid="uid://vsfwhf7j3hsq" path="res://scripts/levels/level_02.gd" id="1_po0rf"]
 [ext_resource type="Texture2D" uid="uid://cwnkyf8wsroer" path="res://assets/environment/tilesets/Basic Metal.png" id="2_3njdy"]
 [ext_resource type="Texture2D" uid="uid://0pok45lfe0jj" path="res://assets/environment/backgrounds/level02/LVL_02_BCKGRND_01.png" id="2_folmu"]
 [ext_resource type="PackedScene" uid="uid://8hhtm33pbbbd" path="res://scenes/ui/EndScreen.tscn" id="2_op6uy"]
@@ -6829,6 +6830,7 @@ _data = {
 }
 
 [node name="Level02" type="Node2D"]
+script = ExtResource("1_po0rf")
 
 [node name="Hud" parent="." instance=ExtResource("1_j2tld")]
 

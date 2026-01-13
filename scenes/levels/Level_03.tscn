@@ -30,7 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://df8r8v0ywhms5" path="res://scenes/items/LLM_PowerUp.tscn" id="16_fei51"]
 [ext_resource type="Texture2D" uid="uid://b1al43rolqc07" path="res://assets/environment/backgrounds/level03/LVL_03_BCKGRND_15.png" id="16_nus5b"]
 [ext_resource type="PackedScene" uid="uid://cha8mom7nf2ty" path="res://scenes/items/EnergyDrink.tscn" id="17_ag8wc"]
-[ext_resource type="PackedScene" uid="uid://hbog7licpit8" path="res://scenes/items/GoldenDrink.tscn" id="18_eaars"]
+[ext_resource type="PackedScene" uid="uid://df8r8v0ywhms5" path="res://scenes/items/GoldenDrink.tscn" id="18_eaars"]
 [ext_resource type="PackedScene" uid="uid://bn52tt6c4joc4" path="res://scenes/Platforms/platform_brick.tscn" id="20_l2yap"]
 [ext_resource type="PackedScene" uid="uid://bclx5fh3rso2q" path="res://scenes/levels/LevelExit.tscn" id="21_fwcly"]
 [ext_resource type="PackedScene" uid="uid://8hhtm33pbbbd" path="res://scenes/ui/EndScreen.tscn" id="22_8nu6f"]

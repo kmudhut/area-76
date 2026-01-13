@@ -3,7 +3,7 @@ extends Node2D
 @onready var end_screen = $EndScreen
 
 func _ready() -> void:
-	GameState.current_level_name = "Level_03"
+	GameState.current_level_name = "Level_02"
 	GameState.game_over.connect(_on_game_over)
 	AudioManager.play_music("music/big-jason-slap-house-background-music-for-video-vlog-stories-short-394175")
 	
