@@ -57,7 +57,10 @@ func set_ects(new_value):
 	if ects >= BOSS_UNLOCK_THRESHOLD and not is_boss_accessible:
 		is_boss_accessible = true
 		emit_signal("boss_unlocked")
-
+		
+func get_ects():
+	return ects
+		
 func set_golden_drink_count(new_value):
 	golden_drinks_count = new_value
 	golden_drink_changed.emit(golden_drinks_count > 0)
