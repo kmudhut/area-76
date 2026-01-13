@@ -37,6 +37,8 @@ func check_answer() -> void:
 	var user_answer = user_answer_input.text
 	if(user_answer != correct_answer):
 		player.take_damage(33)
+		AudioManager.play_sfx("sfx/otoznie")
+	else: AudioManager.play_sfx("sfx/correct")
 	get_parent().get_node("Boss1").process_mode = Node.PROCESS_MODE_PAUSABLE
 	get_parent().get_node("Player").process_mode = Node.PROCESS_MODE_PAUSABLE
 	tick_player.stop();

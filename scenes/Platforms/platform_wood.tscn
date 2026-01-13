@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bp4wfycsq3ptq"]
+
+[ext_resource type="Texture2D" uid="uid://chx52i62u1682" path="res://assets/environment/backgrounds/level03/boss/polka.png" id="2_evoma"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3anjy"]
+radius = 4.0
+height = 110.0
+
+[node name="Platform Wood" type="AnimatableBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_evoma")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -19)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_3anjy")
+one_way_collision_margin = 0.0
