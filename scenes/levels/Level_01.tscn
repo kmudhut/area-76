@@ -6542,6 +6542,7 @@ metadata/_edit_group_ = true
 position = Vector2(0, -100)
 limit_left = -25
 limit_top = -9999457
+limit_right = 10608
 limit_bottom = 1100
 metadata/_edit_group_ = true
 
