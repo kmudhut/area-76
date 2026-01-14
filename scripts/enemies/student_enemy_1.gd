@@ -36,7 +36,7 @@ func _physics_process(delta: float) -> void:
 	
 func spawn_mug():
 	mug = MugScene.instantiate()
-	mug.scale = Vector2(0.04, 0.04)
+	mug.scale = Vector2(0.0375, 0.0375)
 	mug.global_position = $MugSpawnPoint.global_position
 	mug.direction = direction
 	self.get_parent().add_child(mug)

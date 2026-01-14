@@ -20,6 +20,7 @@ func _physics_process(delta: float) -> void:
 			continue
 
 		if body.is_in_group("player") and body.has_method("take_damage"):
+			AudioManager.play_sfx("sfx/cup-hit")
 			body.take_damage(damage)
 			queue_free()
 			return

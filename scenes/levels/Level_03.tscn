@@ -7207,19 +7207,19 @@ position = Vector2(12880, -3865)
 
 [node name="StudentEnemy1" parent="." instance=ExtResource("38_q0qah")]
 position = Vector2(2968, -3394)
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.34, 0.34)
 
 [node name="StudentEnemy2" parent="." instance=ExtResource("38_q0qah")]
 position = Vector2(9799, -3396)
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.34, 0.34)
 
 [node name="StudentEnemy3" parent="." instance=ExtResource("38_q0qah")]
 position = Vector2(9415, -1001)
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.34, 0.34)
 
 [node name="StudentEnemy4" parent="." instance=ExtResource("38_q0qah")]
 position = Vector2(6165, 440)
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.34, 0.34)
 
 [node name="Spikes" parent="." instance=ExtResource("39_msm5b")]
 position = Vector2(4862, 474)
@@ -7235,7 +7235,7 @@ scale = Vector2(0.2, 0.2)
 
 [node name="StudentEnemy5" parent="." instance=ExtResource("38_q0qah")]
 position = Vector2(16392, -3396.0002)
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.34, 0.34)
 
 [node name="Spikes4" parent="." instance=ExtResource("39_msm5b")]
 position = Vector2(15347, -3360)
