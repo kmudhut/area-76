@@ -141,6 +141,7 @@ func take_damage(amount: float):
 	emit_signal("health_changed", health_points, max_health_points)
 	if health_points <= 0:
 		_die()
+		return
 	else: play_hurt_effects()
 
 func play_hurt_effects():

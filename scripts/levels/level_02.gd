@@ -15,6 +15,6 @@ func _on_game_over():
 	GameState.is_usos_active = true # blokowanie ekranu pauzy
 	print("Gracz umarł!")
 	if end_screen:
-		await get_tree().create_timer(4.0).timeout
+		await get_tree().create_timer(2.5).timeout
 		end_screen.setup_game_over_screen()
 		end_screen.visible = true

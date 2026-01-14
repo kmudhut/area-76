@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://o1bopq7wr7h"]
+[gd_scene load_steps=24 format=3 uid="uid://o1bopq7wr7h"]
 
 [ext_resource type="Script" uid="uid://d3pftw3s2dda0" path="res://scripts/enemies/spikes.gd" id="1_48601"]
 [ext_resource type="Texture2D" uid="uid://dm7obw13256d7" path="res://assets/characters/enemies/spikes_sprite.png" id="1_mh5q8"]
@@ -145,6 +145,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1chjl"]
 size = Vector2(1045, 281)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_48601"]
+radius = 6849.1826
+
 [node name="Spikes" type="CharacterBody2D"]
 script = ExtResource("1_48601")
 
@@ -158,4 +161,11 @@ animation = &"hide_spikes"
 position = Vector2(39.5, 73.5)
 shape = SubResource("RectangleShape2D_1chjl")
 
+[node name="SoundArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SoundArea"]
+shape = SubResource("CircleShape2D_48601")
+
 [connection signal="body_entered" from="AnimatedSprite2D/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="SoundArea" to="." method="_on_sound_area_body_entered"]
+[connection signal="body_exited" from="SoundArea" to="." method="_on_sound_area_body_exited"]

@@ -8,6 +8,7 @@ extends CharacterBody2D
 
 var spikes_out: bool = false
 var state_timer: Timer
+var hearable = false
 
 func _ready() -> void:
 	state_timer = Timer.new()
@@ -23,6 +24,8 @@ func _on_timer_timeout() -> void:
 		to_attack_mode()
 
 func to_attack_mode() -> void:
+	if hearable:
+		AudioManager.play_sfx("sfx/steel-blade-slice-2")
 	spikes_out = true
 	sprite.play("show_spikes")
 	attack_area.monitoring = true
@@ -31,6 +34,8 @@ func to_attack_mode() -> void:
 	state_timer.start()
 
 func to_idle_mode() -> void:
+	if hearable:
+		AudioManager.play_sfx("sfx/steel-blade-slice-1")
 	spikes_out = false
 	sprite.play("hide_spikes")
 	attack_area.monitoring = false
@@ -41,3 +46,13 @@ func to_idle_mode() -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if(body.is_in_group("player")):
 		body.take_damage(10)
+
+
+func _on_sound_area_body_entered(body: Node2D) -> void:
+	if(body.is_in_group("player")):
+		hearable = true
+
+
+func _on_sound_area_body_exited(body: Node2D) -> void:
+	if(body.is_in_group("player")):
+		hearable = false

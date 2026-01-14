@@ -296,12 +296,12 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qmarm")
 }, {
-"duration": 1.0,
+"duration": 3.0,
 "texture": SubResource("AtlasTexture_w5bca")
 }],
 "loop": false,
 "name": &"die",
-"speed": 5.0
+"speed": 11.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -388,8 +388,10 @@ script = ExtResource("1_onrkg")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_onrkg")
-animation = &"run"
+animation = &"die"
 autoplay = "idle"
+frame = 19
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(4, 8)
