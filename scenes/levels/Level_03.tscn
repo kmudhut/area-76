@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://bemw00asd0xir"]
+[gd_scene load_steps=82 format=3 uid="uid://bemw00asd0xir"]
 
 [ext_resource type="Script" uid="uid://dl8pubuxmlxpf" path="res://scripts/levels/Level_01.gd" id="1_wm7ww"]
 [ext_resource type="PackedScene" uid="uid://ctapa34kpnlht" path="res://scenes/ui/hud.tscn" id="2_26y65"]
@@ -30,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://b1al43rolqc07" path="res://assets/environment/backgrounds/level03/LVL_03_BCKGRND_15.png" id="16_nus5b"]
 [ext_resource type="PackedScene" uid="uid://cha8mom7nf2ty" path="res://scenes/items/EnergyDrink.tscn" id="17_ag8wc"]
 [ext_resource type="PackedScene" uid="uid://df8r8v0ywhms5" path="res://scenes/items/LLM_PowerUp.tscn" id="18_eaars"]
+[ext_resource type="PackedScene" uid="uid://b1dj8ft0tyand" path="res://scenes/ui/NewPauseMenu.tscn" id="18_utg5w"]
 [ext_resource type="PackedScene" uid="uid://bn52tt6c4joc4" path="res://scenes/Platforms/platform_brick.tscn" id="20_l2yap"]
 [ext_resource type="PackedScene" uid="uid://bclx5fh3rso2q" path="res://scenes/levels/LevelExit.tscn" id="21_fwcly"]
 [ext_resource type="PackedScene" uid="uid://8hhtm33pbbbd" path="res://scenes/ui/EndScreen.tscn" id="22_8nu6f"]
@@ -6651,7 +6652,7 @@ _data = {
 &"new_animation": SubResource("Animation_mpkid")
 }
 
-[node name="Level1" type="Node2D" groups=["gameplayScene"]]
+[node name="Level3" type="Node2D" groups=["gameplayScene"]]
 process_mode = 1
 script = ExtResource("1_wm7ww")
 
@@ -6899,6 +6900,8 @@ scale = Vector2(0.9539648, 1.2051764)
 texture = ExtResource("16_nus5b")
 
 [node name="Hud" parent="." instance=ExtResource("2_26y65")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("18_utg5w")]
 
 [node name="TileMap Plain" type="TileMap" parent="."]
 position = Vector2(349, 418)

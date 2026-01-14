@@ -5,9 +5,9 @@ const BOSS_UNLOCK_THRESHOLD = 12
 
 # Konfiguracja liczby checkpointów dla poziomów (do obliczania postępu %)
 const LEVEL_TOTAL_CHECKPOINTS = {
-	"level_01": 6,
-	"level_02": 8,
-	"level_03": 12
+	"level_01": 5,
+	"level_02": 7,
+	"level_03": 11
 }
 
 # --- SYGNAŁY ---
@@ -248,3 +248,16 @@ func restart_level_data():
 	visited_checkpoints.clear()
 	save_game()
 	print("Zresetowano dane dla slotu ", current_slot_index)
+
+func start_next_semester(next_level_path: String, target_slot_index: int):
+	current_slot_index = target_slot_index
+	ects = 0
+	set_ects(0)
+	last_checkpoint_position = Vector2.ZERO
+	is_boss_accessible = false
+	collected_items.clear()
+	visited_checkpoints.clear()
+	current_level_name = next_level_path.get_file().get_basename()
+	motivation = max_motivation
+	set_motivation(motivation, max_motivation)
+	save_game()

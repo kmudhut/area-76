@@ -125,6 +125,14 @@ func get_comment_for_grade(grade: float) -> String:
 func _on_next_level_button_pressed():
 	get_tree().paused = false
 	GameState.is_usos_active = false
+	var target_slot = 1
+	if "level_01" in GameState.current_level_name.to_lower():
+		target_slot = 2
+	elif "level_02" in GameState.current_level_name.to_lower():
+		target_slot = 3
+	else:
+		target_slot = GameState.current_slot_index
+	GameState.start_next_semester(next_level_scene_path, target_slot)
 	SceneManager.goto_lvl(next_level_scene_path)
 
 func _on_retry_button_pressed():
