@@ -5,9 +5,9 @@ const BOSS_UNLOCK_THRESHOLD = 12
 
 # Konfiguracja liczby checkpointów dla poziomów (do obliczania postępu %)
 const LEVEL_TOTAL_CHECKPOINTS = {
-	"level_01": 5,
-	"level_02": 6,
-	"level_03": 8
+	"level_01": 6,
+	"level_02": 8,
+	"level_03": 12
 }
 
 # --- SYGNAŁY ---

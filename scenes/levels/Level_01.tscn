@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://pxkhy2qst1fo"]
+[gd_scene load_steps=76 format=3 uid="uid://pxkhy2qst1fo"]
 
 [ext_resource type="Script" uid="uid://dl8pubuxmlxpf" path="res://scripts/levels/Level_01.gd" id="1_lswbx"]
 [ext_resource type="Texture2D" uid="uid://b7ar0mlw21b1a" path="res://assets/environment/backgrounds/level01/00.png" id="1_mhiu8"]
@@ -36,6 +36,7 @@
 [ext_resource type="Texture2D" uid="uid://cm14ub3n4kmfl" path="res://assets/items/golden_drink/GoldenDrink.png" id="34_pv4s6"]
 [ext_resource type="Texture2D" uid="uid://c0p4exduj3gyl" path="res://assets/items/biret/b1.png" id="35_veetc"]
 [ext_resource type="Texture2D" uid="uid://dc7noohoput5i" path="res://assets/items/powerup/LLM_powerup.png" id="36_kewsv"]
+[ext_resource type="PackedScene" uid="uid://hbog7licpit8" path="res://scenes/items/GoldenDrink.tscn" id="37_veetc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t6bfo"]
 texture = ExtResource("12_d86x1")
@@ -6696,9 +6697,6 @@ text = "Niebieska Moc. W składzie sama chemia i miłość do nauki."
 [node name="EnergyDrink3" parent="." instance=ExtResource("27_uujh0")]
 position = Vector2(3925, 1018)
 
-[node name="GoldenDrink" parent="." instance=ExtResource("28_ys2jg")]
-position = Vector2(6099, 1020)
-
 [node name="TutorialText5" parent="." instance=ExtResource("29_t6bfo")]
 position = Vector2(6030, 895)
 text = "To bezalkoholowe! Chyba... Daje kopa i leczy duszę. Bierz, póki zimne."
@@ -6724,6 +6722,10 @@ position = Vector2(6200, 655)
 
 [node name="Checkpoint4" parent="." instance=ExtResource("30_e5bmj")]
 position = Vector2(8319, 745)
+
+[node name="Checkpoint5" parent="." instance=ExtResource("30_e5bmj")]
+position = Vector2(9854.001, 883.00006)
+scale = Vector2(1.905, 1.905)
 
 [node name="LevelExit" parent="." instance=ExtResource("31_o2j7d")]
 position = Vector2(10104, 890)
@@ -6962,6 +6964,9 @@ stretch_mode = 5
 layout_mode = 2
 text = "10 ECTS"
 horizontal_alignment = 1
+
+[node name="GoldenDrink" parent="." instance=ExtResource("37_veetc")]
+position = Vector2(6096, 1013)
 
 [connection signal="pressed" from="Store/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/EnergyDrink" to="Store" method="_on_energy_drink_pressed"]
 [connection signal="pressed" from="Store/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/GoldenDrink" to="Store" method="_on_golden_drink_pressed"]
