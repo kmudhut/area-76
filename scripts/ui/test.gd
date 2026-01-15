@@ -8,8 +8,8 @@ var y_direction := 0
 var player_pos
 func _ready() -> void:
 	#gravity_strength = randi_range(750, 2250)
-	gravity_strength = player_pos.x
-	speed = randi_range(750, 1000)
+	gravity_strength = player_pos.x + (player_pos.x * 0.1)
+	speed = randi_range(750, 950)
 	y_direction = randi_range(-150,150)
 	
 	velocity = Vector2(speed * x_direction, y_direction)

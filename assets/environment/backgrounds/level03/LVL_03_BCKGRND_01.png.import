@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cekbi5kp7n4sq"
 path.bptc="res://.godot/imported/LVL_03_BCKGRND_01.png-ea1af0ba42b7f2c3c47655d576b2e4c2.bptc.ctex"
+path.astc="res://.godot/imported/LVL_03_BCKGRND_01.png-ea1af0ba42b7f2c3c47655d576b2e4c2.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/environment/backgrounds/level03/LVL_03_BCKGRND_01.png"
-dest_files=["res://.godot/imported/LVL_03_BCKGRND_01.png-ea1af0ba42b7f2c3c47655d576b2e4c2.bptc.ctex"]
+dest_files=["res://.godot/imported/LVL_03_BCKGRND_01.png-ea1af0ba42b7f2c3c47655d576b2e4c2.bptc.ctex", "res://.godot/imported/LVL_03_BCKGRND_01.png-ea1af0ba42b7f2c3c47655d576b2e4c2.astc.ctex"]
 
 [params]
 

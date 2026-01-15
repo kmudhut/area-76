@@ -21,14 +21,16 @@ var hurt_interrupt_id: int = 0
 var electric_shock_player
 @onready var anim = $AnimatedSprite2D
 @onready var attack_area = $AttackArea
-
-var background_sprite : AnimatedSprite2D
+@onready var background_sprite : AnimatedSprite2D
 
 func _ready() -> void:
+	await get_tree().process_frame
 	var players = get_tree().get_nodes_in_group("player")
 	if players.size() > 0:
 		player = players[0]
 	background_sprite = get_parent().get_node_or_null("Background")
+		
+	
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -61,10 +63,10 @@ func decide_combat():
 		perform_special_attack()
 
 func perform_special_attack():
-	if is_attacking: 
+	if is_attacking or not background_sprite: 
 		return
 	is_attacking = true
-	
+	print("Background_sprite:",background_sprite)
 	background_sprite.play("pioruny")
 	
 	anim.play("special_attack")

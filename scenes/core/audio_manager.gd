@@ -45,13 +45,25 @@ func preload_all_sounds(base_path := AUDIO_PATH):
 			if file_name != "." and file_name != "..":
 				preload_all_sounds(base_path + file_name + "/")
 		else:
-			if file_name.ends_with(".wav") or file_name.ends_with(".ogg") or file_name.ends_with(".mp3"):
-				var full_path = base_path + file_name
-				var stream = load(full_path)
-				if stream:
-					var relative_key = full_path.replace(AUDIO_PATH, "").get_basename()
-					sounds[relative_key] = stream
-					print("Loaded sound:", relative_key)
+			var file_to_check = file_name
+			if file_name.ends_with(".import"):
+				file_to_check = file_name.replace(".import", "")
+
+
+			if file_to_check.ends_with(".wav") or file_to_check.ends_with(".ogg") or file_to_check.ends_with(".mp3"):
+				
+				var full_path = base_path + file_to_check
+				
+				var relative_key = full_path.replace(AUDIO_PATH, "").get_basename()
+				
+				if not sounds.has(relative_key):
+					var stream = load(full_path) # TU JEST TWÓJ LOAD
+					print("FULL PATH: ", full_path)
+					
+					if stream:
+						sounds[relative_key] = stream
+						print("Loaded sound:", relative_key)
+						
 		file_name = dir.get_next()
 	dir.list_dir_end()
 

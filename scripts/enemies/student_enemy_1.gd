@@ -15,6 +15,7 @@ var player : CharacterBody2D
 @onready var spawn_offset_x = $MugSpawnPoint.position.x
 
 func _ready() -> void:
+	await get_tree().process_frame
 	var players = get_tree().get_nodes_in_group("player")
 	if players.size() > 0:
 		player = players[0]

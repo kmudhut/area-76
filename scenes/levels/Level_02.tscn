@@ -1,4 +1,4 @@
-[gd_scene load_steps=107 format=3 uid="uid://3gm4xjov628p"]
+[gd_scene load_steps=106 format=3 uid="uid://3gm4xjov628p"]
 
 [ext_resource type="PackedScene" uid="uid://ctapa34kpnlht" path="res://scenes/ui/hud.tscn" id="1_j2tld"]
 [ext_resource type="Texture2D" uid="uid://7kn0iaem3d0d" path="res://assets/environment/tilesets/terrain-tilemap.png" id="1_jntcg"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://0pok45lfe0jj" path="res://assets/environment/backgrounds/level02/LVL_02_BCKGRND_01.png" id="2_folmu"]
 [ext_resource type="PackedScene" uid="uid://8hhtm33pbbbd" path="res://scenes/ui/EndScreen.tscn" id="2_op6uy"]
 [ext_resource type="Texture2D" uid="uid://b8v64eyoxpley" path="res://assets/environment/backgrounds/level02/LVL_02_BCKGRND_03.png" id="3_8ccjp"]
-[ext_resource type="PackedScene" uid="uid://b1dj8ft0tyand" path="res://scenes/ui/NewPauseMenu.tscn" id="3_po0rf"]
 [ext_resource type="Texture2D" uid="uid://cvi0fwa0mcvjm" path="res://assets/environment/tilesets/Bricks.png" id="3_vvr1n"]
 [ext_resource type="Texture2D" uid="uid://oa6ifl776j8a" path="res://assets/environment/tilesets/Shiny1.png" id="4_ivapw"]
 [ext_resource type="Texture2D" uid="uid://6x80p1ajcyjd" path="res://assets/environment/backgrounds/level02/LVL_02_BCKGRND_08.png" id="4_vjhk1"]
@@ -22,7 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://doaanq3hgseaj" path="res://assets/environment/backgrounds/level02/LVL_02_BCKGRND_05.png" id="8_58q00"]
 [ext_resource type="Texture2D" uid="uid://dcpmmb41l2gmq" path="res://assets/environment/backgrounds/level02/LVL_02_BCKGRND_06.png" id="9_1ve6j"]
 [ext_resource type="PackedScene" uid="uid://bmmq7dvcq4bva" path="res://scenes/characters/player.tscn" id="9_4b1sg"]
-[ext_resource type="PackedScene" uid="uid://v65iou687fk6" path="res://scenes/Platforms/platform_orange.tscn" id="10_3njdy"]
+[ext_resource type="PackedScene" path="res://scenes/Platforms/platform_orange.tscn" id="10_3njdy"]
 [ext_resource type="Texture2D" uid="uid://dqay6at81fqig" path="res://assets/environment/backgrounds/level02/LVL_02_BCKGRND_11.png" id="10_ivo2b"]
 [ext_resource type="Texture2D" uid="uid://d3776q85kpfhs" path="res://assets/environment/backgrounds/level02/LVL_02_BCKGRND_07.png" id="11_ms3li"]
 [ext_resource type="PackedScene" uid="uid://c4nqcrp2hf18c" path="res://scenes/characters/UAV_operator.tscn" id="11_vvr1n"]
@@ -6834,8 +6833,6 @@ script = ExtResource("1_po0rf")
 
 [node name="Hud" parent="." instance=ExtResource("1_j2tld")]
 
-[node name="PauseMenu" parent="." instance=ExtResource("3_po0rf")]
-
 [node name="Background" type="Area2D" parent="."]
 
 [node name="Parallax2D" type="Parallax2D" parent="Background"]
@@ -7779,7 +7776,7 @@ position = Vector2(0, 1)
 
 [node name="LevelExit" parent="." instance=ExtResource("32_3qisv")]
 position = Vector2(10228, -4025)
-next_level_scene = "uid://b4rcsfi565ssj"
+next_level_scene = "Level_02_boss"
 
 [node name="Checkpoints" type="Area2D" parent="."]
 position = Vector2(0, 1)

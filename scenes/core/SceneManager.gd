@@ -54,7 +54,7 @@ func goto_scene(scene_path: String) -> void:
 	current_scene = null 
 	for child in container.get_children():
 		child.queue_free()
-	
+	print("goto_scene", scene_path,".")
 	if ResourceLoader.exists(scene_path):
 		var new_scene_packed = load(scene_path)
 		var new_scene = new_scene_packed.instantiate()
@@ -78,7 +78,9 @@ func goto_settings(): goto_scene(PATH_SETTINGS)
 func goto_end(): goto_scene(PATH_END)
 
 func goto_lvl(level_name: String):
-	level_name = level_name.replace(".tscn", "")
+	level_name = level_name.replace(".tscn", "").to_lower()
+	
+	print("goto_lvl w scenemanager", PATH_LEVELS + level_name + ".tscn", level_name )
 	goto_scene(PATH_LEVELS + level_name + ".tscn")
 
 func goto_last_level():

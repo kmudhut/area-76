@@ -653,6 +653,7 @@ position = Vector2(-2, -0.75)
 shape = SubResource("RectangleShape2D_rnil2")
 
 [node name="ElectricArc" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(972, -178)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_fk0ky")

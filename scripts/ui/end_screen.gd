@@ -133,6 +133,7 @@ func _on_next_level_button_pressed():
 	else:
 		target_slot = GameState.current_slot_index
 	GameState.start_next_semester(next_level_scene_path, target_slot)
+	print("goto_lvl w endscreen:", next_level_scene_path, ".")
 	SceneManager.goto_lvl(next_level_scene_path)
 
 func _on_retry_button_pressed():
@@ -144,7 +145,7 @@ func _on_retry_button_pressed():
 		SceneManager.goto_lvl(level_to_load)
 	else:
 		GameState.reset_new_game(GameState.current_slot_index)
-		SceneManager.goto_lvl("Level_01.tscn")
+		SceneManager.goto_lvl("level_01.tscn")
 
 func _on_menu_button_pressed():
 	get_tree().paused = false

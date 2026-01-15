@@ -5768,8 +5768,9 @@ script = ExtResource("1_xpnx8")
 position = Vector2(1049, 446)
 scale = Vector2(1.64, 1.64)
 sprite_frames = SubResource("SpriteFrames_aoeh6")
-animation = &"przejscie"
+animation = &"pioruny"
 autoplay = "deszcz"
+frame_progress = 0.14951038
 
 [node name="TileMap Candy" type="TileMap" parent="."]
 position = Vector2(0, -25)

@@ -25,6 +25,7 @@ var hurt_interrupt_id: int = 0
 @onready var safe_zone_area = $"../SafeZoneArea"
 
 func _ready() -> void:
+	await get_tree().process_frame
 	var players = get_tree().get_nodes_in_group("player")
 	if players.size() > 0:
 		player = players[0]
