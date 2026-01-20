@@ -7604,6 +7604,9 @@ position = Vector2(6866, -5638)
 [node name="EctsCoin29" parent="Coiny" instance=ExtResource("26_o8sti")]
 position = Vector2(3079, -3904)
 
+[node name="EctsCoin30" parent="Coiny" instance=ExtResource("26_o8sti")]
+position = Vector2(4951, 719)
+
 [node name="UavOperator" parent="." instance=ExtResource("11_vvr1n")]
 position = Vector2(8647, 943)
 scale = Vector2(0.7, 0.7)
@@ -7619,7 +7622,7 @@ stretch_mode = 1
 [node name="Elevator" parent="." instance=ExtResource("12_ivapw")]
 position = Vector2(183, -1429.5)
 move_offset = Vector2(0, -2577.5)
-duration = 2.0
+duration = 15.0
 
 [node name="UavOperator2" parent="." instance=ExtResource("11_vvr1n")]
 position = Vector2(4411, -5712)
@@ -7772,7 +7775,7 @@ position = Vector2(4825, -4309.0005)
 position = Vector2(7735, -4163)
 
 [node name="EnergyDrink5" parent="." instance=ExtResource("31_5pk6b")]
-position = Vector2(0, 1)
+position = Vector2(2797, -3905)
 
 [node name="LevelExit" parent="." instance=ExtResource("32_3qisv")]
 position = Vector2(10228, -4025)
