@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://bemw00asd0xir"]
+[gd_scene load_steps=82 format=3 uid="uid://bemw00asd0xir"]
 
 [ext_resource type="Script" uid="uid://dl8pubuxmlxpf" path="res://scripts/levels/Level_01.gd" id="1_wm7ww"]
 [ext_resource type="PackedScene" uid="uid://ctapa34kpnlht" path="res://scenes/ui/hud.tscn" id="2_26y65"]
@@ -29,6 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://dgijdsl8cfnng" path="res://scenes/characters/swot.tscn" id="15_qs6ra"]
 [ext_resource type="Texture2D" uid="uid://b1al43rolqc07" path="res://assets/environment/backgrounds/level03/LVL_03_BCKGRND_15.png" id="16_nus5b"]
 [ext_resource type="PackedScene" uid="uid://cha8mom7nf2ty" path="res://scenes/items/EnergyDrink.tscn" id="17_ag8wc"]
+[ext_resource type="PackedScene" uid="uid://hbog7licpit8" path="res://scenes/items/GoldenDrink.tscn" id="17_utg5w"]
 [ext_resource type="PackedScene" uid="uid://df8r8v0ywhms5" path="res://scenes/items/LLM_PowerUp.tscn" id="18_eaars"]
 [ext_resource type="PackedScene" uid="uid://bn52tt6c4joc4" path="res://scenes/Platforms/platform_brick.tscn" id="20_l2yap"]
 [ext_resource type="PackedScene" uid="uid://bclx5fh3rso2q" path="res://scenes/levels/LevelExit.tscn" id="21_fwcly"]
@@ -38,7 +39,7 @@
 [ext_resource type="PackedScene" uid="uid://k4h4s5k0kgw1" path="res://scenes/items/Biret.tscn" id="37_h6jev"]
 [ext_resource type="PackedScene" uid="uid://lv1b1mek0uv7" path="res://scenes/characters/StudentEnemy_1.tscn" id="38_q0qah"]
 [ext_resource type="PackedScene" uid="uid://o1bopq7wr7h" path="res://scenes/characters/spikes.tscn" id="39_msm5b"]
-[ext_resource type="PackedScene" path="res://scenes/Platforms/elevator_lvl_03.tscn" id="40_21ofb"]
+[ext_resource type="PackedScene" uid="uid://ror1s0otw04" path="res://scenes/Platforms/elevator_lvl_03.tscn" id="40_21ofb"]
 [ext_resource type="Texture2D" uid="uid://dcrla48em7xlo" path="res://assets/environment/elevator/szyba_windy.png" id="41_utg5w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gmpev"]
@@ -6898,6 +6899,9 @@ position = Vector2(-90.62491, 34.250008)
 scale = Vector2(0.9539648, 1.2051764)
 texture = ExtResource("16_nus5b")
 
+[node name="GoldenDrink" parent="Background" instance=ExtResource("17_utg5w")]
+position = Vector2(11183, -3514)
+
 [node name="Hud" parent="." instance=ExtResource("2_26y65")]
 
 [node name="TileMap Plain" type="TileMap" parent="."]
@@ -7157,9 +7161,6 @@ position = Vector2(10240, -1240)
 
 [node name="EnergyDrink3" parent="." instance=ExtResource("17_ag8wc")]
 position = Vector2(997, -814)
-
-[node name="GoldenDrink2" parent="." instance=ExtResource("18_eaars")]
-position = Vector2(11184, -3515)
 
 [node name="Platform Brick7" parent="." instance=ExtResource("20_l2yap")]
 position = Vector2(16376, 520)
