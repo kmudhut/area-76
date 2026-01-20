@@ -7019,9 +7019,6 @@ scale = Vector2(0.6, 0.6)
 [node name="EnergyDrink" parent="." instance=ExtResource("17_ag8wc")]
 position = Vector2(17240, -3368)
 
-[node name="GoldenDrink" parent="." instance=ExtResource("18_eaars")]
-position = Vector2(2354, 873.99994)
-
 [node name="Platform Brick3" parent="." instance=ExtResource("20_l2yap")]
 position = Vector2(9470, -3856)
 scale = Vector2(3, 3)
@@ -7359,3 +7356,6 @@ position = Vector2(15674.999, 1076)
 scale = Vector2(0.19, 0.19)
 time_to_stay_out = 10.0
 time_to_stay_in = 1.0
+
+[node name="GoldenDrink" parent="." instance=ExtResource("17_utg5w")]
+position = Vector2(2355, 864)
