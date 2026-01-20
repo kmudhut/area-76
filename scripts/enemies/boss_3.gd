@@ -3,11 +3,11 @@ extends CharacterBody2D
 signal health_changed(current_hp, max_hp)
 signal boss_defeated
 
-var health_points = 200
+var health_points = 500
 var max_health_points = health_points
 
-var attack_cooldown_time := 1.5 
-var special_attack_cooldown_time := 10.0
+var attack_cooldown_time := 0.5
+var special_attack_cooldown_time := 5.0
 var current_cooldown: float = 0.0
 
 var direction := 1
@@ -148,7 +148,7 @@ func perform_attack():
 			if attack_area.overlaps_body(player):
 				if player.has_method("take_damage"):
 					AudioManager.play_sfx("sfx/book_hit")
-					player.take_damage(1)
+					player.take_damage(5)
 					damage_dealt = true
 		await get_tree().process_frame
 	anim.play("idle")
@@ -200,6 +200,6 @@ func _die():
 	is_dying = true
 	$AnimatedSprite2D.play("die")
 	await $AnimatedSprite2D.animation_finished
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(2.0).timeout
 	emit_signal("boss_defeated")
 	queue_free()
