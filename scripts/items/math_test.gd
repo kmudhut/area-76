@@ -43,9 +43,13 @@ func check_answer() -> void:
 	get_parent().get_node("Player").process_mode = Node.PROCESS_MODE_PAUSABLE
 	tick_player.stop();
 	queue_free()
-	
+
 func _on_button_pressed() -> void:
 	check_answer()
 
 func _on_timer_timeout() -> void:
 	check_answer()
+
+func _exit_tree() -> void:
+	if tick_player:
+		tick_player.stop()
