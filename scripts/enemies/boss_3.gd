@@ -113,14 +113,10 @@ func finish_special_attack():
 	if player:
 		player.is_stunned = false
 		player.take_damage(20)
-		
-		AudioManager.play_sfx("sfx/punch") # Tu powinien być dźwięk głośnego uderzenia!
-		
-		# EFEKT TRZĘSIENIA KAMERĄ (Screen Shake)
-		# Jeśli masz kamerę z funkcją shake, wywołaj ją tutaj:
+		AudioManager.play_sfx("sfx/fahhh")
 		var cam = get_viewport().get_camera_2d()
 		if cam and cam.has_method("apply_shake"):
-			cam.apply_shake(5.0) # siła wstrząsu
+			cam.apply_shake(18.0) # siła wstrząsu
 	
 	anim.play("idle")
 	is_attacking = false
@@ -129,8 +125,6 @@ func finish_special_attack():
 func _on_safe_zone_entered(body):
 	if body == player:
 		is_player_in_safe_zone = true
-		# Opcjonalnie: Jeśli boss właśnie zaczął ładować specjał, można go przerwać
-		# if is_attacking and anim.animation == "special_attack_charge": ...
 
 func _on_safe_zone_exited(body):
 	if body == player:

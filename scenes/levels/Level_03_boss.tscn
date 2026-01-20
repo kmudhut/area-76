@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://b2be2l0r6aoxa"]
+[gd_scene load_steps=32 format=3 uid="uid://b2be2l0r6aoxa"]
 
 [ext_resource type="Texture2D" uid="uid://7kn0iaem3d0d" path="res://assets/environment/tilesets/terrain-tilemap.png" id="1_7fmgv"]
 [ext_resource type="Script" uid="uid://ctxc2a47xj2er" path="res://scripts/levels/Level_03_boss.gd" id="1_fdeh1"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://8hhtm33pbbbd" path="res://scenes/ui/EndScreen.tscn" id="9_w2scs"]
 [ext_resource type="PackedScene" uid="uid://hbog7licpit8" path="res://scenes/items/GoldenDrink.tscn" id="12_k6bg5"]
 [ext_resource type="PackedScene" uid="uid://cha8mom7nf2ty" path="res://scenes/items/EnergyDrink.tscn" id="13_2ukpi"]
+[ext_resource type="Script" uid="uid://bskt5ajd0w285" path="res://scripts/ui/camera_2d.gd" id="14_2ukpi"]
 
 [sub_resource type="Animation" id="Animation_sygxl"]
 length = 0.001
@@ -5692,3 +5693,7 @@ position = Vector2(1257, 678)
 position = Vector2(1675.5, 223)
 shape = SubResource("RectangleShape2D_w2scs")
 debug_color = Color(0, 0.5950001, 0.7, 0.02745098)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+script = ExtResource("14_2ukpi")
