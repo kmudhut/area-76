@@ -5840,4 +5840,5 @@ one_way_collision = true
 shape = SubResource("SegmentShape2D_fjl3s")
 
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="CollisionShapes"]
+position = Vector2(-450, 0)
 shape = SubResource("SegmentShape2D_nfoso")
