@@ -5,10 +5,10 @@ signal health_changed(current_hp, max_hp)
 
 const TestScene = preload("res://scenes/characters/Test.tscn")
 var test_spawned := false
-var health_points = 1000
+var health_points = 600
 var max_health_points = health_points
 
-var attack_cooldown_time := 1.5 
+var attack_cooldown_time := 1.5
 var special_attack_cooldown_time := 10.0
 var attack_timer: float = 0.0    
 var special_attack_timer: float = 0.0   
