@@ -542,6 +542,7 @@ size = Vector2(286, 367)
 size = Vector2(547, 306)
 
 [node name="Boss1" type="CharacterBody2D"]
+process_mode = 1
 script = ExtResource("1_qrykl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

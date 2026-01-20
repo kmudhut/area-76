@@ -430,6 +430,7 @@ size = Vector2(270.125, 73)
 size = Vector2(704, 707.5)
 
 [node name="Boss3" type="CharacterBody2D" groups=["enemies"]]
+process_mode = 1
 script = ExtResource("1_wpqvd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
