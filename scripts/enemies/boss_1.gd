@@ -10,7 +10,8 @@ var max_health_points = health_points
 
 var attack_cooldown_time := 1.5 
 var special_attack_cooldown_time := 10.0
-var current_cooldown: float = 0.0
+var attack_timer: float = 0.0    
+var special_attack_timer: float = 0.0   
 
 var direction := 1
 var player_in_range: bool = false
@@ -38,8 +39,10 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 	move_and_slide()
 
-	if current_cooldown > 0:
-		current_cooldown -= delta
+	if attack_timer > 0:
+		attack_timer -= delta
+	if special_attack_timer > 0:
+		special_attack_timer -= delta
 
 	if player and not is_dying and not is_hurt and not is_attacking:
 		if player.global_position.x < self.global_position.x:
@@ -54,14 +57,15 @@ func _physics_process(delta: float) -> void:
 			$AttackArea/CollisionShape2D.position.x = abs($AttackArea/CollisionShape2D.position.x)
 
 	if not is_attacking and not is_hurt and not is_dying:
-		if current_cooldown <= 0:
-			decide_combat()
+		decide_combat()
 
 func decide_combat():
 	if player_in_range:
-		perform_attack()
+		if attack_timer <= 0:
+			perform_attack()
 	else:
-		perform_special_attack()
+		if special_attack_timer <= 0:
+			perform_special_attack()
 
 func perform_special_attack():
 	if is_attacking: 
@@ -81,7 +85,7 @@ func perform_special_attack():
 		return
 	anim.play("idle")
 	is_attacking = false
-	current_cooldown = special_attack_cooldown_time
+	special_attack_timer = special_attack_cooldown_time
 
 func perform_attack():
 	if is_attacking and anim.animation == "attack": return
@@ -108,7 +112,7 @@ func perform_attack():
 	anim.play("idle")
 	is_attacking = false
 	
-	current_cooldown = attack_cooldown_time
+	attack_timer = attack_cooldown_time
 
 func spawn_test():
 	AudioManager.play_sfx("sfx/cykladpana")
@@ -128,7 +132,7 @@ func _on_attacking_area_body_entered(body: Node2D) -> void:
 			return
 			
 		is_attacking = false 
-		current_cooldown = 0.0 
+		attack_timer = 0.5 
 		perform_attack()
 
 func _on_attacking_area_body_exited(body: Node2D) -> void:
