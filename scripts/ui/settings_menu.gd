@@ -91,8 +91,14 @@ func _on_return_button_pressed() -> void:
 			# Fallback, jeśli struktura scen jest inna
 			get_tree().change_scene_to_file("res://scenes/menus/MainMenu.tscn")
 
-# --- ZMIANA TRUDNOŚCI ---
+func _input(event: InputEvent) -> void:
+	# Sprawdzamy akcję "ui_cancel" (domyślnie ESC oraz B/Kółko na padzie)
+	# Oraz "pause" (jeśli używasz innej konfiguracji)
+	if event.is_action_pressed("ui_cancel") or event.is_action_pressed("pause"):
+		_on_return_button_pressed()
+		accept_event()
 
+# --- ZMIANA TRUDNOŚCI ---
 func _on_difficulty_left_arrow_pressed() -> void:
 	if current_difficulty_index > 0:
 		AudioManager.play_ui_sound("ui/click")

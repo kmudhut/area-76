@@ -41,10 +41,14 @@ func toggle_pause_game() -> void:
 	get_tree().paused = new_pause_state
 	self.visible = new_pause_state
 	
-	# Jeśli wznawiamy grę, upewnij się, że zamykamy też okno ustawień (jeśli było otwarte)
-	if not new_pause_state and setting_scene_instance != null:
-		setting_scene_instance.queue_free()
-		setting_scene_instance = null
+	if not new_pause_state:
+		if setting_scene_instance != null:
+			setting_scene_instance.queue_free()
+			setting_scene_instance = null
+	else:
+		var resume_btn = find_child("ResumeButton", true, false)
+		if resume_btn:
+			resume_btn.grab_focus()
 
 func _on_resume_button_pressed() -> void:
 	AudioManager.play_ui_sound("ui/click")

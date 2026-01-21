@@ -4,11 +4,15 @@ const CONFIRMATION_SCENE = preload("res://scenes/ui/ConfirmationWindow.tscn")
 
 @onready var scene_manager = get_node("/root/Main/SceneManager")
 @onready var save_window = $SaveWindow 
-@onready var continue_button = %ContinueButton 
+@onready var continue_button = %ContinueButton
+@onready var new_game_button = %NewGameButton
 
 func _ready() -> void:
 	AudioManager.play_music("music/no-place-to-go-216744")
 	check_continue_availability()
+	save_window.closed.connect(_on_save_window_closed)
+	await get_tree().process_frame
+	setup_focus()
 
 func does_any_save_exist() -> bool:
 	for i in range(1, 4):
@@ -24,7 +28,9 @@ func _on_continue_button_pressed():
 	save_window.open_save_window(true)
 
 # --- ZMIANY TUTAJ ---
-
+func _on_save_window_closed():
+	setup_focus()
+	
 func _on_new_game_button_pressed():
 	AudioManager.play_ui_sound("ui/click")
 	
@@ -36,7 +42,10 @@ func _on_new_game_button_pressed():
 func spawn_confirmation_window():
 	var popup = CONFIRMATION_SCENE.instantiate()
 	add_child(popup)
+	
 	popup.confirmed.connect(start_fresh_game)
+	if popup.has_signal("cancelled"):
+		popup.cancelled.connect(setup_focus)
 
 func start_fresh_game():
 	print("Rozpoczynam nową grę (kasowanie starych zapisów)...")
@@ -60,3 +69,9 @@ func _on_settings_button_pressed():
 func _on_quit_button_pressed():
 	AudioManager.play_ui_sound("ui/click")
 	get_tree().quit()
+	
+func setup_focus():
+	if not continue_button.disabled:
+		continue_button.grab_focus()
+	elif new_game_button:
+		new_game_button.grab_focus()

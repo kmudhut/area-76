@@ -19,9 +19,21 @@ bg_color = Color(0, 0, 0, 0.78431374)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dy7ct"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jix8l"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bhu4a"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 9
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g8g3n"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e2per"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 9
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nlkkf"]
 
@@ -31,7 +43,13 @@ bg_color = Color(0, 0, 0, 0.78431374)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j5v2v"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8u0te"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7mi0g"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 9
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qe12f"]
 
@@ -41,7 +59,13 @@ bg_color = Color(0, 0, 0, 0.78431374)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cm266"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oiatc"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nqjyj"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 9
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -104,10 +128,11 @@ grow_vertical = 2
 theme_override_constants/separation = 46
 
 [node name="NewGameButton" type="Button" parent="PanelContainer/OptionsContainer/VBoxContainer"]
+unique_name_in_owner = true
 clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 3
+focus_neighbor_bottom = NodePath("../ContinueButton")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.6666667, 0.6666667, 0.6666667, 1)
 theme_override_colors/font_hover_color = Color(0.7204674, 0.72046757, 0.7204672, 1)
@@ -116,7 +141,7 @@ theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = SubResource("StyleBoxEmpty_glbon")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_8qtwp")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_dy7ct")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_jix8l")
+theme_override_styles/focus = SubResource("StyleBoxFlat_bhu4a")
 text = "NOWA GRA"
 
 [node name="ContinueButton" type="Button" parent="PanelContainer/OptionsContainer/VBoxContainer"]
@@ -125,6 +150,8 @@ clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
+focus_neighbor_top = NodePath("../NewGameButton")
+focus_neighbor_bottom = NodePath("../SettingsButton")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.6666667, 0.6666667, 0.6666667, 1)
 theme_override_colors/font_hover_color = Color(0.72156864, 0.72156864, 0.72156864, 1)
@@ -133,7 +160,7 @@ theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = SubResource("StyleBoxEmpty_glbon")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_8qtwp")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_dy7ct")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_g8g3n")
+theme_override_styles/focus = SubResource("StyleBoxFlat_e2per")
 text = "KONTYNUUJ GRĘ"
 
 [node name="SettingsButton" type="Button" parent="PanelContainer/OptionsContainer/VBoxContainer"]
@@ -141,6 +168,8 @@ clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
+focus_neighbor_top = NodePath("../ContinueButton")
+focus_neighbor_bottom = NodePath("../QuitButton")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.6666667, 0.6666667, 0.6666667, 1)
 theme_override_colors/font_hover_color = Color(0.72156864, 0.72156864, 0.72156864, 1)
@@ -150,7 +179,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_nlkkf")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_0o4t1")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_0k4wn")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_j5v2v")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_8u0te")
+theme_override_styles/focus = SubResource("StyleBoxFlat_7mi0g")
 text = "USTAWIENIA"
 
 [node name="QuitButton" type="Button" parent="PanelContainer/OptionsContainer/VBoxContainer"]
@@ -158,6 +187,7 @@ clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
+focus_neighbor_top = NodePath("../SettingsButton")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.6666667, 0.6666667, 0.6666667, 1)
 theme_override_colors/font_hover_color = Color(0.72156864, 0.72156864, 0.72156864, 1)
@@ -167,7 +197,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_qe12f")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_iotk1")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_w44g7")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_cm266")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_oiatc")
+theme_override_styles/focus = SubResource("StyleBoxFlat_nqjyj")
 text = "ZREZYGNUJ ZE STUDIÓW"
 
 [node name="TextureRect" type="TextureRect" parent="PanelContainer/OptionsContainer"]

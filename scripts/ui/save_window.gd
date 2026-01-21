@@ -5,6 +5,8 @@ extends Control
 @onready var slot2_btn = $HBoxContainer/Slot2_Btn
 @onready var slot3_btn = $HBoxContainer/Slot3_Btn
 
+signal closed
+
 var is_loading_mode = true 
 
 func _ready():
@@ -22,9 +24,20 @@ func open_save_window(loading_mode: bool):
 	is_loading_mode = loading_mode
 	visible = true
 	update_slot_buttons()
+	await get_tree().process_frame
+	
+	if not slot1_btn.disabled:
+		slot1_btn.grab_focus()
+	elif not slot2_btn.disabled:
+		slot2_btn.grab_focus()
+	elif not slot3_btn.disabled:
+		slot3_btn.grab_focus()
+	else:
+		pass
 
 func close_save_window():
 	visible = false
+	closed.emit()
 
 func update_slot_buttons():
 	update_single_button(slot1_btn, 1, "SEMESTR I")
