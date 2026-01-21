@@ -58,9 +58,9 @@ func _ready():
 	if door_sprite:
 		door_sprite.play("closed")
 		
+	update_status()
+		
 func _on_ects_changed(_new_value):
-	# Ta funkcja odpali się automatycznie, gdy zmienisz liczbę punktów
-	# gdziekolwiek na mapie.
 	update_status()
 
 func _process(_delta):
@@ -96,25 +96,27 @@ func _on_body_exited(body):
 		hide_label()
 
 # --- ANIMACJE HOLOGRAMU ---
-func show_label():
-	label.size = Vector2(0,0) 
+func recenter_label():
+	# Ustawiamy punkt obrotu na środek
+	label.pivot_offset = Vector2(label.size.x / 2, label.size.y)
 	
-	# Obliczamy pozycję docelową
+	# Obliczamy nową pozycję, żeby dymek był wycentrowany nad czytnikiem
 	var target_y = reader_offset.y - label.size.y - 60
 	var target_x = (reader_offset.x - (label.size.x / 2)) + label_shift_x
 	label.position = Vector2(target_x, target_y)
+
+func show_label():
+	label.visible = true
+	await get_tree().process_frame
+	recenter_label()
 	
-	label.pivot_offset = Vector2(label.size.x / 2, label.size.y)
-	
-	# 3. Animacja
 	if tween: tween.kill()
 	tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
 	
-	label.visible = true
 	label.scale = Vector2(0, 0)
 	tween.tween_property(label, "scale", Vector2(1, 1), 0.25)
 	
-	queue_redraw() # Wymuś narysowanie linii
+	queue_redraw()
 
 func hide_label():
 	if tween: tween.kill()
@@ -132,9 +134,6 @@ func update_status():
 	
 	var final_text = ""
 	
-	# WARTOŚĆ PRZESUNIĘCIA DLA OTWARTYCH DRZWI
-	# Musisz dobrać tę wartość metodą prób i błędów (np. Vector2(20, 0) lub Vector2(50, 0))
-	# Dodatnia wartość X przesunie je w prawo.
 	var open_door_offset = Vector2(-72, 0) 
 	
 	if current_ects < min_ects:

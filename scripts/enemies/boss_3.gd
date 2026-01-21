@@ -142,7 +142,7 @@ func perform_attack():
 			if attack_area.overlaps_body(player):
 				if player.has_method("take_damage"):
 					AudioManager.play_sfx("sfx/book_hit")
-					player.take_damage(5)
+					player.take_damage(15)
 					damage_dealt = true
 		await get_tree().process_frame
 	anim.play("idle")
