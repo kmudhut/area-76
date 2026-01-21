@@ -34,4 +34,4 @@ func open_walls():
 	left_wall.set_deferred("disabled", true)
 	right_wall.set_deferred("disabled", true)
 	AudioManager.stop_music()
-	AudioManager.play_music("music/legend-of-nocturne")
+	AudioManager.play_music("music/big-jason-slap-house-background-music-for-video-vlog-stories-short-394175")
