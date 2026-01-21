@@ -18,9 +18,9 @@ func activate(body):
 	var level_name = ""
 		
 	if owner != null and owner.scene_file_path != "":
-		level_name = owner.scene_file_path.get_file().get_basename().to_lower()
+		level_name = owner.scene_file_path.get_file().get_basename()
 	else:
-		level_name = level_name.to_lower()
+		level_name = level_name
 		
 	var final_id = checkpoint_id
 	if final_id == "":

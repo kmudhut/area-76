@@ -362,7 +362,7 @@ animations = [{
 size = Vector2(166, 281)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dabvj"]
-size = Vector2(318, 201)
+size = Vector2(318, 137)
 
 [node name="Swot" type="CharacterBody2D" groups=["enemies"]]
 process_mode = 1
@@ -382,7 +382,7 @@ shape = SubResource("RectangleShape2D_6l3m1")
 [node name="AttackArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-position = Vector2(0, -76.5)
+position = Vector2(0, -44.5)
 shape = SubResource("RectangleShape2D_dabvj")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]

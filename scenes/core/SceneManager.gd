@@ -78,10 +78,12 @@ func goto_settings(): goto_scene(PATH_SETTINGS)
 func goto_end(): goto_scene(PATH_END)
 
 func goto_lvl(level_name: String):
-	level_name = level_name.replace(".tscn", "").to_lower()
+	level_name = level_name.replace(".tscn", "")
 	
-	print("goto_lvl w scenemanager", PATH_LEVELS + level_name + ".tscn", level_name )
-	goto_scene(PATH_LEVELS + level_name + ".tscn")
+	var full_path = PATH_LEVELS + level_name + ".tscn"
+	
+	print("Próba przejścia do poziomu: ", full_path)
+	goto_scene(full_path)
 
 func goto_last_level():
 	if last_level_path != "": goto_scene(last_level_path)

@@ -264,8 +264,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c2xgw"]
 size = Vector2(207, 491)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_gmc73"]
-radius = 1506.0332
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e3ui8"]
+size = Vector2(5714, 247)
 
 [node name="StudentEnemy1" type="CharacterBody2D" groups=["enemies"]]
 script = ExtResource("1_gmc73")
@@ -287,8 +287,8 @@ position = Vector2(257, -89)
 [node name="AttackArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-position = Vector2(-1, 5)
-shape = SubResource("CircleShape2D_gmc73")
+position = Vector2(-1, -61.5)
+shape = SubResource("RectangleShape2D_e3ui8")
 
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
 [connection signal="body_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]

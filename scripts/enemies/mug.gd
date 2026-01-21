@@ -1,7 +1,7 @@
 extends CharacterBody2D
 @export var speed: float = 700.0
 @export var gravity_strength: float = 500.0
-@export var damage: int = 30
+@export var damage: int = 20
 var direction := -1
 const SPEED = 300.0
 

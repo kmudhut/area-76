@@ -14,5 +14,5 @@ func _process(delta: float) -> void:
 	current_cooldown -= delta
 	if(player):
 		if attack_area.overlaps_body(player) and current_cooldown <= 0.0 and self.visible:
-			player.take_damage(20)
+			player.take_damage(35)
 			current_cooldown = attack_cooldown

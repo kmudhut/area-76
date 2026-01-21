@@ -50,7 +50,7 @@ func start_fresh_game():
 	
 	GameState.reset_new_game(1)
 	
-	SceneManager.goto_lvl("level_01")
+	SceneManager.goto_lvl("Level_01")
 
 
 func _on_settings_button_pressed():

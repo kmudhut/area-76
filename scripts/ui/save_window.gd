@@ -84,17 +84,9 @@ func update_single_button(btn: Button, slot_index: int, title: String):
 		btn.pressed.disconnect(_on_slot_pressed)
 	btn.pressed.connect(_on_slot_pressed.bind(slot_index))
 
-# --- NOWA FUNKCJA KOLOROWANIA ---
-# Obsługuje zarówno zwykłe Theme Overrides, jak i Label Settings
 func force_label_color(lbl: Label, color: Color):
-	# Metoda 1: Standardowa (nadpisanie motywu)
 	lbl.add_theme_color_override("font_color", color)
-	
-	# Metoda 2: Jeśli używasz LabelSettings (np. do zmiany fontu), to ono blokuje kolor.
-	# Musimy wejść w ustawienia i zmienić kolor bezpośrednio tam.
 	if lbl.label_settings:
-		# Ważne: Tworzymy duplikat ustawień, żeby zmiana koloru jednego labela 
-		# nie zmieniła wszystkich innych labeli w grze, które używają tego samego pliku.
 		if not lbl.label_settings.resource_local_to_scene:
 			lbl.label_settings = lbl.label_settings.duplicate()
 			lbl.label_settings.resource_local_to_scene = true
@@ -110,7 +102,7 @@ func _on_slot_pressed(slot_index: int):
 	else:
 		print("Rozpoczynanie nowej gry na slocie: ", slot_index)
 		GameState.reset_new_game(slot_index)
-		SceneManager.goto_lvl("level_01")
+		SceneManager.goto_lvl("Level_01")
 		close_save_window()
 
 func _on_dimmer_gui_input(event):

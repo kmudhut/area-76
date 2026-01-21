@@ -79,7 +79,7 @@ func _attack():
 
 	if $AttackArea.overlaps_body(player) and player.has_method("take_damage"):
 		AudioManager.play_sfx("sfx/book_hit")
-		player.take_damage(1)
+		player.take_damage(4)
 	
 	$AnimatedSprite2D.play("idle")
 	await get_tree().create_timer(ATTACK_COOLDOWN).timeout
