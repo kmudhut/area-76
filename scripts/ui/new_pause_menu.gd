@@ -3,22 +3,38 @@ extends CanvasLayer
 const setting_scene = preload("res://scenes/ui/SettingsPauseMenu.tscn")
 var setting_scene_instance = null
 
+@onready var help_panel = $HelpPanel
+
 func _ready() -> void:
 	# Ważne: Menu pauzy musi działać, gdy gra jest zatrzymana
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	visible = false
+	if help_panel:
+		help_panel.visible = false
+		
 
 func _unhandled_input(event: InputEvent) -> void:
-	if (event.is_action_pressed("pause") and SceneManager.get_active_scene().is_in_group("gameplayScene")):
-		if GameState.is_usos_active:
+	if event.is_action_pressed("pause"):
+		print("--- DEBUG PAUZY ---")
+		var active_scene = SceneManager.get_active_scene()
+		if active_scene == null:
+			printerr("BŁĄD: SceneManager nie widzi aktywnej sceny!")
 			return
+		var is_gameplay = active_scene.is_in_group("gameplayScene")
+		print("Czy scena '", active_scene.name, "' jest w grupie 'gameplayScene'? ", is_gameplay)
+		print("Czy USOS (blokada) jest aktywny? ", GameState.is_usos_active)
 		
-		# Logika: Jeśli otwarte są ustawienia, ESC je zamyka.
-		# Jeśli nie, ESC wznawia grę.
-		if setting_scene_instance != null:
-			_close_settings()
-		else:
-			toggle_pause_game()
+		# Oryginalny warunek
+		if is_gameplay:
+			if GameState.is_usos_active:
+				print("Pauza zablokowana przez is_usos_active!")
+				return
+			if setting_scene_instance != null:
+				_close_settings()
+			elif help_panel and help_panel.visible:
+				_close_help()
+			else:
+				toggle_pause_game()
 
 func toggle_pause_game() -> void:
 	var new_pause_state = not get_tree().paused
@@ -81,4 +97,18 @@ func _close_settings():
 		setting_scene_instance.queue_free()
 		setting_scene_instance = null
 		# Jeśli ukrywałeś przyciski pauzy, tutaj je przywróć:
-		# $Control.visible = true
+		# $VBoxContainer.visible = true
+func _on_help_button_pressed() -> void:
+	AudioManager.play_ui_sound("ui/click")
+	if help_panel:
+		help_panel.visible = true
+		#$VBoxContainer.visible = false
+
+func _on_close_help_button_pressed() -> void:
+	AudioManager.play_ui_sound("ui/click")
+	_close_help()
+
+func _close_help():
+	if help_panel:
+		help_panel.visible = false
+		#$VBoxContainer.visible = true

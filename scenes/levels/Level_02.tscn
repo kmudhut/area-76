@@ -21,7 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://doaanq3hgseaj" path="res://assets/environment/backgrounds/level02/LVL_02_BCKGRND_05.png" id="8_58q00"]
 [ext_resource type="Texture2D" uid="uid://dcpmmb41l2gmq" path="res://assets/environment/backgrounds/level02/LVL_02_BCKGRND_06.png" id="9_1ve6j"]
 [ext_resource type="PackedScene" uid="uid://bmmq7dvcq4bva" path="res://scenes/characters/player.tscn" id="9_4b1sg"]
-[ext_resource type="PackedScene" path="res://scenes/Platforms/platform_orange.tscn" id="10_3njdy"]
+[ext_resource type="PackedScene" uid="uid://v65iou687fk6" path="res://scenes/Platforms/platform_orange.tscn" id="10_3njdy"]
 [ext_resource type="Texture2D" uid="uid://dqay6at81fqig" path="res://assets/environment/backgrounds/level02/LVL_02_BCKGRND_11.png" id="10_ivo2b"]
 [ext_resource type="Texture2D" uid="uid://d3776q85kpfhs" path="res://assets/environment/backgrounds/level02/LVL_02_BCKGRND_07.png" id="11_ms3li"]
 [ext_resource type="PackedScene" uid="uid://c4nqcrp2hf18c" path="res://scenes/characters/UAV_operator.tscn" id="11_vvr1n"]
@@ -7622,7 +7622,6 @@ stretch_mode = 1
 [node name="Elevator" parent="." instance=ExtResource("12_ivapw")]
 position = Vector2(183, -1429.5)
 move_offset = Vector2(0, -2577.5)
-duration = 15.0
 
 [node name="UavOperator2" parent="." instance=ExtResource("11_vvr1n")]
 position = Vector2(4411, -5712)
@@ -7749,7 +7748,6 @@ stretch_mode = 1
 [node name="Elevator2" parent="." instance=ExtResource("12_ivapw")]
 position = Vector2(10405, 905.66)
 move_offset = Vector2(0, -2337.5)
-duration = 2.0
 
 [node name="Swot13" parent="." instance=ExtResource("27_k66mj")]
 position = Vector2(1620, -3962)
