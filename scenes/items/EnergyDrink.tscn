@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cha8mom7nf2ty"]
+
+[ext_resource type="Script" uid="uid://dym2ot468dmlv" path="res://scripts/items/ConsumableItem.gd" id="1_87721"]
+[ext_resource type="Texture2D" uid="uid://b3e3remklwbgk" path="res://assets/icons/energy.png" id="1_b563x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4hjqy"]
+size = Vector2(38, 79)
+
+[node name="EnergyDrink" type="Area2D"]
+collision_layer = 12
+script = ExtResource("1_87721")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.11279297, 0.11279297)
+texture = ExtResource("1_b563x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_4hjqy")

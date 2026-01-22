@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2ri2vmf03ctr"]
+
+[ext_resource type="Texture2D" uid="uid://c0p4exduj3gyl" path="res://assets/items/biret/b1.png" id="1_1o108"]
+[ext_resource type="Script" uid="uid://btrapjnqe5cpk" path="res://scripts/items/HatProjectile.gd" id="1_wdvpm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1o108"]
+size = Vector2(86, 50)
+
+[node name="Area2D" type="CharacterBody2D"]
+script = ExtResource("1_wdvpm")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(6, 2)
+shape = SubResource("RectangleShape2D_1o108")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(4.4910254, 1.5000067)
+scale = Vector2(0.5928142, 0.5928144)
+texture = ExtResource("1_1o108")

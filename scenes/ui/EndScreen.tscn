@@ -1,0 +1,263 @@
+[gd_scene load_steps=21 format=3 uid="uid://8hhtm33pbbbd"]
+
+[ext_resource type="Script" uid="uid://bditiop3pjeln" path="res://scripts/ui/end_screen.gd" id="1_1ad5n"]
+[ext_resource type="FontFile" uid="uid://wjwhi8dt8axk" path="res://assets/ui/fonts/PressStart2P-Regular.ttf" id="2_1imq6"]
+[ext_resource type="FontFile" uid="uid://c1v7ay0fevib3" path="res://assets/ui/fonts/pixelsix10.ttf" id="3_d7okc"]
+[ext_resource type="FontFile" uid="uid://da4ww4swf8ctb" path="res://assets/ui/fonts/Tiny5-Regular.ttf" id="4_d7okc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gs7ky"]
+bg_color = Color(0.7079665, 0.7079665, 0.7079664, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_54dk8"]
+line_spacing = 6.0
+font = ExtResource("2_1imq6")
+font_size = 48
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h4xmw"]
+bg_color = Color(0.25882354, 0.24705882, 0.36862746, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1imq6"]
+font = ExtResource("3_d7okc")
+font_size = 110
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d7okc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gs7ky"]
+font = ExtResource("2_1imq6")
+font_size = 91
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1imq6"]
+content_margin_top = 101.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_d7okc"]
+font = ExtResource("2_1imq6")
+font_size = 71
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_h4xmw"]
+font = ExtResource("2_1imq6")
+font_size = 36
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_a3do1"]
+font = ExtResource("2_1imq6")
+font_size = 26
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_54dk8"]
+content_margin_left = 30.0
+content_margin_right = 30.0
+bg_color = Color(0.25882354, 0.24705882, 0.36862746, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_detail = 1
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 5
+shadow_offset = Vector2(5, 5)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_13w58"]
+content_margin_left = 30.0
+content_margin_right = 30.0
+bg_color = Color(0.53332734, 0, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_detail = 1
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 5
+shadow_offset = Vector2(10, 10)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1imq6"]
+content_margin_left = 30.0
+content_margin_right = 30.0
+bg_color = Color(0.12746292, 0.56709445, 0.310877, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_detail = 1
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 5
+shadow_offset = Vector2(5, 5)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d7okc"]
+content_margin_left = 30.0
+content_margin_right = 30.0
+bg_color = Color(0.105882354, 0.4627451, 0.16078432, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_detail = 1
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 5
+shadow_offset = Vector2(10, 10)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a3do1"]
+content_margin_left = 30.0
+content_margin_right = 30.0
+bg_color = Color(0.25882354, 0.24705882, 0.36862746, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_detail = 1
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 5
+shadow_offset = Vector2(5, 5)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4yjhu"]
+content_margin_left = 30.0
+content_margin_right = 30.0
+bg_color = Color(0.17952773, 0.17044604, 0.2630865, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_detail = 1
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 5
+shadow_offset = Vector2(10, 10)
+anti_aliasing = false
+
+[node name="EndScreen" type="CanvasLayer"]
+script = ExtResource("1_1ad5n")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="GrayHeader" type="Panel" parent="Control/Panel"]
+layout_mode = 0
+offset_right = 357.0
+offset_bottom = 1083.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_gs7ky")
+
+[node name="TitleLabel" type="Label" parent="Control/Panel/GrayHeader"]
+layout_mode = 0
+offset_left = 147.0
+offset_top = 1042.0
+offset_right = 1014.0
+offset_bottom = 1104.1282
+rotation = -1.5707964
+text = "Zaliczenia etapów"
+label_settings = SubResource("LabelSettings_54dk8")
+
+[node name="BlueHeader" type="Panel" parent="Control/Panel"]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 192.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_h4xmw")
+
+[node name="TitleLabel" type="Label" parent="Control/Panel/BlueHeader"]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 35.0
+offset_right = 830.0
+offset_bottom = 160.0
+text = "AREA 76"
+label_settings = SubResource("LabelSettings_1imq6")
+
+[node name="GradeLabel" type="Label" parent="Control/Panel"]
+layout_mode = 0
+offset_left = 1400.0
+offset_top = 430.0
+offset_right = 1673.0
+offset_bottom = 521.0
+rotation = 0.17453292
+theme_override_styles/normal = SubResource("StyleBoxEmpty_d7okc")
+label_settings = SubResource("LabelSettings_gs7ky")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel"]
+layout_mode = 0
+offset_left = 375.0
+offset_top = 192.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_constants/separation = 84
+
+[node name="TitleLabel" type="Label" parent="Control/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1imq6")
+label_settings = SubResource("LabelSettings_d7okc")
+horizontal_alignment = 1
+
+[node name="StatsContainer" type="VBoxContainer" parent="Control/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 9
+
+[node name="ECTSLabel" type="Label" parent="Control/Panel/VBoxContainer/StatsContainer"]
+layout_mode = 2
+text = "PUNKTY ECTS: /30"
+label_settings = SubResource("LabelSettings_h4xmw")
+
+[node name="CommentLabel" type="Label" parent="Control/Panel/VBoxContainer"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_a3do1")
+
+[node name="ButtonsContainer" type="HBoxContainer" parent="Control/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 19
+
+[node name="RetryButton" type="Button" parent="Control/Panel/VBoxContainer/ButtonsContainer"]
+process_mode = 3
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_d7okc")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_54dk8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_13w58")
+text = "POWTÓRZ 	SEMESTR"
+
+[node name="NextLevelButton" type="Button" parent="Control/Panel/VBoxContainer/ButtonsContainer"]
+process_mode = 3
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_d7okc")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_1imq6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_d7okc")
+text = "NASTĘPNY SEMESTR"
+
+[node name="MenuButton" type="Button" parent="Control/Panel/VBoxContainer/ButtonsContainer"]
+process_mode = 3
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_d7okc")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_a3do1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4yjhu")
+text = "WRÓĆ DO MENU GŁÓWNEGO"
+
+[connection signal="pressed" from="Control/Panel/VBoxContainer/ButtonsContainer/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="Control/Panel/VBoxContainer/ButtonsContainer/NextLevelButton" to="." method="_on_next_level_button_pressed"]
+[connection signal="pressed" from="Control/Panel/VBoxContainer/ButtonsContainer/MenuButton" to="." method="_on_menu_button_pressed"]

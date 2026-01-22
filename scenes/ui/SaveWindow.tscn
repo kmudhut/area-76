@@ -1,0 +1,331 @@
+[gd_scene load_steps=23 format=3 uid="uid://ri0m1h6nb7wo"]
+
+[ext_resource type="FontFile" uid="uid://da4ww4swf8ctb" path="res://assets/ui/fonts/Tiny5-Regular.ttf" id="1_xbxhu"]
+[ext_resource type="Script" uid="uid://dxvf3o7av8c4f" path="res://scripts/ui/save_window.gd" id="1_yxa05"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xbxhu"]
+bg_color = Color(0.3254902, 0.3254902, 0.3254902, 0.65882355)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.72464263, 0.7246426, 0.7246426, 1)
+corner_radius_top_left = 45
+corner_radius_top_right = 45
+corner_radius_bottom_right = 45
+corner_radius_bottom_left = 45
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yxa05"]
+bg_color = Color(0.3779188, 0.37791887, 0.37791884, 0.65882355)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 45
+corner_radius_top_right = 45
+corner_radius_bottom_right = 45
+corner_radius_bottom_left = 45
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_20rvg"]
+bg_color = Color(0, 0, 0, 0.15686275)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.40832943, 0.4083295, 0.40832922, 1)
+corner_radius_top_left = 45
+corner_radius_top_right = 45
+corner_radius_bottom_right = 45
+corner_radius_bottom_left = 45
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1o5ku"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_top_left = 55
+corner_radius_top_right = 55
+corner_radius_bottom_right = 55
+corner_radius_bottom_left = 55
+expand_margin_left = 15.0
+expand_margin_top = 14.0
+expand_margin_right = 15.0
+expand_margin_bottom = 14.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_yxa05"]
+font = ExtResource("1_xbxhu")
+font_size = 60
+
+[sub_resource type="LabelSettings" id="LabelSettings_20rvg"]
+font = ExtResource("1_xbxhu")
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_81t42"]
+font = ExtResource("1_xbxhu")
+font_size = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_81t42"]
+bg_color = Color(0.3254902, 0.3254902, 0.3254902, 0.65882355)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.72464263, 0.7246426, 0.7246426, 1)
+corner_radius_top_left = 45
+corner_radius_top_right = 45
+corner_radius_bottom_right = 45
+corner_radius_bottom_left = 45
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dnuol"]
+bg_color = Color(0.3779188, 0.37791887, 0.37791884, 0.65882355)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 45
+corner_radius_top_right = 45
+corner_radius_bottom_right = 45
+corner_radius_bottom_left = 45
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h0xtw"]
+bg_color = Color(0, 0, 0, 0.15686275)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.40832943, 0.4083295, 0.40832922, 1)
+corner_radius_top_left = 45
+corner_radius_top_right = 45
+corner_radius_bottom_right = 45
+corner_radius_bottom_left = 45
+
+[sub_resource type="LabelSettings" id="LabelSettings_dnuol"]
+font = ExtResource("1_xbxhu")
+font_size = 60
+
+[sub_resource type="LabelSettings" id="LabelSettings_h0xtw"]
+font = ExtResource("1_xbxhu")
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_3h6fc"]
+font = ExtResource("1_xbxhu")
+font_size = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3h6fc"]
+bg_color = Color(0.3254902, 0.3254902, 0.3254902, 0.65882355)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.72464263, 0.7246426, 0.7246426, 1)
+corner_radius_top_left = 45
+corner_radius_top_right = 45
+corner_radius_bottom_right = 45
+corner_radius_bottom_left = 45
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fq288"]
+bg_color = Color(0.3779188, 0.37791887, 0.37791884, 0.65882355)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 45
+corner_radius_top_right = 45
+corner_radius_bottom_right = 45
+corner_radius_bottom_left = 45
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iscuj"]
+bg_color = Color(0, 0, 0, 0.15686275)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.40832943, 0.4083295, 0.40832922, 1)
+corner_radius_top_left = 45
+corner_radius_top_right = 45
+corner_radius_bottom_right = 45
+corner_radius_bottom_left = 45
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o7a4i"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_top_left = 55
+corner_radius_top_right = 55
+corner_radius_bottom_right = 55
+corner_radius_bottom_left = 55
+expand_margin_left = 15.0
+expand_margin_top = 14.0
+expand_margin_right = 15.0
+expand_margin_bottom = 14.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_fq288"]
+font = ExtResource("1_xbxhu")
+font_size = 60
+
+[sub_resource type="LabelSettings" id="LabelSettings_iscuj"]
+font = ExtResource("1_xbxhu")
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_1o5ku"]
+font = ExtResource("1_xbxhu")
+font_size = 40
+
+[node name="SaveWindow" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1920.0
+offset_bottom = -1080.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yxa05")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 0.7137255)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 620.0
+offset_top = 375.0
+offset_right = 1920.0
+offset_bottom = 775.0
+scale = Vector2(0.9, 0.9)
+theme_override_constants/separation = 50
+
+[node name="Slot1_Btn" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_xbxhu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yxa05")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_20rvg")
+theme_override_styles/focus = SubResource("StyleBoxFlat_1o5ku")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Slot1_Btn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="HBoxContainer/Slot1_Btn/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "SEMESTR "
+label_settings = SubResource("LabelSettings_yxa05")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Progress" type="Label" parent="HBoxContainer/Slot1_Btn/VBoxContainer"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+text = "POSTĘP: 0%"
+label_settings = SubResource("LabelSettings_20rvg")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="ECTS" type="Label" parent="HBoxContainer/Slot1_Btn/VBoxContainer"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+text = "ECTS: 0/30"
+label_settings = SubResource("LabelSettings_81t42")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Slot2_Btn" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_81t42")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dnuol")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_h0xtw")
+theme_override_styles/focus = SubResource("StyleBoxFlat_1o5ku")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Slot2_Btn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="HBoxContainer/Slot2_Btn/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "SEMESTR "
+label_settings = SubResource("LabelSettings_dnuol")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Progress" type="Label" parent="HBoxContainer/Slot2_Btn/VBoxContainer"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+text = "POSTĘP: 0%"
+label_settings = SubResource("LabelSettings_h0xtw")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="ECTS" type="Label" parent="HBoxContainer/Slot2_Btn/VBoxContainer"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+text = "ECTS: 0/30"
+label_settings = SubResource("LabelSettings_3h6fc")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Slot3_Btn" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_3h6fc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fq288")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_iscuj")
+theme_override_styles/focus = SubResource("StyleBoxFlat_o7a4i")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Slot3_Btn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="HBoxContainer/Slot3_Btn/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "SEMESTR "
+label_settings = SubResource("LabelSettings_fq288")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Progress" type="Label" parent="HBoxContainer/Slot3_Btn/VBoxContainer"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+text = "POSTĘP: 0%"
+label_settings = SubResource("LabelSettings_iscuj")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="ECTS" type="Label" parent="HBoxContainer/Slot3_Btn/VBoxContainer"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+text = "ECTS: 0/30"
+label_settings = SubResource("LabelSettings_1o5ku")
+horizontal_alignment = 1
+vertical_alignment = 2

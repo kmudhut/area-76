@@ -1,0 +1,229 @@
+[gd_scene load_steps=24 format=3 uid="uid://cp3d1t2rsei63"]
+
+[ext_resource type="Script" uid="uid://biat13e86hmsm" path="res://scripts/ui/MainMenu.gd" id="1_xpiny"]
+[ext_resource type="Texture2D" uid="uid://dyxd7xnkxv020" path="res://assets/ui/area-76-main-menu-background.png" id="2_bhu4a"]
+[ext_resource type="FontFile" uid="uid://da4ww4swf8ctb" path="res://assets/ui/fonts/Tiny5-Regular.ttf" id="3_e2per"]
+[ext_resource type="Texture2D" uid="uid://0gahcrah0fwn" path="res://assets/icons/logoNFZ.png" id="4_7mi0g"]
+[ext_resource type="PackedScene" uid="uid://ri0m1h6nb7wo" path="res://scenes/ui/SaveWindow.tscn" id="5_xpiny"]
+[ext_resource type="PackedScene" uid="uid://d1c53uohgigqf" path="res://scenes/ui/ConfirmationWindow.tscn" id="6_bhu4a"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fu7sn"]
+texture = ExtResource("2_bhu4a")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jix8l"]
+bg_color = Color(0, 0, 0, 0.78431374)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_glbon"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8qtwp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dy7ct"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bhu4a"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 9
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e2per"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 9
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nlkkf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0o4t1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0k4wn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j5v2v"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7mi0g"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 9
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qe12f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iotk1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w44g7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cm266"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nqjyj"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 9
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xpiny")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="Panel" parent="PanelContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_fu7sn")
+
+[node name="OptionsContainer" type="Panel" parent="PanelContainer"]
+custom_minimum_size = Vector2(530, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_jix8l")
+
+[node name="Label" type="Label" parent="PanelContainer/OptionsContainer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -203.0
+offset_top = -400.0
+offset_right = 203.0
+offset_bottom = -332.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_e2per")
+theme_override_font_sizes/font_size = 60
+text = "MENU GŁÓWNE"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/OptionsContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -198.0
+offset_top = -169.5
+offset_right = 198.0
+offset_bottom = 164.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 46
+
+[node name="NewGameButton" type="Button" parent="PanelContainer/OptionsContainer/VBoxContainer"]
+unique_name_in_owner = true
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 4
+focus_neighbor_bottom = NodePath("../ContinueButton")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.6666667, 0.6666667, 0.6666667, 1)
+theme_override_colors/font_hover_color = Color(0.7204674, 0.72046757, 0.7204672, 1)
+theme_override_fonts/font = ExtResource("3_e2per")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxEmpty_glbon")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_8qtwp")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_dy7ct")
+theme_override_styles/focus = SubResource("StyleBoxFlat_bhu4a")
+text = "NOWA GRA"
+
+[node name="ContinueButton" type="Button" parent="PanelContainer/OptionsContainer/VBoxContainer"]
+unique_name_in_owner = true
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+focus_neighbor_top = NodePath("../NewGameButton")
+focus_neighbor_bottom = NodePath("../SettingsButton")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.6666667, 0.6666667, 0.6666667, 1)
+theme_override_colors/font_hover_color = Color(0.72156864, 0.72156864, 0.72156864, 1)
+theme_override_fonts/font = ExtResource("3_e2per")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxEmpty_glbon")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_8qtwp")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_dy7ct")
+theme_override_styles/focus = SubResource("StyleBoxFlat_e2per")
+text = "KONTYNUUJ GRĘ"
+
+[node name="SettingsButton" type="Button" parent="PanelContainer/OptionsContainer/VBoxContainer"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+focus_neighbor_top = NodePath("../ContinueButton")
+focus_neighbor_bottom = NodePath("../QuitButton")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.6666667, 0.6666667, 0.6666667, 1)
+theme_override_colors/font_hover_color = Color(0.72156864, 0.72156864, 0.72156864, 1)
+theme_override_fonts/font = ExtResource("3_e2per")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxEmpty_nlkkf")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_0o4t1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_0k4wn")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_j5v2v")
+theme_override_styles/focus = SubResource("StyleBoxFlat_7mi0g")
+text = "USTAWIENIA"
+
+[node name="QuitButton" type="Button" parent="PanelContainer/OptionsContainer/VBoxContainer"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+focus_neighbor_top = NodePath("../SettingsButton")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.6666667, 0.6666667, 0.6666667, 1)
+theme_override_colors/font_hover_color = Color(0.72156864, 0.72156864, 0.72156864, 1)
+theme_override_fonts/font = ExtResource("3_e2per")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qe12f")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_iotk1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_w44g7")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_cm266")
+theme_override_styles/focus = SubResource("StyleBoxFlat_nqjyj")
+text = "ZREZYGNUJ ZE STUDIÓW"
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/OptionsContainer"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -142.5
+offset_top = -235.0
+offset_right = 142.5
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("4_7mi0g")
+stretch_mode = 3
+
+[node name="SaveWindow" parent="." instance=ExtResource("5_xpiny")]
+visible = false
+layout_mode = 1
+
+[node name="ConfirmationPopup" parent="." instance=ExtResource("6_bhu4a")]
+visible = false
+
+[connection signal="pressed" from="PanelContainer/OptionsContainer/VBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="PanelContainer/OptionsContainer/VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="PanelContainer/OptionsContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="PanelContainer/OptionsContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

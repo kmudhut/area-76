@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://ror1s0otw04"]
+
+[ext_resource type="Script" uid="uid://cnes3pkmpqbey" path="res://scenes/Platforms/elevator.gd" id="1_s12gn"]
+[ext_resource type="Texture2D" uid="uid://xmmesuvpmuen" path="res://assets/environment/elevator/winda.png" id="2_l040s"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_yjndo"]
+a = Vector2(-177, 153)
+b = Vector2(170, 152)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_l040s"]
+a = Vector2(-188, -145)
+b = Vector2(174, -146)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_41hk7"]
+a = Vector2(-175, 155)
+b = Vector2(-177, -146)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_u5oc6"]
+a = Vector2(164, 155)
+b = Vector2(164, -147)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_41hk7"]
+radius = 43.046486
+
+[node name="Elevator" type="AnimatableBody2D"]
+script = ExtResource("1_s12gn")
+
+[node name="Grafika" type="Sprite2D" parent="."]
+texture = ExtResource("2_l040s")
+
+[node name="podłoga" type="CollisionShape2D" parent="."]
+shape = SubResource("SegmentShape2D_yjndo")
+
+[node name="sufit" type="CollisionShape2D" parent="."]
+shape = SubResource("SegmentShape2D_l040s")
+
+[node name="lewa" type="CollisionShape2D" parent="."]
+shape = SubResource("SegmentShape2D_41hk7")
+disabled = true
+debug_color = Color(9.62615e-07, 0.50563616, 0.5929078, 0.41960785)
+
+[node name="prawa" type="CollisionShape2D" parent="."]
+shape = SubResource("SegmentShape2D_u5oc6")
+disabled = true
+
+[node name="TriggerArea" type="Area2D" parent="."]
+
+[node name="przełącznik" type="CollisionShape2D" parent="TriggerArea"]
+position = Vector2(-3, 154)
+shape = SubResource("CircleShape2D_41hk7")
+
+[connection signal="body_entered" from="TriggerArea" to="." method="_on_trigger_area_body_entered"]

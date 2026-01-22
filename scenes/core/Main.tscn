@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://l0lberudhcx0"]
+
+[ext_resource type="Script" uid="uid://doox2pw8fb8ga" path="res://scenes/core/SceneManager.gd" id="1_nrstr"]
+[ext_resource type="Script" uid="uid://dby6s6hwixs1y" path="res://scenes/core/GameState.gd" id="2_g3khn"]
+
+[node name="Main" type="Node2D"]
+process_mode = 3
+
+[node name="SceneManager" type="Node" parent="."]
+script = ExtResource("1_nrstr")
+
+[node name="SceneContainer" type="Node" parent="."]
+
+[node name="GameState" type="Node" parent="."]
+script = ExtResource("2_g3khn")
