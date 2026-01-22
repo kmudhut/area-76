@@ -49,7 +49,7 @@ func setup_win_screen(ects_collected: int, max_ects: int, next_level: String, ro
 		menu_btn.visible = false
 
 	if get_node_or_null("/root/AudioManager"):
-		AudioManager.play_sfx("sfx/victory2")
+		AudioManager.play_sfx("sfx/victory")
 
 # --- OPCJA 2: PRZEGRANA (Poprawka / Śmierć) ---
 func setup_game_over_screen():
